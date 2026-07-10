@@ -35,3 +35,4 @@ npm run serve
 - `vite.config.mjs` configures the Tailwind CSS build.
 - `assets/` contains compiled CSS, JavaScript, fonts, and images.
 - `index.html` is generated output and is committed for GitHub Pages.
+- `robots.txt`, `sitemap.xml`, and `llms.txt` provide crawler, search, and AI-discovery hints.

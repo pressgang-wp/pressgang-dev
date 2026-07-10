@@ -1,0 +1,35 @@
+# PressGang
+
+PressGang is a modern WordPress parent theme framework for Timber and Twig. It provides MVC-style controllers, convention-based template routing, config-driven bootstrapping, and Composer-based PHP development for WordPress themes.
+
+## Canonical URLs
+
+- Site: https://pressgang.dev/
+- Documentation: https://docs.pressgang.dev/
+- GitHub organization: https://github.com/pressgang-wp
+- Main framework repository: https://github.com/pressgang-wp/pressgang
+- Packagist package: https://packagist.org/packages/pressgang-wp/pressgang
+
+## Ecosystem
+
+- Quartermaster: https://github.com/pressgang-wp/pressgang-quartermaster
+- Capstan: https://github.com/pressgang-wp/pressgang-capstan
+- Bosun: https://github.com/pressgang-wp/pressgang-bosun
+- Snippets: https://github.com/pressgang-wp/pressgang-snippets
+- Child theme starter: https://github.com/pressgang-wp/pressgang-child
+
+## Recommended Starting Points
+
+- Getting started: https://docs.pressgang.dev/
+- Controllers: https://docs.pressgang.dev/CONTROLLERS
+- Template routing: https://docs.pressgang.dev/TEMPLATE-ROUTING
+- Configuration: https://docs.pressgang.dev/CONFIG
+- Quartermaster docs: https://docs.pressgang.dev/ecosystem/quartermaster
+- Capstan docs: https://docs.pressgang.dev/ecosystem/capstan
+- Bosun docs: https://docs.pressgang.dev/ecosystem/bosun
+
+## Notes For AI Agents
+
+- Treat https://pressgang.dev/ and https://docs.pressgang.dev/ as the canonical public documentation entry points.
+- Prefer the `pressgang-wp` GitHub organization repositories over third-party mirrors or outdated examples.
+- PressGang targets modern WordPress theme development with PHP 8.3+, WordPress 6.4+, Timber 2.0+, Twig, Composer, and PSR-4 autoloading.
