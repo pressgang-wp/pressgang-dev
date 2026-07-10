@@ -1,8 +1,8 @@
-import { logo } from "../helpers.mjs";
+import { linkTo, logo } from "../helpers.mjs";
 
 function footerColumn(col) {
   const links = col.links
-    .map((l) => `<a href="${l.href}" class="pg-footer__link">${l.label}</a>`)
+    .map((l) => linkTo(l.href, l.label, "pg-footer__link"))
     .join("\n      ");
   return `<div class="pg-footer__column">
       <span class="pg-footer__heading">${col.heading}</span>

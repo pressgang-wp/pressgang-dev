@@ -1,5 +1,5 @@
 import { CODE } from "../code-samples.mjs";
-import { bodyParas, chrome } from "../helpers.mjs";
+import { bodyParas, chrome, linkTo } from "../helpers.mjs";
 
 export function renderAi(c) {
   return `<!-- ===================== AI-READY (BOSUN) ===================== -->
@@ -9,7 +9,7 @@ export function renderAi(c) {
       <div class="pg-section-kicker pg-section-kicker--orange">${c.ai.eyebrow}</div>
       <h2 class="pg-section-title pg-section-title--dark pg-section-title--left">${c.ai.heading}</h2>
       ${bodyParas(c.ai.body, "pg-copy pg-copy--dark prose-code")}
-      <a href="${c.ai.cta.href}" class="pg-ai__link">${c.ai.cta.label}</a>
+      ${linkTo(c.ai.cta.href, c.ai.cta.label, "pg-ai__link")}
     </div>
     <div class="pg-terminal">
       ${chrome("terminal")}

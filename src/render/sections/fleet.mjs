@@ -1,9 +1,11 @@
+import { linkTo } from "../helpers.mjs";
+
 function fleetCard(card) {
   return `<div class="pg-fleet-card">
         <div class="pg-fleet-card__title pg-fleet-card__title--${card.accent}">${card.title}</div>
         <div class="pg-fleet-card__body">${card.body}</div>
         <div class="pg-fleet-card__command">${card.command}</div>
-        <a href="${card.cta.href}" class="pg-button pg-button--${card.accent}">${card.cta.label}</a>
+        ${linkTo(card.cta.href, card.cta.label, `pg-button pg-button--${card.accent}`)}
       </div>`;
 }
 

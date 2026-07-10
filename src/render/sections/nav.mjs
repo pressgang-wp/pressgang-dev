@@ -1,4 +1,4 @@
-import { logo, navLink } from "../helpers.mjs";
+import { linkTo, logo, navLink } from "../helpers.mjs";
 
 export function renderNav(c, s) {
   return `<!-- ===================== NAV ===================== -->
@@ -16,7 +16,7 @@ export function renderNav(c, s) {
     </button>
     <div id="primary-navigation" class="pg-nav__links" data-nav-menu>
       ${c.nav.links.map(navLink).join("\n      ")}
-      <a href="${c.nav.cta.href}" class="pg-button pg-button--primary pg-button--nav">${c.nav.cta.label}</a>
+      ${linkTo(c.nav.cta.href, c.nav.cta.label, "pg-button pg-button--primary pg-button--nav")}
     </div>
   </div>
 </nav>`;

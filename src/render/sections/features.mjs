@@ -1,5 +1,5 @@
 import { codeByIndex, codeLabelByIndex } from "../code-samples.mjs";
-import { bodyParas, chrome } from "../helpers.mjs";
+import { bodyParas, chrome, linkTo } from "../helpers.mjs";
 
 function feature(f) {
   const codeCard = `<div class="pg-code-card">
@@ -9,9 +9,9 @@ function feature(f) {
 
   const links = f.links
     ? f.links
-        .map((l, i) => `${i ? '<span class="pg-feature__link-separator">·</span>' : ""}<a href="${l.href}" class="pg-feature__link">${l.label}</a>`)
+        .map((l, i) => `${i ? '<span class="pg-feature__link-separator">·</span>' : ""}${linkTo(l.href, l.label, "pg-feature__link")}`)
         .join("")
-    : `<a href="${f.link.href}" class="pg-feature__link">${f.link.label}</a>`;
+    : linkTo(f.link.href, f.link.label, "pg-feature__link");
 
   const textCard = `<div class="pg-feature__content">
       <div class="pg-feature__eyebrow">${f.index} · ${f.eyebrow}</div>

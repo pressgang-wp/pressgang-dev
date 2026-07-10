@@ -1,7 +1,9 @@
+import { decorateExternalLinks } from "../helpers.mjs";
+
 function whyCard(card) {
   return `<div class="pg-why-card">
         <div class="pg-why-card__title">${card.title}</div>
-        <div class="pg-why-card__body prose-code">${card.body}</div>
+        <div class="pg-why-card__body prose-code">${decorateExternalLinks(card.body)}</div>
       </div>`;
 }
 

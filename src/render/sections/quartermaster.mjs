@@ -1,5 +1,5 @@
 import { CODE } from "../code-samples.mjs";
-import { bodyParas } from "../helpers.mjs";
+import { bodyParas, linkTo } from "../helpers.mjs";
 
 export function renderQuartermaster(c) {
   return `<!-- ===================== QUARTERMASTER ===================== -->
@@ -10,7 +10,7 @@ export function renderQuartermaster(c) {
       <h2 class="pg-section-title pg-section-title--left">${c.quartermaster.heading}</h2>
       ${bodyParas(c.quartermaster.body, "pg-copy pg-copy--large prose-code")}
       <div class="pg-quartermaster__actions">
-        <a href="${c.quartermaster.cta.href}" class="pg-button pg-button--orange pg-button--medium">${c.quartermaster.cta.label}</a>
+        ${linkTo(c.quartermaster.cta.href, c.quartermaster.cta.label, "pg-button pg-button--orange pg-button--medium")}
         <span class="pg-install-pill">${c.quartermaster.install}</span>
       </div>
     </div>
