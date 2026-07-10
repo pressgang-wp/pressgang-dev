@@ -45,6 +45,13 @@
     .pg-container {
       @apply w-[min(100%-32px,1400px)];
     }
+    .pg-block {
+      @apply px-0;
+    }
+    .pg-hero,
+    .pg-get-started {
+      @apply px-4;
+    }
     .pg-feature,
     .pg-code-card,
     .pg-tabs,
@@ -74,6 +81,10 @@
     .pg-install-pill,
     .pg-fleet-card__command {
       @apply whitespace-normal break-words;
+    }
+    .pg-button,
+    .pg-copy-button {
+      @apply w-full;
     }
     .pg-footer__inner {
       @apply grid-cols-1;
