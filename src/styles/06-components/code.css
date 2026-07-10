@@ -1,0 +1,66 @@
+/* ITCSS 06: Components */
+@layer components {
+  .pg-code-card {
+    @apply min-w-0 overflow-hidden rounded-lg bg-panel shadow-[0_12px_32px_rgb(18_34_46_/_18%)];
+  }
+  .pg-code-card__pre {
+    @apply m-0 overflow-x-auto px-6 pb-6 pt-5 font-mono text-[13px] leading-[1.8];
+  }
+  .pg-chrome {
+    @apply flex items-center gap-[7px] border-b border-white/10 px-4 py-3;
+  }
+  .pg-chrome__dot {
+    @apply size-2.5 rounded-full;
+  }
+  .pg-chrome__dot--red { @apply bg-[#ff5f57]; }
+  .pg-chrome__dot--yellow { @apply bg-[#febc2e]; }
+  .pg-chrome__dot--green { @apply bg-[#28c840]; }
+  .pg-chrome__dot--spaced { @apply mr-3; }
+  .pg-chrome__label {
+    @apply ml-auto font-mono text-[11px] text-white/45;
+  }
+
+  .pg-tabs {
+    @apply overflow-hidden rounded-lg bg-panel shadow-[0_12px_32px_rgb(18_34_46_/_18%)];
+  }
+  .pg-tabs__bar {
+    @apply flex items-center gap-1.5 border-b border-white/10 px-3.5 py-2.5;
+  }
+  .pg-tabs__button {
+    @apply cursor-pointer rounded-md px-3 py-1.5 font-mono text-xs font-semibold;
+  }
+  .pg-tabs__panel {
+    @apply m-0 box-border min-h-[270px] overflow-x-auto px-6 pb-6 pt-5 font-mono;
+  }
+  .pg-tabs__panel--before {
+    @apply text-[12.5px] leading-[1.7] text-[#94a5b1];
+  }
+  .pg-tabs__panel--after {
+    @apply text-[13px] leading-[1.75];
+  }
+
+  .pg-terminal {
+    @apply overflow-hidden rounded-lg border border-white/10 bg-ai-900;
+  }
+  .pg-terminal__pre {
+    @apply m-0 overflow-x-auto px-[26px] pb-7 pt-[22px] font-mono text-[13.5px] leading-[1.85] text-[#c9dae6];
+  }
+
+  .code-dark { @apply text-[#cfe9f5]; }
+  .code-classic { @apply text-[#6b6154]; --tk-com: #a09480; }
+  .code-timber  { @apply text-[#4f5a48]; --tk-com: #98a58c; --tk-str: #5b7d3f; }
+  .code-pg      { @apply text-ink; --tk-com: #94a5b1; --tk-key: #7ba3bd; --tk-name: #1779a8; --tk-str: #3ba05f; --tk-num: #e07b1f; }
+
+  .qm-tab { @apply bg-transparent text-muted transition-colors; }
+  .qm-tab[data-tab="before"][aria-selected="true"] { @apply bg-white/10 text-white; }
+  .qm-tab[data-tab="after"][aria-selected="true"]  { @apply bg-orange/20 text-orange; }
+
+  /* Raw CSS exception: syntax tokens are driven by CSS variables. */
+  .code-panel .t-key  { color: var(--tk-key, #7fd4f0); }
+  .code-panel .t-name { color: var(--tk-name, #ffd479); }
+  .code-panel .t-str  { color: var(--tk-str, #a8e6a1); }
+  .code-panel .t-com  { color: var(--tk-com, #5a7484); }
+  .code-panel .t-num  { color: var(--tk-num, #f08a24); }
+  .code-panel .t-var  { color: var(--tk-var, #9ee7ff); }
+  .code-panel .t-dim  { color: var(--tk-dim, #94a5b1); }
+}

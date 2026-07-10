@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+/* Keep Tailwind aware of generated markup sources and inline HTML fragments. */
+@source "../src/**/*.mjs";
+@source "../data/**/*.json";
+
+@import "./styles/01-settings/tokens.css";
+@import "./styles/02-tools/fonts.css";
+@import "./styles/03-generic/base.css";
+@import "./styles/04-elements/interactive.css";
+@import "./styles/04-elements/prose.css";
+@import "./styles/05-objects/layout.css";
+@import "./styles/06-components/buttons.css";
+@import "./styles/06-components/nav.css";
+@import "./styles/06-components/hero.css";
+@import "./styles/06-components/compare.css";
+@import "./styles/06-components/features.css";
+@import "./styles/06-components/code.css";
+@import "./styles/06-components/sections.css";
+@import "./styles/06-components/footer.css";
+@import "./styles/07-utilities/accessibility.css";
+@import "./styles/07-utilities/responsive.css";

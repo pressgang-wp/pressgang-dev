@@ -1,0 +1,6 @@
+/* ITCSS 04: Elements */
+@layer base {
+  :where(a, button):focus-visible {
+    @apply outline-3 outline-offset-3 outline-orange;
+  }
+}

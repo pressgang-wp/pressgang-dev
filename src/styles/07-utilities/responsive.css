@@ -1,0 +1,64 @@
+/* ITCSS 07: Utilities / Trumps */
+@layer components {
+  @media (max-width: 920px) {
+    .pg-nav__toggle {
+      @apply inline-flex;
+    }
+    .pg-nav__links {
+      @apply absolute left-4 right-4 top-[calc(100%+8px)] z-20 hidden flex-col items-stretch gap-3 rounded-lg border border-ink/10 bg-paper p-4 shadow-[0_18px_44px_rgb(18_34_46_/_18%)];
+    }
+    .pg-nav__links[data-open="true"] {
+      @apply flex;
+    }
+    .pg-nav__link,
+    .pg-nav__links .pg-button {
+      @apply w-full justify-start;
+    }
+    .pg-compare__grid,
+    .pg-feature,
+    .pg-quartermaster__inner,
+    .pg-ai__inner,
+    .pg-fleet__grid,
+    .pg-why__grid {
+      @apply grid-cols-1;
+    }
+    .pg-feature,
+    .pg-quartermaster__inner,
+    .pg-ai__inner {
+      @apply gap-6;
+    }
+    .pg-compare__panel--divider {
+      @apply border-b border-r-0 border-ink/10;
+    }
+    .pg-footer__inner {
+      @apply grid-cols-2;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .pg-container {
+      @apply w-[min(100%-32px,1400px)];
+    }
+    .pg-block--hero {
+      @apply pt-[27px];
+    }
+    .pg-hero__title {
+      @apply text-[44px];
+    }
+    .pg-section-title,
+    .pg-section-title--large {
+      @apply text-[32px];
+    }
+    .pg-copy-button,
+    .pg-install-pill,
+    .pg-fleet-card__command {
+      @apply whitespace-normal break-words;
+    }
+    .pg-footer__inner {
+      @apply grid-cols-1;
+    }
+    .pg-footer__meta {
+      @apply flex-col gap-1.5;
+    }
+  }
+}

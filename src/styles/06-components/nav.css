@@ -1,0 +1,27 @@
+/* ITCSS 06: Components */
+@layer components {
+  .pg-nav {
+    @apply sticky top-0 z-10 border-b border-ink/10 bg-paper/90 py-[9px] backdrop-blur-md;
+  }
+  .pg-nav__inner {
+    @apply flex items-center justify-between;
+  }
+  .pg-nav__brand {
+    @apply flex items-center gap-2.5 text-ink;
+  }
+  .pg-nav__brand-name {
+    @apply font-display text-[19px] font-extrabold tracking-normal;
+  }
+  .pg-nav__toggle {
+    @apply hidden size-11 cursor-pointer flex-col items-center justify-center gap-1 rounded-lg bg-panel text-white;
+  }
+  .pg-nav__toggle-line {
+    @apply h-0.5 w-[18px] rounded-full bg-current;
+  }
+  .pg-nav__links {
+    @apply flex items-center gap-[26px] text-sm font-medium text-nav;
+  }
+  .pg-nav__link {
+    @apply text-nav transition-colors hover:text-ink;
+  }
+}

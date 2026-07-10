@@ -1,0 +1,64 @@
+/* ITCSS 05: Objects */
+@layer components {
+  .pg-container {
+    @apply mx-auto w-[min(1400px,calc(100%-12vw))];
+  }
+
+  .pg-block {
+    @apply px-[6vw] py-9;
+  }
+  .pg-block--hero {
+    @apply pb-8 pt-[38px];
+  }
+  .pg-block--compare {
+    @apply pb-9 pt-3;
+  }
+  .pg-block--why {
+    @apply py-8;
+  }
+  .pg-block--fleet {
+    @apply pb-[34px] pt-[30px];
+  }
+  .pg-block--footer {
+    @apply pb-[18px] pt-[26px];
+  }
+
+  .pg-logo {
+    @apply block rounded-full border-2 border-brand object-cover;
+  }
+  .pg-logo--54 { @apply size-[54px]; }
+  .pg-logo--34 { @apply size-[34px]; }
+  .pg-logo--32 { @apply size-8; }
+
+  .pg-copy {
+    @apply mb-3.5 text-[15.5px] leading-[1.65] text-body;
+  }
+  .pg-copy--large { @apply text-base; }
+  .pg-copy--dark { @apply text-base text-[#9fb4c2]; }
+
+  .pg-section-title {
+    @apply mb-2.5 text-center font-display text-4xl font-extrabold leading-[1.12] tracking-normal;
+  }
+  .pg-section-title--large { @apply text-[40px]; }
+  .pg-section-title--left { @apply mb-3.5 text-left; }
+  .pg-section-title--dark { @apply text-white; }
+  .pg-section-title--fleet { @apply mb-2 text-panel; }
+
+  .pg-section-intro {
+    @apply mx-auto text-center text-base leading-[1.6] text-body;
+  }
+  .pg-section-intro--features {
+    @apply mb-14 max-w-[620px] text-[16.5px];
+  }
+  .pg-section-intro--why {
+    @apply mb-11 max-w-[600px];
+  }
+  .pg-section-intro--fleet {
+    @apply mb-9 max-w-[560px] font-medium text-panel;
+  }
+
+  .pg-section-kicker {
+    @apply mb-3 font-mono text-[12.5px] font-semibold;
+  }
+  .pg-section-kicker--orange { @apply text-orange; }
+}

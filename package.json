@@ -1,0 +1,16 @@
+{
+  "name": "pressgang-landing",
+  "version": "1.0.0",
+  "description": "Static landing page for the PressGang WordPress theme framework.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "serve": "npx serve ."
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.2",
+    "tailwindcss": "^4.3.2",
+    "vite": "^8.1.4"
+  }
+}

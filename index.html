@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PressGang — The Modern WordPress Theme Framework for Timber & Twig</title>
+  <meta name="description" content="PressGang is a WordPress parent theme framework for Timber and Twig, with MVC-style controllers, config-driven bootstrapping, template routing, and Composer PHP.">
+  <link rel="canonical" href="https://pressgang.dev">
+  <meta property="og:title" content="PressGang — WordPress theme development, ship-shape">
+  <meta property="og:description" content="The WordPress parent theme framework for Timber & Twig. MVC controllers, config-driven bootstrapping, Composer & PSR-4.">
+  <meta property="og:url" content="https://pressgang.dev">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://pressgang.dev/assets/images/pressgang-logo-512.png">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="PressGang — WordPress theme development, ship-shape">
+  <meta name="twitter:description" content="The WordPress parent theme framework for Timber & Twig. MVC controllers, config-driven bootstrapping, Composer & PSR-4.">
+  <meta name="twitter:image" content="https://pressgang.dev/assets/images/pressgang-logo-512.png">
+  <link rel="icon" type="image/png" href="assets/images/pressgang-logo.png">
+  <link rel="apple-touch-icon" href="assets/images/pressgang-logo-512.png">
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/bricolage-latin.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/archivo-latin.woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://pressgang.dev/#org",
+      "name": "PressGang",
+      "url": "https://pressgang.dev",
+      "sameAs": [
+        "https://github.com/pressgang-wp",
+        "https://packagist.org/packages/pressgang-wp/pressgang"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://pressgang.dev/#website",
+      "url": "https://pressgang.dev",
+      "name": "PressGang — The Modern WordPress Theme Framework for Timber & Twig",
+      "publisher": {
+        "@id": "https://pressgang.dev/#org"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://pressgang.dev/#pressgang",
+      "name": "PressGang",
+      "url": "https://pressgang.dev",
+      "description": "A modern WordPress parent theme framework for Timber and Twig — MVC-inspired controllers, Laravel-style convention-over-configuration, template routing with no stub files, and object-oriented PHP on a Composer + PSR-4 foundation.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "WordPress 6.4+, PHP 8.3+",
+      "softwareRequirements": "WordPress 6.4+, PHP 8.3+, Timber 2.0+, Composer",
+      "license": "https://opensource.org/licenses/MIT",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@id": "https://pressgang.dev/#org"
+      },
+      "downloadUrl": "https://github.com/pressgang-wp/pressgang",
+      "installUrl": "https://packagist.org/packages/pressgang-wp/pressgang",
+      "softwareHelp": {
+        "@type": "CreativeWork",
+        "url": "https://docs.pressgang.dev"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Quartermaster",
+      "description": "A fluent, args-first query builder for WP_Query and WP_Term_Query. 100% WordPress-native — no ORM, no lock-in. Standalone package for any WordPress project.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "WordPress, PHP 8.3+",
+      "license": "https://opensource.org/licenses/MIT",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "url": "https://docs.pressgang.dev/ecosystem/quartermaster",
+      "downloadUrl": "https://github.com/pressgang-wp/pressgang-quartermaster",
+      "author": {
+        "@id": "https://pressgang.dev/#org"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Capstan",
+      "description": "WP-CLI scaffolding for PressGang — WordPress core, parent theme and child theme in one command. Dry-run by default.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "WordPress, PHP 8.3+, WP-CLI",
+      "license": "https://opensource.org/licenses/MIT",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "url": "https://docs.pressgang.dev/ecosystem/capstan",
+      "downloadUrl": "https://github.com/pressgang-wp/pressgang-capstan",
+      "author": {
+        "@id": "https://pressgang.dev/#org"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Bosun",
+      "description": "A WP-CLI package that composes AI agent guidelines and skills for PressGang themes — generated from what each theme actually has installed and enabled.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "WordPress, PHP 8.3+, WP-CLI",
+      "license": "https://opensource.org/licenses/MIT",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "url": "https://docs.pressgang.dev/ecosystem/bosun",
+      "downloadUrl": "https://github.com/pressgang-wp/pressgang-bosun",
+      "author": {
+        "@id": "https://pressgang.dev/#org"
+      }
+    }
+  ]
+}
+  </script>
+  <script src="assets/js/app.js" defer></script>
+</head>
+<body>
+
+<a class="pg-skip-link" href="#main">Skip to content</a>
+
+<!-- ===================== NAV ===================== -->
+<nav aria-label="Main" class="pg-nav">
+  <div class="pg-nav__inner pg-container">
+    <a href="#top" class="pg-nav__brand">
+      <picture>
+      <source srcset="assets/images/pressgang-logo.webp" type="image/webp">
+      <img src="assets/images/pressgang-logo.png" alt="PressGang — WordPress theme framework for Timber" width="54" height="54"
+           class="pg-logo pg-logo--54" decoding="async">
+    </picture>
+      <span class="pg-nav__brand-name">PressGang</span>
+    </a>
+    <button type="button" class="pg-nav__toggle" aria-expanded="false" aria-controls="primary-navigation" data-nav-toggle>
+      <span class="pg-sr-only">Menu</span>
+      <span class="pg-nav__toggle-line"></span>
+      <span class="pg-nav__toggle-line"></span>
+      <span class="pg-nav__toggle-line"></span>
+    </button>
+    <div id="primary-navigation" class="pg-nav__links" data-nav-menu>
+      <a href="#framework" class="pg-nav__link">Framework</a>
+      <a href="#fleet" class="pg-nav__link">Ecosystem</a>
+      <a href="#ai" class="pg-nav__link">AI-ready</a>
+      <a href="https://github.com/pressgang-wp/pressgang" class="pg-nav__link">GitHub</a>
+      <a href="https://docs.pressgang.dev" class="pg-button pg-button--primary pg-button--nav">Read the docs</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<header id="top" class="pg-hero pg-block pg-block--hero">
+  <div class="pg-hero__badge">⚓ A parent theme framework for Timber · PHP 8.3+ · WP 6.4+ · Timber 2.0</div>
+  <h1 class="pg-hero__title">WordPress theme development,<br><span class="pg-hero__accent">ship-shape & Bristol fashion</span></h1>
+  <p class="pg-hero__lede">The modern WordPress parent theme framework for <strong><a href="https://timber.github.io/docs/v2/" class="pg-link pg-link--copy">Timber</a> &amp; <a href="https://twig.symfony.com/" class="pg-link pg-link--copy">Twig</a></strong> — MVC-inspired controllers, Laravel-style convention-over-configuration, and expressive object-oriented PHP on a Composer + PSR-4 foundation. Cleaner child themes, less boilerplate, faster to ship.</p>
+  <div class="pg-hero__actions">
+    <a href="https://docs.pressgang.dev" class="pg-button pg-button--primary pg-button--large">Read the docs →</a>
+    <button type="button" data-copy="composer require pressgang-wp/pressgang" class="pg-copy-button" aria-label="Copy install command">composer require pressgang-wp/pressgang <span class="pg-copy-button__icon copy-label" aria-live="polite" aria-atomic="true">⧉</span></button>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+<!-- ===================== BEFORE / AFTER ===================== -->
+<section id="framework" aria-label="How PressGang compares to classic WordPress and Timber" class="pg-compare pg-block pg-block--compare">
+  <h2 class="pg-sr-only">How PressGang compares to classic WordPress and Timber</h2>
+  <div class="pg-compare__grid pg-container">
+    <div class="pg-compare__panel pg-compare__panel--classic pg-compare__panel--divider">
+      <div class="pg-compare__eyebrow pg-compare__eyebrow--muted">Classic theme</div>
+      <pre class="pg-compare__code code-panel code-classic"><code>&lt;?php <span class="t-com">// archive-event.php</span>
+get_header(); ?&gt;
+
+&lt;?php if ( have_posts() ) : ?&gt;
+  &lt;?php while ( have_posts() ) :
+    the_post(); ?&gt;
+    &lt;h2&gt;&lt;a href="&lt;?php the_permalink(); ?&gt;"&gt;
+      &lt;?php the_title(); ?&gt;&lt;/a&gt;&lt;/h2&gt;
+    &lt;?php the_excerpt(); ?&gt;
+  &lt;?php endwhile; ?&gt;
+&lt;?php endif;
+
+get_footer();</code></pre>
+      <pre class="pg-compare__code pg-compare__code--secondary pg-compare__code--classic-secondary code-panel code-classic"><code><span class="t-com">// functions.php</span>
+add_action('init', function () {
+  register_post_type('event', [
+    'labels'      =&gt; [ 'name' =&gt; 'Events' ],
+    'supports'    =&gt; ['title', 'editor'],
+    'has_archive' =&gt; true,
+  ]);
+});</code></pre>
+      <div class="pg-compare__note pg-compare__note--muted prose-code">Logic, markup and the loop tangled in one file — repeated for every template — plus hook-based registration piling up in <code>functions.php</code>.</div>
+    </div>
+    <div class="pg-compare__panel pg-compare__panel--timber pg-compare__panel--divider">
+      <div class="pg-compare__eyebrow pg-compare__eyebrow--green">Timber context 🌲</div>
+      <pre class="pg-compare__code code-panel code-timber"><code>&lt;?php <span class="t-com">// archive-event.php</span>
+$context = Timber::context();
+
+$context[<span class="t-str">'events'</span>] = Timber::get_posts([
+  <span class="t-str">'post_type'</span>      =&gt; <span class="t-str">'event'</span>,
+  <span class="t-str">'posts_per_page'</span> =&gt; 12,
+]);
+
+Timber::render(
+  <span class="t-str">'archive-event.twig'</span>,
+  $context
+);</code></pre>
+      <pre class="pg-compare__code pg-compare__code--secondary pg-compare__code--timber-secondary code-panel code-timber"><code><span class="t-com">{# archive-event.twig #}</span>
+{% for event in events %}
+  &lt;h2&gt;&lt;a href="{{ event.link }}"&gt;
+    {{ event.title }}&lt;/a&gt;&lt;/h2&gt;
+  {{ event.preview }}
+{% endfor %}</code></pre>
+      <div class="pg-compare__note pg-compare__note--green prose-code">A leap forward in separating view concerns — but every template still hand-rolls its own context and render call, post types still register through <code>functions.php</code> hooks, and context management gets untidy as themes grow.</div>
+    </div>
+    <div class="pg-compare__panel pg-compare__panel--pressgang">
+      <div class="pg-compare__eyebrow pg-compare__eyebrow--brand">With PressGang ⚓</div>
+      <pre class="pg-compare__code code-panel code-pg"><code><span class="t-com">// EventsController.php</span>
+<span class="t-com">// routed by convention — no stub file</span>
+<span class="t-key">class</span> <span class="t-name">EventsController</span>
+  <span class="t-key">extends</span> <span class="t-name">AbstractController</span> {
+
+  <span class="t-key">protected array</span> $context_getters
+    = [<span class="t-str">'events'</span>];
+
+  <span class="t-key">protected function</span> <span class="t-name">get_events</span>() {
+    <span class="t-key">return</span> Timber::<span class="t-name">get_posts</span>([
+      <span class="t-str">'post_type'</span> =&gt; <span class="t-str">'event'</span>,
+    ]);
+  }
+}</code></pre>
+      <pre class="pg-compare__code pg-compare__code--secondary pg-compare__code--pressgang-secondary code-panel code-pg"><code><span class="t-com">// config/custom-post-types.php</span>
+<span class="t-str">'event'</span> =&gt; [
+  <span class="t-str">'supports'</span>    =&gt; [<span class="t-str">'title'</span>, <span class="t-str">'editor'</span>],
+  <span class="t-str">'has_archive'</span> =&gt; <span class="t-num">true</span>,
+],</code></pre>
+      <div class="pg-compare__note pg-compare__note--brand prose-code">Same Twig template — PressGang adds controller routing, context binding, and config-driven registration, all on Composer autoloading and class inheritance for modern, modular development. No render calls, no stub files.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FEATURE SHOWCASE ===================== -->
+<section aria-label="Framework features" class="pg-features pg-container">
+  <h2 class="pg-section-title pg-section-title--large">A framework, not a fight</h2>
+  <p class="pg-section-intro pg-section-intro--features">Some frameworks rebuild WordPress in another framework's image — rerouted requests, reshuffled directories, magic everywhere. PressGang doesn't circumvent WordPress; it modernises it, with Timber at the core. Standard install layout, standard template hierarchy, and the classic WordPress way always one step away if you want it. If you know WordPress, you already know your way around the deck.</p>
+  <div class="pg-feature pg-feature--code-left">
+    <div class="pg-code-card">
+      <div class="pg-chrome">
+        <span class="pg-chrome__dot pg-chrome__dot--red"></span>
+        <span class="pg-chrome__dot pg-chrome__dot--yellow"></span>
+        <span class="pg-chrome__dot pg-chrome__dot--green"></span>
+        <span class="pg-chrome__label">shipped with the parent theme</span>
+      </div>
+      <pre class="pg-code-card__pre code-panel code-dark"><code><span class="t-str">PageController</span>     → <span class="t-name">page.twig</span>
+<span class="t-str">PostController</span>     → <span class="t-name">single.twig</span>
+<span class="t-str">PostsController</span>    → <span class="t-name">archive.twig</span>
+<span class="t-str">SearchController</span>   → <span class="t-name">search.twig</span>
+<span class="t-str">NotFoundController</span> → <span class="t-name">404.twig</span>
+
+<span class="t-com">// extend any of them in your child theme</span>
+<span class="t-key">class</span> <span class="t-name">PageController</span> <span class="t-key">extends</span> BasePageController {
+  <span class="t-com">// override only what you need</span>
+}</code></pre>
+    </div>
+    <div class="pg-feature__content">
+      <div class="pg-feature__eyebrow">00 · PARENT THEME</div>
+      <h3 class="pg-feature__title">A parent theme framework</h3>
+      <p class="pg-copy prose-code">Your child theme requires PressGang via Composer and inherits a working foundation out of the box — controllers for the whole WordPress template hierarchy (pages, posts, archives, search, 404, even WooCommerce), ready to render before you write a line of code.</p>
+      <p class="pg-copy prose-code">Everything is extensible: subclass any controller to override just what you need, and child theme <code>config/</code> files merge over the parent's defaults.</p>
+      <a href="https://docs.pressgang.dev" class="pg-feature__link">Getting started docs →</a>
+    </div>
+  </div>
+
+  <div class="pg-feature pg-feature--code-right">
+    <div class="pg-feature__content">
+      <div class="pg-feature__eyebrow">01 · CONTROLLERS</div>
+      <h3 class="pg-feature__title">Controllers as view models</h3>
+      <p class="pg-copy prose-code">Each controller gathers data via Timber in <code>get_context()</code>, builds a context, and selects a Twig template — a clear separation of concerns, side-effect free. Optionally, declare the template contract in <code>$context_getters</code> and each key wires to its getter automatically — even less boilerplate.</p>
+      <a href="https://docs.pressgang.dev/CONTROLLERS" class="pg-feature__link">Controller docs →</a>
+    </div>
+    <div class="pg-code-card">
+      <div class="pg-chrome">
+        <span class="pg-chrome__dot pg-chrome__dot--red"></span>
+        <span class="pg-chrome__dot pg-chrome__dot--yellow"></span>
+        <span class="pg-chrome__dot pg-chrome__dot--green"></span>
+        <span class="pg-chrome__label">src/Controllers/EventsController.php</span>
+      </div>
+      <pre class="pg-code-card__pre code-panel code-dark"><code><span class="t-key">class</span> <span class="t-name">EventsController</span> <span class="t-key">extends</span> <span class="t-name">AbstractController</span> {
+
+  <span class="t-key">protected array</span> <span class="t-var">$context_getters</span> = [<span class="t-str">'events'</span>];
+
+  <span class="t-key">protected function</span> <span class="t-name">get_events</span>(): <span class="t-key">iterable</span> {
+    <span class="t-key">return</span> Quartermaster::<span class="t-name">posts</span>(<span class="t-str">'event'</span>)
+      -&gt;<span class="t-name">whereMetaDate</span>(<span class="t-str">'start'</span>, <span class="t-str">'&gt;='</span>)
+      -&gt;<span class="t-name">orderByMeta</span>(<span class="t-str">'start'</span>, <span class="t-str">'ASC'</span>)
+      -&gt;<span class="t-name">get</span>();
+  }
+}</code></pre>
+    </div>
+  </div>
+
+  <div class="pg-feature pg-feature--code-left">
+    <div class="pg-code-card">
+      <div class="pg-chrome">
+        <span class="pg-chrome__dot pg-chrome__dot--red"></span>
+        <span class="pg-chrome__dot pg-chrome__dot--yellow"></span>
+        <span class="pg-chrome__dot pg-chrome__dot--green"></span>
+        <span class="pg-chrome__label">config/custom-post-types.php</span>
+      </div>
+      <pre class="pg-code-card__pre code-panel code-dark"><code><span class="t-com">// Declared, not hooked. No functions.php spaghetti.</span>
+<span class="t-key">return</span> [
+  <span class="t-str">'event'</span> =&gt; [
+    <span class="t-str">'labels'</span>      =&gt; [ <span class="t-str">'name'</span> =&gt; <span class="t-str">'Events'</span> ],
+    <span class="t-str">'supports'</span>    =&gt; [<span class="t-str">'title'</span>, <span class="t-str">'editor'</span>, <span class="t-str">'thumbnail'</span>],
+    <span class="t-str">'has_archive'</span> =&gt; <span class="t-num">true</span>,
+    <span class="t-str">'rewrite'</span>     =&gt; [ <span class="t-str">'slug'</span> =&gt; <span class="t-str">'events'</span> ],
+  ],
+];</code></pre>
+    </div>
+    <div class="pg-feature__content">
+      <div class="pg-feature__eyebrow">02 · CONFIG</div>
+      <h3 class="pg-feature__title">Config-driven bootstrapping</h3>
+      <p class="pg-copy prose-code">Post types, taxonomies, menus, blocks, scripts, styles — declared in <code>config/</code> arrays, registered by convention. Inspired by Laravel: no queries, no side effects, just declarative registration you can diff and review.</p>
+      <a href="https://docs.pressgang.dev/CONFIG" class="pg-feature__link">Config docs →</a>
+    </div>
+  </div>
+
+  <div class="pg-feature pg-feature--code-right">
+    <div class="pg-feature__content">
+      <div class="pg-feature__eyebrow">03 · ROUTING</div>
+      <h3 class="pg-feature__title">Template routing — no stub files</h3>
+      <p class="pg-copy prose-code">Opt in, and requests route straight from WordPress's template hierarchy to your controllers by naming convention. Most themes need <strong>no template PHP files at all</strong> — and explicit stubs always win, so you can adopt it one deleted file at a time.</p>
+      <a href="https://docs.pressgang.dev/TEMPLATE-ROUTING" class="pg-feature__link">Template routing docs →</a>
+    </div>
+    <div class="pg-code-card">
+      <div class="pg-chrome">
+        <span class="pg-chrome__dot pg-chrome__dot--red"></span>
+        <span class="pg-chrome__dot pg-chrome__dot--yellow"></span>
+        <span class="pg-chrome__dot pg-chrome__dot--green"></span>
+        <span class="pg-chrome__label">resolved by convention</span>
+      </div>
+      <pre class="pg-code-card__pre code-panel code-dark"><code><span class="t-str">front-page</span>          → <span class="t-name">FrontPageController</span>
+<span class="t-str">archive-event</span>       → <span class="t-name">EventsController</span>
+<span class="t-str">single-event</span>        → <span class="t-name">EventController</span>
+<span class="t-str">taxonomy-event-type</span> → <span class="t-name">EventTypeController</span>
+<span class="t-str">search</span>              → <span class="t-name">SearchController</span>
+
+<span class="t-com">// {candidate}.twig renders when present</span></code></pre>
+    </div>
+  </div>
+
+  <div class="pg-feature pg-feature--code-left">
+    <div class="pg-code-card">
+      <div class="pg-chrome">
+        <span class="pg-chrome__dot pg-chrome__dot--red"></span>
+        <span class="pg-chrome__dot pg-chrome__dot--yellow"></span>
+        <span class="pg-chrome__dot pg-chrome__dot--green"></span>
+        <span class="pg-chrome__label">config/snippets.php</span>
+      </div>
+      <pre class="pg-code-card__pre code-panel code-dark"><code><span class="t-com">// One class per concern — on or off in one line</span>
+<span class="t-key">return</span> [
+  <span class="t-str">'PressGang\Snippets\DisableEmojis'</span>   =&gt; [],
+  <span class="t-str">'PressGang\Snippets\ImageSizes'</span>      =&gt; [
+    <span class="t-str">'hero'</span> =&gt; [<span class="t-str">'width'</span> =&gt; 1920, <span class="t-str">'crop'</span> =&gt; <span class="t-num">true</span>],
+  ],
+  <span class="t-str">'MyAgency\Snippets\Analytics'</span>        =&gt; [
+    <span class="t-str">'measurement_id'</span> =&gt; <span class="t-str">'G-XXXXXXX'</span>,
+  ],
+];</code></pre>
+    </div>
+    <div class="pg-feature__content">
+      <div class="pg-feature__eyebrow">04 · SNIPPETS</div>
+      <h3 class="pg-feature__title">Snippets — no more functions.php junk drawer</h3>
+      <p class="pg-copy prose-code">Each concern is its own class implementing the same clean, minimal interface, enabled or disabled with a single config line. Developers and agencies can build their own modular, reusable snippets and install them via Composer across every project — instead of relying on theme bloat or yet another plugin.</p>
+      <a href="https://github.com/pressgang-wp/pressgang-snippets" class="pg-feature__link">pressgang-snippets repo →</a><span class="pg-feature__link-separator">·</span><a href="https://docs.pressgang.dev/SNIPPETS" class="pg-feature__link">Snippet docs →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WHY PRESSGANG ===================== -->
+<section aria-label="Why choose PressGang" class="pg-why pg-block pg-block--why">
+  <div class="pg-container">
+    <h2 class="pg-section-title">Why crews choose PressGang</h2>
+    <p class="pg-section-intro pg-section-intro--why">Modern PHP for WordPress — without abandoning WordPress. Compare it to any WordPress starter theme, Timber boilerplate, or full-stack restructure.</p>
+    <div class="pg-why__grid">
+      <div class="pg-why-card">
+        <div class="pg-why-card__title">🌲 Timber 2.0 native</div>
+        <div class="pg-why-card__body prose-code">Built on <a href="https://timber.github.io/docs/v2/" class="pg-link pg-link--strong">Timber</a> and Twig from the keel up — not bolted on. Templates stay presentation-only.</div>
+      </div>
+      <div class="pg-why-card">
+        <div class="pg-why-card__title">🏗️ Standard WP structure</div>
+        <div class="pg-why-card__body prose-code">A parent theme, not a stack overhaul. Works with any host, any deploy pipeline, any plugin.</div>
+      </div>
+      <div class="pg-why-card">
+        <div class="pg-why-card__title">📦 Composer & PSR-4</div>
+        <div class="pg-why-card__body prose-code">Dependency management and autoloading the way the rest of the PHP world does it.</div>
+      </div>
+      <div class="pg-why-card">
+        <div class="pg-why-card__title">🧭 Convention over configuration</div>
+        <div class="pg-why-card__body prose-code">Laravel-inspired conventions bootstrap the repetitive parts. Escape hatches everywhere.</div>
+      </div>
+      <div class="pg-why-card">
+        <div class="pg-why-card__title">🧪 Tested without WordPress</div>
+        <div class="pg-why-card__body prose-code">PHPUnit + BrainMonkey unit tests run with no WordPress install required.</div>
+      </div>
+      <div class="pg-why-card">
+        <div class="pg-why-card__title">🔓 No lock-in</div>
+        <div class="pg-why-card__body prose-code">Plain WordPress underneath. Drop down to raw WP APIs whenever you like — nothing gets smuggled in.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== QUARTERMASTER ===================== -->
+<section id="quartermaster" aria-label="Quartermaster query builder" class="pg-quartermaster pg-block">
+  <div class="pg-quartermaster__inner pg-container">
+    <div class="pg-quartermaster__content">
+      <div class="pg-section-kicker pg-section-kicker--orange">STANDALONE PACKAGE · QUARTERMASTER</div>
+      <h2 class="pg-section-title pg-section-title--left">A fluent query builder for WordPress args</h2>
+      <p class="pg-copy pg-copy--large prose-code"><strong>Quartermaster</strong> is a separate, standalone package — a fluent, args-first builder for <code>WP_Query</code> and <code>WP_Term_Query</code>. Build complex query arrays in readable, composable steps, then inspect the exact output with <code>toArgs()</code> and <code>explain()</code>.</p>
+      <p class="pg-copy pg-copy--large prose-code">100% WordPress-native under the hood: plain WP args out — no ORM, no hidden query engine, no lock-in. Use it with PressGang or in any WordPress project.</p>
+      <div class="pg-quartermaster__actions">
+        <a href="https://docs.pressgang.dev/ecosystem/quartermaster" class="pg-button pg-button--orange pg-button--medium">Explore Quartermaster →</a>
+        <span class="pg-install-pill">composer require pressgang-wp/quartermaster</span>
+      </div>
+    </div>
+    <div class="pg-quartermaster__demo">
+      <div class="pg-tabs" data-tabs>
+        <div class="pg-tabs__bar" role="tablist" aria-label="Quartermaster query example">
+          <span class="pg-chrome__dot pg-chrome__dot--red"></span>
+          <span class="pg-chrome__dot pg-chrome__dot--yellow"></span>
+          <span class="pg-chrome__dot pg-chrome__dot--green pg-chrome__dot--spaced"></span>
+          <button type="button" id="quartermaster-tab-before" role="tab" data-tab="before" aria-selected="false" aria-controls="quartermaster-panel-before" tabindex="-1" class="qm-tab pg-tabs__button">😩 Raw WP_Query</button>
+          <button type="button" id="quartermaster-tab-after" role="tab" data-tab="after" aria-selected="true" aria-controls="quartermaster-panel-after" tabindex="0" class="qm-tab pg-tabs__button">⚓ Quartermaster</button>
+        </div>
+        <pre id="quartermaster-panel-before" role="tabpanel" aria-labelledby="quartermaster-tab-before" data-panel="before" hidden class="pg-tabs__panel pg-tabs__panel--before code-panel"><code>$events = new WP_Query([
+  'post_type'      =&gt; 'event',
+  'posts_per_page' =&gt; 12,
+  'meta_key'       =&gt; 'start',
+  'orderby'        =&gt; 'meta_value',
+  'order'          =&gt; 'ASC',
+  'meta_query'     =&gt; [[
+    'key'     =&gt; 'start',
+    'value'   =&gt; wp_date('Ymd'),
+    'compare' =&gt; '&gt;=',
+    'type'    =&gt; 'DATE',
+  ]],
+]);</code></pre>
+        <pre id="quartermaster-panel-after" role="tabpanel" aria-labelledby="quartermaster-tab-after" data-panel="after" class="pg-tabs__panel pg-tabs__panel--after code-panel code-dark"><code>$events = Quartermaster::<span class="t-name">posts</span>(<span class="t-str">'event'</span>)
+  -&gt;<span class="t-name">paged</span>(12)
+  -&gt;<span class="t-name">whereMetaDate</span>(<span class="t-str">'start'</span>, <span class="t-str">'&gt;='</span>)
+  -&gt;<span class="t-name">orderByMeta</span>(<span class="t-str">'start'</span>, <span class="t-str">'ASC'</span>)
+  -&gt;<span class="t-name">wpQuery</span>();
+
+<span class="t-com">// Same plain WP_Query args — 5 readable steps</span></code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== AI-READY (BOSUN) ===================== -->
+<section id="ai" aria-label="AI-ready with Bosun" class="pg-ai pg-block on-dark">
+  <div class="pg-ai__inner pg-container">
+    <div class="pg-ai__content">
+      <div class="pg-section-kicker pg-section-kicker--orange">AI-READY · BOSUN</div>
+      <h2 class="pg-section-title pg-section-title--dark pg-section-title--left">Your AI crew, already briefed</h2>
+      <p class="pg-copy pg-copy--dark prose-code">PressGang's best features leave barely a trace in a child theme's code — great for developers who know the ship, invisible to AI agents who don't. <strong class="pg-strong pg-strong--dark">Bosun</strong> composes <code>CLAUDE.md</code> + <code>AGENTS.md</code> from what each theme actually has installed and enabled — so every agent that comes aboard knows the ropes.</p>
+      <p class="pg-copy pg-copy--dark prose-code">No more hand-rolled query arrays and stub files from an unbriefed agent — working code that misses everything that makes the framework worth sailing.</p>
+      <a href="https://docs.pressgang.dev/ecosystem/bosun" class="pg-ai__link">Meet Bosun →</a>
+    </div>
+    <div class="pg-terminal">
+      <div class="pg-chrome">
+        <span class="pg-chrome__dot pg-chrome__dot--red"></span>
+        <span class="pg-chrome__dot pg-chrome__dot--yellow"></span>
+        <span class="pg-chrome__dot pg-chrome__dot--green"></span>
+        <span class="pg-chrome__label">terminal</span>
+      </div>
+      <pre class="pg-terminal__pre code-panel code-dark"><code><span class="t-num">$</span> wp package install https://github.com/pressgang-wp/pressgang-bosun.git
+<span class="t-num">$</span> wp bosun install
+
+<span class="t-str">✔</span> Inventory: pressgang 2.1 · quartermaster 1.3
+<span class="t-str">✔</span> Template routing detected — guidance aboard
+<span class="t-str">✔</span> Composed CLAUDE.md + AGENTS.md
+<span class="t-str">✔</span> Skills installed → .claude/skills/
+
+<span class="t-key">All hands briefed.</span></code></pre>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== THE FLEET ===================== -->
+<section id="fleet" aria-label="PressGang ecosystem packages" class="pg-fleet pg-block pg-block--fleet">
+  <div class="pg-container">
+    <h2 class="pg-section-title pg-section-title--fleet">The fleet</h2>
+    <p class="pg-section-intro pg-section-intro--fleet">The PressGang ecosystem — Quartermaster is fully standalone and works in any WordPress project; Capstan and Bosun enhance the PressGang developer experience.</p>
+    <div class="pg-fleet__grid">
+      <div class="pg-fleet-card">
+        <div class="pg-fleet-card__title pg-fleet-card__title--orange">⚓ Quartermaster</div>
+        <div class="pg-fleet-card__body">Fluent, args-first builder for WP_Query & WP_Term_Query. Readable, composable queries — plain WP args out. No ORM, no lock-in.</div>
+        <div class="pg-fleet-card__command">composer require pressgang-wp/quartermaster</div>
+        <a href="https://docs.pressgang.dev/ecosystem/quartermaster" class="pg-button pg-button--orange">Explore Quartermaster</a>
+      </div>
+      <div class="pg-fleet-card">
+        <div class="pg-fleet-card__title pg-fleet-card__title--brand">🛞 Capstan</div>
+        <div class="pg-fleet-card__body">WP-CLI scaffolding for PressGang — WordPress core, parent theme, child theme in one command. Dry-run by default: preview every plan before it writes a byte.</div>
+        <div class="pg-fleet-card__command">wp capstan new</div>
+        <a href="https://docs.pressgang.dev/ecosystem/capstan" class="pg-button pg-button--brand">Explore Capstan</a>
+      </div>
+      <div class="pg-fleet-card">
+        <div class="pg-fleet-card__title pg-fleet-card__title--green">🧭 Bosun</div>
+        <div class="pg-fleet-card__body">Composes AI agent guidelines and skills for PressGang themes — generated from what each theme actually has installed and enabled.</div>
+        <div class="pg-fleet-card__command">wp bosun install</div>
+        <a href="https://docs.pressgang.dev/ecosystem/bosun" class="pg-button pg-button--green">Explore Bosun</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GET STARTED ===================== -->
+<section aria-label="Get started" class="pg-get-started pg-block">
+  <h2 class="pg-section-title">Weigh anchor</h2>
+  <p class="pg-get-started__body prose-code">Scaffold a full project with Capstan, or start from the <a href="https://github.com/pressgang-wp/pressgang-child" class="pg-link pg-link--strong">pressgang-child</a> starter theme.</p>
+  <div class="pg-get-started__terminal">
+    <pre class="pg-get-started__pre code-panel code-dark"><code><span class="t-num">$</span> composer global require pressgang-wp/capstan
+<span class="t-num">$</span> wp capstan new</code></pre>
+  </div>
+  <div class="pg-get-started__actions">
+    <a href="https://docs.pressgang.dev" class="pg-button pg-button--primary pg-button--large">Read the docs →</a>
+  </div>
+</section>
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="pg-footer pg-block pg-block--footer">
+  <div class="pg-footer__inner pg-container">
+    <div class="pg-footer__brand">
+      <div class="pg-footer__brand-lockup">
+        <picture>
+      <source srcset="assets/images/pressgang-logo.webp" type="image/webp">
+      <img src="assets/images/pressgang-logo.png" alt="PressGang" width="32" height="32"
+           class="pg-logo pg-logo--32" decoding="async" loading="lazy">
+    </picture>
+        <span class="pg-footer__brand-name">PressGang</span>
+      </div>
+      <p class="pg-footer__tagline">The modern WordPress parent theme framework for Timber & Twig. Open source, MIT licensed.</p>
+    </div>
+    <div class="pg-footer__column">
+      <span class="pg-footer__heading">Docs</span>
+      <a href="https://docs.pressgang.dev" class="pg-footer__link">Getting started</a>
+      <a href="https://docs.pressgang.dev/CONTROLLERS" class="pg-footer__link">Controllers</a>
+      <a href="https://docs.pressgang.dev/TEMPLATE-ROUTING" class="pg-footer__link">Template routing</a>
+      <a href="https://docs.pressgang.dev/CONFIG" class="pg-footer__link">Configuration</a>
+      <a href="https://docs.pressgang.dev/about/note-from-author" class="pg-footer__link">Note from the author</a>
+    </div>
+    <div class="pg-footer__column">
+      <span class="pg-footer__heading">Ecosystem</span>
+      <a href="https://docs.pressgang.dev/ecosystem/quartermaster" class="pg-footer__link">Quartermaster</a>
+      <a href="https://docs.pressgang.dev/ecosystem/capstan" class="pg-footer__link">Capstan</a>
+      <a href="https://docs.pressgang.dev/ecosystem/bosun" class="pg-footer__link">Bosun</a>
+      <a href="https://github.com/pressgang-wp/pressgang-child" class="pg-footer__link">pressgang-child</a>
+    </div>
+    <div class="pg-footer__column">
+      <span class="pg-footer__heading">Source</span>
+      <a href="https://github.com/pressgang-wp" class="pg-footer__link">GitHub org</a>
+      <a href="https://github.com/pressgang-wp/pressgang" class="pg-footer__link">pressgang-wp/pressgang</a>
+      <a href="https://packagist.org/packages/pressgang-wp/pressgang" class="pg-footer__link">Packagist</a>
+      <a href="https://github.com/pressgang-wp/pressgang/blob/master/LICENSE.MD" class="pg-footer__link">MIT license</a>
+      <a href="https://timber.github.io/docs/v2/" class="pg-footer__link">Timber (prerequisite)</a>
+    </div>
+  </div>
+  <div class="pg-footer__meta pg-container">
+    <span>© 2026 PressGang · pressgang.dev</span>
+    <span>Requires PHP 8.3+ · WordPress 6.4+ · Timber 2.0+</span>
+  </div>
+</footer>
+
+</body>
+</html>

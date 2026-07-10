@@ -1,0 +1,30 @@
+/* ITCSS 06: Components */
+@layer components {
+  .pg-footer {
+    @apply bg-panel text-footer;
+  }
+  .pg-footer__inner {
+    @apply grid grid-cols-[1.4fr_1fr_1fr_1fr] gap-9;
+  }
+  .pg-footer__brand-lockup {
+    @apply mb-3.5 flex items-center gap-2.5;
+  }
+  .pg-footer__brand-name {
+    @apply font-display text-lg font-extrabold text-white;
+  }
+  .pg-footer__tagline {
+    @apply m-0 max-w-[280px] text-[13.5px] leading-[1.65];
+  }
+  .pg-footer__column {
+    @apply flex flex-col gap-2.5 text-sm;
+  }
+  .pg-footer__heading {
+    @apply text-[13px] font-bold uppercase tracking-[1px] text-white;
+  }
+  .pg-footer__link {
+    @apply text-footer transition-colors hover:text-brand;
+  }
+  .pg-footer__meta {
+    @apply mt-9 flex justify-between border-t border-white/10 pt-5 text-[12.5px] text-muted;
+  }
+}

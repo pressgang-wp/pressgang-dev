@@ -1,0 +1,31 @@
+/* ITCSS 01: Settings
+ * Project design tokens exposed to Tailwind as utilities.
+ */
+@theme {
+  --font-sans: "Archivo", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  --color-brand: #47c2eb;
+  --color-brand-600: #2aa9d8;
+  --color-brand-700: #1e94c1;
+  --color-brand-800: #1779a8;
+
+  --color-ink: #16222c;
+  --color-panel: #12222e;
+  --color-ai: #0c1620;
+  --color-ai-900: #060d14;
+
+  --color-body: #4a5b67;
+  --color-muted: #5a7484;
+  --color-nav: #3d4f5c;
+  --color-footer: #8fa5b5;
+
+  --color-orange: #f08a24;
+  --color-orange-600: #e07b1f;
+  --color-orange-700: #c96c14;
+  --color-green: #3ba05f;
+
+  --color-paper: #fbfaf7;
+  --color-sand: #f4f2ec;
+}

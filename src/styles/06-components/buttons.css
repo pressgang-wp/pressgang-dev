@@ -1,0 +1,20 @@
+/* ITCSS 06: Components */
+@layer components {
+  .pg-button {
+    @apply inline-flex items-center justify-center whitespace-nowrap rounded-lg text-center font-bold text-white transition-colors;
+  }
+  .pg-button--primary,
+  .pg-button--brand { @apply bg-brand-600 hover:bg-brand-700; }
+  .pg-button--orange { @apply bg-orange-600 hover:bg-orange-700; }
+  .pg-button--green { @apply bg-green hover:bg-[#2f8a4e]; }
+  .pg-button--nav { @apply px-[18px] py-[9px] text-sm font-semibold; }
+  .pg-button--medium { @apply px-[22px] py-3 text-[15px]; }
+  .pg-button--large { @apply px-[30px] py-[15px] text-base; }
+
+  .pg-copy-button {
+    @apply inline-flex cursor-pointer items-center gap-2.5 rounded-lg bg-panel px-5 py-3.5 font-mono text-sm text-[#c9e8f5];
+  }
+  .pg-copy-button__icon {
+    @apply text-[13px] text-muted;
+  }
+}

@@ -1,0 +1,23 @@
+/* ITCSS 06: Components */
+@layer components {
+  .pg-features {
+    @apply pb-3;
+  }
+  .pg-feature {
+    @apply mb-9 grid items-center gap-12;
+  }
+  .pg-feature--code-left { @apply grid-cols-[1.1fr_1fr]; }
+  .pg-feature--code-right { @apply grid-cols-[1fr_1.1fr]; }
+  .pg-feature__eyebrow {
+    @apply mb-2.5 font-mono text-[12.5px] font-semibold text-brand-600;
+  }
+  .pg-feature__title {
+    @apply mb-3 font-display text-[28px] font-bold leading-[1.15] tracking-normal;
+  }
+  .pg-feature__link {
+    @apply text-[14.5px] text-brand-800;
+  }
+  .pg-feature__link-separator {
+    @apply mx-2 text-slate-300;
+  }
+}

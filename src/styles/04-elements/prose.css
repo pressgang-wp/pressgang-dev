@@ -1,0 +1,10 @@
+/* ITCSS 04: Elements */
+@layer components {
+  :not(pre) > code {
+    @apply rounded bg-[#eef6fa] px-[5px] py-px font-mono text-[0.85em];
+  }
+
+  .on-dark :not(pre) > code {
+    @apply bg-white/10 text-inherit;
+  }
+}

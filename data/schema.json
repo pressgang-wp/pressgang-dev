@@ -1,0 +1,74 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://pressgang.dev/#org",
+      "name": "PressGang",
+      "url": "https://pressgang.dev",
+      "sameAs": [
+        "https://github.com/pressgang-wp",
+        "https://packagist.org/packages/pressgang-wp/pressgang"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://pressgang.dev/#website",
+      "url": "https://pressgang.dev",
+      "name": "PressGang — The Modern WordPress Theme Framework for Timber & Twig",
+      "publisher": { "@id": "https://pressgang.dev/#org" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://pressgang.dev/#pressgang",
+      "name": "PressGang",
+      "url": "https://pressgang.dev",
+      "description": "A modern WordPress parent theme framework for Timber and Twig — MVC-inspired controllers, Laravel-style convention-over-configuration, template routing with no stub files, and object-oriented PHP on a Composer + PSR-4 foundation.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "WordPress 6.4+, PHP 8.3+",
+      "softwareRequirements": "WordPress 6.4+, PHP 8.3+, Timber 2.0+, Composer",
+      "license": "https://opensource.org/licenses/MIT",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "author": { "@id": "https://pressgang.dev/#org" },
+      "downloadUrl": "https://github.com/pressgang-wp/pressgang",
+      "installUrl": "https://packagist.org/packages/pressgang-wp/pressgang",
+      "softwareHelp": { "@type": "CreativeWork", "url": "https://docs.pressgang.dev" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Quartermaster",
+      "description": "A fluent, args-first query builder for WP_Query and WP_Term_Query. 100% WordPress-native — no ORM, no lock-in. Standalone package for any WordPress project.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "WordPress, PHP 8.3+",
+      "license": "https://opensource.org/licenses/MIT",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "url": "https://docs.pressgang.dev/ecosystem/quartermaster",
+      "downloadUrl": "https://github.com/pressgang-wp/pressgang-quartermaster",
+      "author": { "@id": "https://pressgang.dev/#org" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Capstan",
+      "description": "WP-CLI scaffolding for PressGang — WordPress core, parent theme and child theme in one command. Dry-run by default.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "WordPress, PHP 8.3+, WP-CLI",
+      "license": "https://opensource.org/licenses/MIT",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "url": "https://docs.pressgang.dev/ecosystem/capstan",
+      "downloadUrl": "https://github.com/pressgang-wp/pressgang-capstan",
+      "author": { "@id": "https://pressgang.dev/#org" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Bosun",
+      "description": "A WP-CLI package that composes AI agent guidelines and skills for PressGang themes — generated from what each theme actually has installed and enabled.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "WordPress, PHP 8.3+, WP-CLI",
+      "license": "https://opensource.org/licenses/MIT",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "url": "https://docs.pressgang.dev/ecosystem/bosun",
+      "downloadUrl": "https://github.com/pressgang-wp/pressgang-bosun",
+      "author": { "@id": "https://pressgang.dev/#org" }
+    }
+  ]
+}
