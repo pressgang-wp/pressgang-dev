@@ -27,6 +27,12 @@
     .pg-ai__inner {
       @apply gap-6;
     }
+    .pg-feature__content {
+      @apply order-1 w-full;
+    }
+    .pg-feature .pg-code-card {
+      @apply order-2 w-full;
+    }
     .pg-compare__panel--divider {
       @apply border-b border-r-0 border-ink/10;
     }
@@ -38,6 +44,21 @@
   @media (max-width: 560px) {
     .pg-container {
       @apply w-[min(100%-32px,1400px)];
+    }
+    .pg-feature,
+    .pg-code-card,
+    .pg-tabs,
+    .pg-terminal,
+    .pg-why-card,
+    .pg-fleet-card,
+    .pg-get-started__terminal {
+      @apply w-full max-w-full;
+    }
+    .pg-code-card__pre,
+    .pg-tabs__panel,
+    .pg-terminal__pre,
+    .pg-get-started__pre {
+      @apply max-w-full;
     }
     .pg-block--hero {
       @apply pt-[27px];

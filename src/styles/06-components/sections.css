@@ -7,7 +7,7 @@
     @apply grid grid-cols-3 gap-5;
   }
   .pg-why-card {
-    @apply rounded-lg border border-ink/10 bg-paper px-6 py-[22px];
+    @apply w-full max-w-full min-w-0 rounded-lg border border-ink/10 bg-paper px-6 py-[22px];
   }
   .pg-why-card__title {
     @apply mb-1.5 text-[15.5px] font-bold;
@@ -47,7 +47,7 @@
     @apply grid grid-cols-3 gap-[22px];
   }
   .pg-fleet-card {
-    @apply flex flex-col gap-2.5 rounded-lg border-2 border-panel bg-white p-[26px] shadow-[0_5px_0_rgb(18_34_46_/_35%)];
+    @apply flex w-full max-w-full min-w-0 flex-col gap-2.5 rounded-lg border-2 border-panel bg-white p-[26px] shadow-[0_5px_0_rgb(18_34_46_/_35%)];
   }
   .pg-fleet-card__title {
     @apply font-display text-[19px] font-extrabold;
@@ -72,7 +72,7 @@
     @apply mx-auto mb-7 max-w-[520px] text-[16.5px] leading-[1.6] text-body;
   }
   .pg-get-started__terminal {
-    @apply inline-block rounded-lg bg-panel px-[30px] py-[22px] text-left shadow-[0_12px_32px_rgb(18_34_46_/_18%)];
+    @apply inline-block max-w-full rounded-lg bg-panel px-[30px] py-[22px] text-left shadow-[0_12px_32px_rgb(18_34_46_/_18%)];
   }
   .pg-get-started__pre {
     @apply m-0 font-mono text-sm leading-[2] text-[#c9dae6];

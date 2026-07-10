@@ -6,8 +6,14 @@
   .pg-feature {
     @apply mb-9 grid items-center gap-12;
   }
+  .pg-feature > * {
+    @apply min-w-0;
+  }
   .pg-feature--code-left { @apply grid-cols-[1.1fr_1fr]; }
   .pg-feature--code-right { @apply grid-cols-[1fr_1.1fr]; }
+  .pg-feature__content {
+    @apply min-w-0;
+  }
   .pg-feature__eyebrow {
     @apply mb-2.5 font-mono text-[12.5px] font-semibold text-brand-600;
   }
