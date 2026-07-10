@@ -1,7 +1,7 @@
 /* ITCSS 06: Components */
 @layer components {
   .pg-nav {
-    @apply sticky top-0 z-10 border-b border-ink/10 bg-paper/90 py-[9px] backdrop-blur-md;
+    @apply sticky top-0 z-10 border-b border-ink/10 bg-paper/90 py-2 backdrop-blur-md;
   }
   .pg-nav__inner {
     @apply flex items-center justify-between;

@@ -24,8 +24,9 @@
   }
 
   .pg-logo {
-    @apply block rounded-full border-2 border-brand object-cover;
+    @apply block rounded-full object-cover;
   }
+  .pg-logo--72 { @apply size-[72px]; }
   .pg-logo--54 { @apply size-[54px]; }
   .pg-logo--34 { @apply size-[34px]; }
   .pg-logo--32 { @apply size-8; }
