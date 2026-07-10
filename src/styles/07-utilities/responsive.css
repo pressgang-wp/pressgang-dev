@@ -5,14 +5,14 @@
       @apply inline-flex;
     }
     .pg-nav__links {
-      @apply absolute left-4 right-4 top-[calc(100%+8px)] z-20 hidden flex-col items-stretch gap-3 rounded-lg border border-ink/10 bg-paper p-4 shadow-[0_18px_44px_rgb(18_34_46_/_18%)];
+      @apply absolute left-4 right-4 top-[calc(100%+10px)] z-20 hidden flex-col items-stretch gap-2 rounded-lg border border-ink/10 bg-paper p-5 shadow-[0_18px_44px_rgb(18_34_46_/_18%)];
     }
     .pg-nav__links[data-open="true"] {
       @apply flex;
     }
     .pg-nav__link,
     .pg-nav__links .pg-button {
-      @apply w-full justify-start;
+      @apply min-h-12 w-full justify-start rounded-lg px-4 py-3 text-base;
     }
     .pg-compare__grid,
     .pg-feature,
@@ -37,7 +37,16 @@
       @apply border-b border-r-0 border-ink/10;
     }
     .pg-footer__inner {
-      @apply grid-cols-2;
+      @apply grid-cols-2 gap-x-8 gap-y-10;
+    }
+    .pg-footer__column {
+      @apply gap-1;
+    }
+    .pg-footer__heading {
+      @apply mb-1.5;
+    }
+    .pg-footer__link {
+      @apply -mx-3 min-h-11 rounded-md px-3 py-2 text-[15px];
     }
   }
 
@@ -87,7 +96,7 @@
       @apply w-full;
     }
     .pg-footer__inner {
-      @apply grid-cols-1;
+      @apply grid-cols-1 gap-8;
     }
     .pg-footer__meta {
       @apply flex-col gap-1.5;
