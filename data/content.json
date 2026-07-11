@@ -200,7 +200,7 @@
       {
         "heading": "Ecosystem",
         "links": [
-          { "label": "Quartermaster", "href": "https://docs.pressgang.dev/ecosystem/quartermaster" },
+          { "label": "Quartermaster", "href": "/quartermaster/" },
           { "label": "Capstan", "href": "https://docs.pressgang.dev/ecosystem/capstan" },
           { "label": "Bosun", "href": "https://docs.pressgang.dev/ecosystem/bosun" },
           { "label": "pressgang-child", "href": "https://github.com/pressgang-wp/pressgang-child" }

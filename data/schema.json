@@ -42,7 +42,7 @@
       "operatingSystem": "WordPress, PHP 8.3+",
       "license": "https://opensource.org/licenses/MIT",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "url": "https://docs.pressgang.dev/ecosystem/quartermaster",
+      "url": "https://pressgang.dev/quartermaster/",
       "downloadUrl": "https://github.com/pressgang-wp/pressgang-quartermaster",
       "author": { "@id": "https://pressgang.dev/#org" }
     },
