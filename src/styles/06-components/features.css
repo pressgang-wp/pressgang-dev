@@ -9,8 +9,10 @@
   .pg-feature > * {
     @apply min-w-0;
   }
-  .pg-feature--code-left { @apply grid-cols-[1.1fr_1fr]; }
-  .pg-feature--code-right { @apply grid-cols-[1fr_1.1fr]; }
+  .pg-feature--code-left,
+  .pg-feature--code-right {
+    @apply grid-cols-2;
+  }
   .pg-feature__content {
     @apply min-w-0;
   }
