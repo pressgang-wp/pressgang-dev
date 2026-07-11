@@ -26,8 +26,8 @@ export function renderQuartermasterDocument(content, schema) {
   <meta name="twitter:title" content="${content.meta.title}">
   <meta name="twitter:description" content="${content.meta.description}">
   <meta name="twitter:image" content="${content.meta.image}">
-  <link rel="icon" type="image/svg+xml" href="${content.assets.logo}">
-  <link rel="apple-touch-icon" href="${content.assets.mascot}">
+  <link rel="icon" type="image/png" href="/assets/images/pressgang-logo.png">
+  <link rel="apple-touch-icon" href="/assets/images/pressgang-logo-512.png">
   <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/bricolage-latin.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/archivo-latin.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/jetbrains-mono-latin.woff2" crossorigin>
