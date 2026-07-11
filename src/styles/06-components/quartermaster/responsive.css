@@ -1,5 +1,9 @@
 @layer components {
   @media (max-width: 639px) {
+    .qm-container {
+      @apply w-[min(100%-32px,1400px)];
+    }
+
     .qm-button,
     .qm-copy-button {
       @apply w-full;
