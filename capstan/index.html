@@ -20,7 +20,7 @@
   <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/bricolage-latin.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/archivo-latin.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/jetbrains-mono-latin.woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/css/styles.css?v=0bb692f9c5e2">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=ca9b26f9389e">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -94,7 +94,7 @@
   ]
 }
   </script>
-  <script src="/assets/js/app.js?v=0bb692f9c5e2" defer></script>
+  <script src="/assets/js/app.js?v=ca9b26f9389e" defer></script>
 </head>
 <body class="tool-page tool-page--capstan">
   <a class="tool-skip-link" href="#main">Skip to content</a>
@@ -116,6 +116,7 @@
       <div class="tool-nav__links" id="primary-navigation" data-nav-menu>
         <a class="tool-nav__link" href="#how">How it works</a>
         <a class="tool-nav__link" href="#dryrun">Dry-run</a>
+        <a class="tool-nav__link" href="#examples">Examples</a>
         <a class="tool-nav__link" href="https://github.com/pressgang-wp/pressgang-capstan" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a class="tool-button tool-button--primary tool-button--nav" href="https://docs.pressgang.dev/ecosystem/capstan" target="_blank" rel="noopener noreferrer">Read the docs</a>
       </div>
@@ -185,6 +186,52 @@
           <span class="tool-chrome__label">plan → confirm → write</span>
         </div>
         <pre class="tool-code-card__pre"><code><span><span class="tool-token tool-token--prompt">$</span> wp capstan new harbour-cafe</span><span><span class="tool-token tool-token--comment"># default — prints the plan only</span></span><span>&nbsp;</span><span><span class="tool-token tool-token--accent">Plan</span> → review → confirm → write</span><span><span class="tool-token tool-token--comment"># nothing lands without your say-so</span></span></code></pre>
+      </div>
+    </div>
+  </section>
+    <section id="examples" class="tool-section tool-examples" aria-labelledby="examples-title">
+    <div class="tool-container">
+      <div class="tool-section__header">
+        <h2 id="examples-title" class="tool-section__title">More than a WordPress starter theme generator</h2>
+        <p class="tool-section__intro">Day one is just the start. Capstan generates controllers, context getters and blocks for your PressGang themes from the command line, then configures and packages the whole WordPress theme for deployment — repeatable, scriptable, CI-friendly.</p>
+      </div>
+      <div class="tool-example-grid">
+        <article class="tool-example-card">
+      <div class="tool-example-card__label">Controller + Twig view</div>
+      <pre class="tool-example-card__pre"><code><span><span class="tool-token tool-token--prompt">$</span> wp capstan make controller Events \</span><span>    --type=posts --view</span><span>&nbsp;</span><span><span class="tool-token tool-token--success">＋</span> src/Controllers/EventsController.php</span><span><span class="tool-token tool-token--success">＋</span> Twig view — routed by convention</span></code></pre>
+    </article>
+        <article class="tool-example-card">
+      <div class="tool-example-card__label">Context getter, wired in</div>
+      <pre class="tool-example-card__pre"><code><span><span class="tool-token tool-token--prompt">$</span> wp capstan context FrontPage \</span><span>    --add=news,events --force</span><span>&nbsp;</span><span><span class="tool-token tool-token--success">＋</span> getters + $context_getters entries</span></code></pre>
+    </article>
+        <article class="tool-example-card">
+      <div class="tool-example-card__label">Block, config-registered</div>
+      <pre class="tool-example-card__pre"><code><span><span class="tool-token tool-token--prompt">$</span> wp capstan make block hero \</span><span>    --title=Hero</span><span>&nbsp;</span><span><span class="tool-token tool-token--success">＋</span> block + view — config-registered</span></code></pre>
+    </article>
+        <article class="tool-example-card">
+      <div class="tool-example-card__label">Custom post type, config-first</div>
+      <pre class="tool-example-card__pre"><code><span><span class="tool-token tool-token--prompt">$</span> wp capstan make cpt event \</span><span>    --icon=dashicons-calendar</span><span>&nbsp;</span><span><span class="tool-token tool-token--success">＋</span> config/custom-post-types.php entry</span></code></pre>
+    </article>
+        <article class="tool-example-card">
+      <div class="tool-example-card__label">See how a URL routes</div>
+      <pre class="tool-example-card__pre"><code><span><span class="tool-token tool-token--prompt">$</span> wp capstan resolve /events/</span><span>&nbsp;</span><span><span class="tool-token tool-token--comment"># template → controller → view,</span></span><span><span class="tool-token tool-token--comment"># resolved without a browser</span></span></code></pre>
+    </article>
+        <article class="tool-example-card">
+      <div class="tool-example-card__label">Health check</div>
+      <pre class="tool-example-card__pre"><code><span><span class="tool-token tool-token--prompt">$</span> wp capstan doctor</span><span>&nbsp;</span><span><span class="tool-token tool-token--comment"># checks the rigging — versions,</span></span><span><span class="tool-token tool-token--comment"># config, autoloading, routing</span></span></code></pre>
+    </article>
+        <article class="tool-example-card">
+      <div class="tool-example-card__label">New project, one command</div>
+      <pre class="tool-example-card__pre"><code><span><span class="tool-token tool-token--prompt">$</span> wp capstan new harbour-cafe</span><span>&nbsp;</span><span><span class="tool-token tool-token--comment"># core + parent + child theme,</span></span><span><span class="tool-token tool-token--comment"># Composer wired, plan first</span></span></code></pre>
+    </article>
+        <article class="tool-example-card">
+      <div class="tool-example-card__label">Child theme for an existing install</div>
+      <pre class="tool-example-card__pre"><code><span><span class="tool-token tool-token--prompt">$</span> wp capstan make child my-theme</span><span>&nbsp;</span><span><span class="tool-token tool-token--comment"># controllers, config/, Twig views —</span></span><span><span class="tool-token tool-token--comment"># into an existing WordPress install</span></span></code></pre>
+    </article>
+        <article class="tool-example-card">
+      <div class="tool-example-card__label">Package for deployment</div>
+      <pre class="tool-example-card__pre"><code><span><span class="tool-token tool-token--prompt">$</span> wp capstan theme package \</span><span>    --output=release/my-theme.zip</span><span>&nbsp;</span><span><span class="tool-token tool-token--comment"># production archive, dev deps ashore</span></span></code></pre>
+    </article>
       </div>
     </div>
   </section>

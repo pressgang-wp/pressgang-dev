@@ -11,6 +11,7 @@
     "links": [
       { "label": "How it works", "href": "#how" },
       { "label": "Dry-run", "href": "#dryrun" },
+      { "label": "Examples", "href": "#examples" },
       { "label": "GitHub", "href": "https://github.com/pressgang-wp/pressgang-capstan" }
     ],
     "cta": { "label": "Read the docs", "href": "https://docs.pressgang.dev/ecosystem/capstan" }
@@ -61,6 +62,50 @@
       "link": { "label": "Command reference", "href": "https://docs.pressgang.dev/ecosystem/capstan" },
       "codeLabel": "plan → confirm → write",
       "code": "$ wp capstan new harbour-cafe\n# default — prints the plan only\n\nPlan → review → confirm → write\n# nothing lands without your say-so"
+    },
+    {
+      "type": "examples",
+      "id": "examples",
+      "title": "More than a WordPress starter theme generator",
+      "intro": "Day one is just the start. Capstan generates controllers, context getters and blocks for your PressGang themes from the command line, then configures and packages the whole WordPress theme for deployment — repeatable, scriptable, CI-friendly.",
+      "examples": [
+        {
+          "label": "Controller + Twig view",
+          "code": "$ wp capstan make controller Events \\\n    --type=posts --view\n\n＋ src/Controllers/EventsController.php\n＋ Twig view — routed by convention"
+        },
+        {
+          "label": "Context getter, wired in",
+          "code": "$ wp capstan context FrontPage \\\n    --add=news,events --force\n\n＋ getters + $context_getters entries"
+        },
+        {
+          "label": "Block, config-registered",
+          "code": "$ wp capstan make block hero \\\n    --title=Hero\n\n＋ block + view — config-registered"
+        },
+        {
+          "label": "Custom post type, config-first",
+          "code": "$ wp capstan make cpt event \\\n    --icon=dashicons-calendar\n\n＋ config/custom-post-types.php entry"
+        },
+        {
+          "label": "See how a URL routes",
+          "code": "$ wp capstan resolve /events/\n\n# template → controller → view,\n# resolved without a browser"
+        },
+        {
+          "label": "Health check",
+          "code": "$ wp capstan doctor\n\n# checks the rigging — versions,\n# config, autoloading, routing"
+        },
+        {
+          "label": "New project, one command",
+          "code": "$ wp capstan new harbour-cafe\n\n# core + parent + child theme,\n# Composer wired, plan first"
+        },
+        {
+          "label": "Child theme for an existing install",
+          "code": "$ wp capstan make child my-theme\n\n# controllers, config/, Twig views —\n# into an existing WordPress install"
+        },
+        {
+          "label": "Package for deployment",
+          "code": "$ wp capstan theme package \\\n    --output=release/my-theme.zip\n\n# production archive, dev deps ashore"
+        }
+      ]
     }
   ],
   "ecosystem": {

@@ -120,6 +120,27 @@ function renderSplit(section) {
   </section>`;
 }
 
+function renderExamples(section) {
+  const examples = section.examples.map((example) => (
+    `<article class="tool-example-card">
+      <div class="tool-example-card__label">${escapeHtml(example.label)}</div>
+      <pre class="tool-example-card__pre"><code>${terminalCode(example.code)}</code></pre>
+    </article>`
+  )).join("\n        ");
+
+  return `<section id="${attr(section.id)}" class="tool-section tool-examples" aria-labelledby="${attr(section.id)}-title">
+    <div class="tool-container">
+      <div class="tool-section__header">
+        <h2 id="${attr(section.id)}-title" class="tool-section__title">${escapeHtml(section.title)}</h2>
+        <p class="tool-section__intro">${escapeHtml(section.intro)}</p>
+      </div>
+      <div class="tool-example-grid">
+        ${examples}
+      </div>
+    </div>
+  </section>`;
+}
+
 function renderEcosystem(content) {
   const links = content.ecosystem.links.map((link) => (
     `<a class="tool-button ${link.secondary ? "tool-button--outline" : "tool-button--dark"}" href="${attr(link.href)}"${externalAttrs(link.href)}>${escapeHtml(link.label)}${link.arrow ? ' <span aria-hidden="true">&rarr;</span>' : ""}</a>`
@@ -167,6 +188,7 @@ function renderFooter(content) {
 function renderSection(section) {
   if (section.type === "cards") return renderCards(section);
   if (section.type === "split") return renderSplit(section);
+  if (section.type === "examples") return renderExamples(section);
   return "";
 }
 
