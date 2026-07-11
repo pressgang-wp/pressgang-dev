@@ -1,0 +1,98 @@
+@layer components {
+  .qm-compare {
+    @apply bg-white;
+  }
+
+  .qm-compare__grid {
+    @apply grid gap-5 lg:grid-cols-2;
+  }
+
+  .qm-compare__panel {
+    @apply min-w-0 rounded-lg border border-qm-ink/10 bg-qm-paper p-5 sm:p-6;
+  }
+
+  .qm-compare__panel--brand {
+    @apply border-qm-brand/35 bg-[#fff3e6];
+  }
+
+  .qm-compare__note {
+    @apply mt-4 text-[15px] leading-7 text-qm-body;
+  }
+
+  .qm-features {
+    @apply bg-qm-paper;
+  }
+
+  .qm-feature {
+    @apply grid items-center gap-6 py-8 lg:grid-cols-2 lg:gap-12;
+  }
+
+  .qm-feature--reverse {
+    @apply lg:grid-cols-2;
+  }
+
+  .qm-feature--reverse .qm-feature__media {
+    @apply lg:order-2;
+  }
+
+  .qm-feature__media,
+  .qm-feature__content {
+    @apply min-w-0;
+  }
+
+  .qm-feature__title {
+    @apply mb-3 font-display text-[28px] font-bold leading-[1.12] tracking-normal text-qm-ink;
+  }
+
+  .qm-philosophy {
+    @apply bg-qm-ink py-16 text-white;
+  }
+
+  .qm-philosophy__inner {
+    @apply grid items-center gap-9 lg:grid-cols-[1fr_0.8fr] lg:gap-14;
+  }
+
+  .qm-philosophy__copy {
+    @apply mt-5 space-y-4 text-base leading-8 text-[#d5c5b0];
+  }
+
+  .qm-terminal {
+    @apply mt-6 border border-white/10 bg-[#120d09];
+  }
+
+  .qm-philosophy__figure {
+    @apply mx-auto w-full max-w-[420px] overflow-hidden rounded-lg border border-white/10 bg-[#392819] shadow-[0_18px_50px_rgb(0_0_0_/_30%)];
+  }
+
+  .qm-philosophy__figure img {
+    @apply block h-auto w-full;
+  }
+
+  .qm-ecosystem {
+    @apply bg-white;
+  }
+
+  .qm-ecosystem__grid {
+    @apply grid gap-4 sm:grid-cols-2 lg:grid-cols-4;
+  }
+
+  .qm-ecosystem-card {
+    @apply rounded-lg border border-qm-ink/10 bg-qm-paper p-5;
+  }
+
+  .qm-ecosystem-card:last-child {
+    @apply border-qm-brand/50 bg-[#fff3e6];
+  }
+
+  .qm-ecosystem-card h3 {
+    @apply mb-2 font-mono text-xs font-bold uppercase tracking-normal text-qm-harbor-700;
+  }
+
+  .qm-ecosystem-card p {
+    @apply text-[14.5px] leading-7 text-qm-body;
+  }
+
+  .qm-ecosystem__actions {
+    @apply mt-8 flex flex-col justify-center gap-3 sm:flex-row;
+  }
+}

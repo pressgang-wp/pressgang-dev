@@ -30,15 +30,15 @@ export function renderDocument(c, schema) {
   <meta name="twitter:title" content="${s.ogTitle}">
   <meta name="twitter:description" content="${s.ogDescription}">
   <meta name="twitter:image" content="${s.ogImage}">
-  <link rel="icon" type="image/png" href="assets/images/pressgang-logo.png">
-  <link rel="apple-touch-icon" href="assets/images/pressgang-logo-512.png">
-  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/bricolage-latin.woff2" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/archivo-latin.woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="icon" type="image/png" href="/assets/images/pressgang-logo.png">
+  <link rel="apple-touch-icon" href="/assets/images/pressgang-logo-512.png">
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/bricolage-latin.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/archivo-latin.woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/styles.css">
   <script type="application/ld+json">
 ${JSON.stringify(schema, null, 2)}
   </script>
-  <script src="assets/js/app.js" defer></script>
+  <script src="/assets/js/app.js" defer></script>
 </head>
 <body>
 

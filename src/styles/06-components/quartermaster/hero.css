@@ -1,0 +1,33 @@
+@layer components {
+  .qm-hero {
+    @apply overflow-hidden px-0 pb-14 pt-[72px];
+  }
+
+  .qm-hero__inner {
+    @apply block;
+  }
+
+  .qm-hero__content {
+    @apply mx-auto max-w-[980px] min-w-0 text-center;
+  }
+
+  .qm-hero__badge {
+    @apply mx-auto mb-[26px] inline-flex max-w-full items-center gap-2 rounded-full bg-qm-cream px-4 py-[7px] font-mono text-[12.5px] font-semibold text-[#a5570d];
+  }
+
+  .qm-hero__title {
+    @apply mx-auto mb-5 max-w-[920px] font-display text-[42px] font-extrabold leading-[1.05] tracking-normal sm:text-[58px] lg:text-[66px];
+  }
+
+  .qm-hero__title span {
+    @apply text-qm-brand;
+  }
+
+  .qm-hero__lede {
+    @apply mx-auto max-w-[680px] text-[17px] leading-[1.6] text-qm-body sm:text-[19px];
+  }
+
+  .qm-hero__actions {
+    @apply mt-8 flex flex-col items-stretch justify-center gap-3.5 sm:flex-row sm:flex-wrap sm:items-center;
+  }
+}

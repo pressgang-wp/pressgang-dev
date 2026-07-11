@@ -28,4 +28,16 @@
 
   --color-paper: #fbfaf7;
   --color-sand: #f4f2ec;
+
+  --color-qm-ink: #221a12;
+  --color-qm-body: #594b3c;
+  --color-qm-muted: #7d6c58;
+  --color-qm-paper: #fff8ef;
+  --color-qm-panel: #2b2117;
+  --color-qm-brand: #e07b1f;
+  --color-qm-brand-700: #b95e0e;
+  --color-qm-harbor: #246a66;
+  --color-qm-harbor-700: #174c4a;
+  --color-qm-sage: #8ba36f;
+  --color-qm-cream: #f7ead8;
 }

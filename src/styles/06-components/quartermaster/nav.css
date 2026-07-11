@@ -1,0 +1,33 @@
+@layer components {
+  .qm-nav {
+    @apply sticky top-0 z-20 border-b border-qm-ink/10 bg-qm-paper/92 py-3 backdrop-blur-md;
+  }
+
+  .qm-nav__inner {
+    @apply flex items-center justify-between gap-4;
+  }
+
+  .qm-nav__brand {
+    @apply flex min-w-0 items-center text-qm-ink no-underline;
+  }
+
+  .qm-nav__toggle {
+    @apply inline-flex size-12 cursor-pointer flex-col items-center justify-center gap-1 rounded-lg bg-qm-panel text-white md:hidden;
+  }
+
+  .qm-nav__toggle-line {
+    @apply h-0.5 w-[18px] rounded-full bg-current;
+  }
+
+  .qm-nav__links {
+    @apply absolute left-4 right-4 top-[calc(100%+10px)] hidden flex-col items-stretch gap-2 rounded-lg border border-qm-ink/10 bg-qm-paper p-5 shadow-[0_18px_44px_rgb(34_26_18_/_16%)] md:static md:flex md:flex-row md:items-center md:gap-6 md:border-0 md:bg-transparent md:p-0 md:shadow-none;
+  }
+
+  .qm-nav__links[data-open="true"] {
+    @apply flex;
+  }
+
+  .qm-nav__link {
+    @apply min-h-11 rounded-md px-3 py-2 text-base font-semibold text-qm-body no-underline transition-colors hover:bg-qm-cream hover:text-qm-ink md:min-h-0 md:px-0 md:py-0 md:text-sm md:hover:bg-transparent;
+  }
+}

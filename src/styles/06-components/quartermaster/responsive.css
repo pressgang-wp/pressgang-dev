@@ -1,0 +1,20 @@
+@layer components {
+  @media (max-width: 639px) {
+    .qm-button,
+    .qm-copy-button {
+      @apply w-full;
+    }
+
+    .qm-section {
+      @apply py-12;
+    }
+
+    .qm-tabs__bar {
+      @apply flex-wrap;
+    }
+
+    .qm-tab {
+      @apply min-h-10;
+    }
+  }
+}

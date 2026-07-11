@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quartermaster - Fluent WordPress Query Builder for WP_Query</title>
+  <meta name="description" content="Quartermaster is a fluent, args-first WordPress query builder for WP_Query and WP_Term_Query. Build readable meta_query, tax_query and date_query arguments without an ORM, SQL layer, or lock-in.">
+  <link rel="canonical" href="https://pressgang.dev/quartermaster/">
+  <meta property="og:title" content="Quartermaster - Fluent WordPress Query Builder for WP_Query">
+  <meta property="og:description" content="Quartermaster is a fluent, args-first WordPress query builder for WP_Query and WP_Term_Query. Build readable meta_query, tax_query and date_query arguments without an ORM, SQL layer, or lock-in.">
+  <meta property="og:url" content="https://pressgang.dev/quartermaster/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://pressgang.dev/assets/images/quartermaster/quartermaster.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Quartermaster - Fluent WordPress Query Builder for WP_Query">
+  <meta name="twitter:description" content="Quartermaster is a fluent, args-first WordPress query builder for WP_Query and WP_Term_Query. Build readable meta_query, tax_query and date_query arguments without an ORM, SQL layer, or lock-in.">
+  <meta name="twitter:image" content="https://pressgang.dev/assets/images/quartermaster/quartermaster.png">
+  <link rel="icon" type="image/svg+xml" href="/assets/images/quartermaster/quartermaster.svg">
+  <link rel="apple-touch-icon" href="/assets/images/quartermaster/quartermaster.png">
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/bricolage-latin.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/archivo-latin.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/jetbrains-mono-latin.woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://pressgang.dev/#org",
+      "name": "PressGang",
+      "url": "https://pressgang.dev",
+      "sameAs": [
+        "https://github.com/pressgang-wp"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://pressgang.dev/quartermaster/#website",
+      "url": "https://pressgang.dev/quartermaster/",
+      "name": "Quartermaster - Fluent WordPress Query Builder",
+      "publisher": {
+        "@id": "https://pressgang.dev/#org"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://pressgang.dev/quartermaster/#app",
+      "name": "Quartermaster",
+      "url": "https://pressgang.dev/quartermaster/",
+      "description": "A fluent, args-first query builder for WP_Query and WP_Term_Query. Quartermaster turns sprawling meta_query, tax_query and date_query arrays into readable, composable PHP while staying 100% WordPress-native under the hood.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "WordPress, PHP 8.3+",
+      "softwareRequirements": "WordPress, PHP 8.3+, Composer",
+      "license": "https://opensource.org/licenses/MIT",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@id": "https://pressgang.dev/#org"
+      },
+      "downloadUrl": "https://github.com/pressgang-wp/pressgang-quartermaster",
+      "installUrl": "https://packagist.org/packages/pressgang-wp/quartermaster",
+      "softwareHelp": {
+        "@type": "CreativeWork",
+        "url": "https://docs.pressgang.dev/ecosystem/quartermaster"
+      },
+      "image": "https://pressgang.dev/assets/images/quartermaster/quartermaster.png"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://pressgang.dev/quartermaster/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is Quartermaster an ORM for WordPress?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Quartermaster is not an ORM, ActiveRecord layer, or SQL query builder. Every fluent method maps to real WP_Query or WP_Term_Query arguments, and the output is a plain WordPress args array."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Quartermaster require the PressGang theme framework?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Quartermaster is a standalone Composer package for any WordPress project. It is part of the PressGang ecosystem but does not depend on the PressGang framework."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is Quartermaster different from raw WP_Query arrays?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Raw arrays are fine for short static queries. Quartermaster helps when queries evolve, branch, or need to be composed without rewriting large nested arrays."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <script src="/assets/js/app.js" defer></script>
+</head>
+<body class="qm-page">
+  <a class="qm-skip-link" href="#main">Skip to content</a>
+  <nav class="qm-nav" aria-label="Main">
+    <div class="qm-container qm-nav__inner">
+      <a class="qm-nav__brand" href="#top" aria-label="Quartermaster home">
+        <img class="qm-logo qm-logo--nav" src="/assets/images/quartermaster/quartermaster.svg" alt="" width="212" height="44" decoding="async">
+      </a>
+      <button class="qm-nav__toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" data-nav-toggle>
+        <span class="qm-sr-only">Menu</span>
+        <span class="qm-nav__toggle-line"></span>
+        <span class="qm-nav__toggle-line"></span>
+        <span class="qm-nav__toggle-line"></span>
+      </button>
+      <div class="qm-nav__links" id="primary-navigation" data-nav-menu>
+        <a class="qm-nav__link" href="#compare">Compare</a>
+        <a class="qm-nav__link" href="#features">Features</a>
+        <a class="qm-nav__link" href="#philosophy">Philosophy</a>
+        <a class="qm-nav__link" href="https://docs.pressgang.dev/ecosystem/quartermaster" target="_blank" rel="noopener noreferrer">Docs</a>
+        <a class="qm-button qm-button--primary qm-button--nav" href="https://github.com/pressgang-wp/pressgang-quartermaster" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </div>
+  </nav>
+  <header id="top" class="qm-hero">
+    <div class="qm-container qm-hero__inner">
+      <div class="qm-hero__content">
+        <p class="qm-hero__badge">⚓ composer require · PHP 8.3+ · zero runtime dependencies · works in any theme or plugin</p>
+        <h1 class="qm-hero__title">The fluent WordPress query builder — <span>real WP_Query args out</span></h1>
+        <p class="qm-hero__lede">Chainable, args-first methods for WP_Query and WP_Term_Query. Sprawling meta_query arrays become readable, composable steps — no ORM, no SQL layer, no hidden defaults.</p>
+        <div class="qm-hero__actions">
+          <a class="qm-button qm-button--primary qm-button--large" href="https://docs.pressgang.dev/ecosystem/quartermaster" target="_blank" rel="noopener noreferrer">Read the docs <span aria-hidden="true">&rarr;</span></a>
+          <button class="qm-copy-button" type="button" data-copy="composer require pressgang-wp/quartermaster" aria-label="Copy install command">
+            <code>composer require pressgang-wp/quartermaster</code>
+            <span class="copy-label" aria-live="polite" aria-atomic="true">copy</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main id="main" tabindex="-1">
+    <section id="compare" class="qm-section qm-compare" aria-labelledby="compare-title">
+    <div class="qm-container">
+      <div class="qm-section__header">
+        <h2 id="compare-title" class="qm-section__title">The same WordPress machinery, less array archaeology</h2>
+        <p class="qm-section__intro">Quartermaster does not replace WordPress queries. It makes the argument-building layer explicit, composable and easier to review.</p>
+      </div>
+      <div class="qm-compare__grid">
+        <article class="qm-compare__panel qm-compare__panel--muted">
+      <p class="qm-eyebrow">Raw WP_Query</p>
+      <div class="qm-code-card qm-code-card--muted">
+        <div class="qm-chrome" aria-hidden="true">
+          <span class="qm-chrome__dot qm-chrome__dot--red"></span>
+          <span class="qm-chrome__dot qm-chrome__dot--yellow"></span>
+          <span class="qm-chrome__dot qm-chrome__dot--green"></span>
+        </div>
+        <pre><code><span class="code-token code-token--variable">$query</span> = <span class="code-token code-token--keyword">new</span> <span class="code-token code-token--class">WP_Query</span>([
+    <span class="code-token code-token--string">'post_type'</span> =&gt; <span class="code-token code-token--string">'product'</span>,
+    <span class="code-token code-token--string">'meta_query'</span> =&gt; [
+        <span class="code-token code-token--string">'relation'</span> =&gt; <span class="code-token code-token--string">'AND'</span>,
+        [
+            <span class="code-token code-token--string">'key'</span> =&gt; <span class="code-token code-token--string">'_price'</span>,
+            <span class="code-token code-token--string">'compare'</span> =&gt; <span class="code-token code-token--string">'EXISTS'</span>,
+        ],
+        [
+            <span class="code-token code-token--string">'key'</span> =&gt; <span class="code-token code-token--string">'_stock_status'</span>,
+            <span class="code-token code-token--string">'value'</span> =&gt; <span class="code-token code-token--string">'instock'</span>,
+        ],
+    ],
+    <span class="code-token code-token--string">'tax_query'</span> =&gt; [[
+        <span class="code-token code-token--string">'taxonomy'</span> =&gt; <span class="code-token code-token--string">'product_cat'</span>,
+        <span class="code-token code-token--string">'field'</span> =&gt; <span class="code-token code-token--string">'slug'</span>,
+        <span class="code-token code-token--string">'terms'</span> =&gt; [<span class="code-token code-token--string">'featured'</span>],
+    ]],
+    <span class="code-token code-token--string">'posts_per_page'</span> =&gt; <span class="code-token code-token--number">12</span>,
+    <span class="code-token code-token--string">'no_found_rows'</span> =&gt; <span class="code-token code-token--literal">true</span>,
+]);</code></pre>
+      </div>
+      <p class="qm-compare__note">WordPress arrays are powerful, but nested clauses get hard to scan and easy to overwrite when more hooks or conditions join in.</p>
+    </article>
+<article class="qm-compare__panel qm-compare__panel--brand">
+      <p class="qm-eyebrow">With Quartermaster ⚓</p>
+      <div class="qm-code-card qm-code-card--brand">
+        <div class="qm-chrome" aria-hidden="true">
+          <span class="qm-chrome__dot qm-chrome__dot--red"></span>
+          <span class="qm-chrome__dot qm-chrome__dot--yellow"></span>
+          <span class="qm-chrome__dot qm-chrome__dot--green"></span>
+        </div>
+        <pre><code><span class="code-token code-token--variable">$query</span> = <span class="code-token code-token--class">Quartermaster</span>::<span class="code-token code-token--method">posts</span>(<span class="code-token code-token--string">'product'</span>)
+    -&gt;<span class="code-token code-token--method">whereMetaExists</span>(<span class="code-token code-token--string">'_price'</span>)
+    -&gt;<span class="code-token code-token--method">whereMeta</span>(<span class="code-token code-token--string">'_stock_status'</span>, <span class="code-token code-token--string">'instock'</span>)
+    -&gt;<span class="code-token code-token--method">whereTax</span>(<span class="code-token code-token--string">'product_cat'</span>, <span class="code-token code-token--string">'featured'</span>, <span class="code-token code-token--string">'slug'</span>)
+    -&gt;<span class="code-token code-token--method">limit</span>(<span class="code-token code-token--number">12</span>)
+    -&gt;<span class="code-token code-token--method">noFoundRows</span>()
+    -&gt;<span class="code-token code-token--method">query</span>();</code></pre>
+      </div>
+      <p class="qm-compare__note">Each method names a WordPress argument or clause. You can stop at toArgs(), inspect with explain(), or run the query when you are ready.</p>
+    </article>
+      </div>
+    </div>
+  </section>
+    <section id="features" class="qm-section qm-features" aria-labelledby="features-title">
+    <div class="qm-container">
+      <div class="qm-section__header">
+        <h2 id="features-title" class="qm-section__title">Built for queries that grow</h2>
+        <p class="qm-section__intro">Start with everyday queries and grow into bindings, conditionals and hooks — the API scales with the query, so the simple case never pays for the complex one.</p>
+      </div>
+      <article class="qm-feature">
+      <div class="qm-feature__media">
+        <div class="qm-tabs" data-tabs>
+    <div class="qm-tabs__bar" role="tablist" aria-label="everyday query">
+      <span class="qm-chrome__dot qm-chrome__dot--red" aria-hidden="true"></span>
+      <span class="qm-chrome__dot qm-chrome__dot--yellow" aria-hidden="true"></span>
+      <span class="qm-chrome__dot qm-chrome__dot--green" aria-hidden="true"></span>
+      <button class="qm-tab" id="feature-1-before-tab" type="button" role="tab" aria-selected="false" aria-controls="feature-1-before-panel" tabindex="-1" data-tab="before">😩 Raw WordPress</button>
+      <button class="qm-tab" id="feature-1-after-tab" type="button" role="tab" aria-selected="true" aria-controls="feature-1-after-panel" data-tab="after">⚓ Quartermaster</button>
+    </div>
+    <div class="qm-tabs__panel qm-tabs__panel--before" id="feature-1-before-panel" role="tabpanel" aria-labelledby="feature-1-before-tab" data-panel="before" hidden>
+      <pre><code><span class="code-token code-token--variable">$q</span> = <span class="code-token code-token--keyword">new</span> <span class="code-token code-token--class">WP_Query</span>([
+    <span class="code-token code-token--string">'post_type'</span>      =&gt; <span class="code-token code-token--string">'event'</span>,
+    <span class="code-token code-token--string">'post_status'</span>    =&gt; <span class="code-token code-token--string">'publish'</span>,
+    <span class="code-token code-token--string">'posts_per_page'</span> =&gt; <span class="code-token code-token--number">12</span>,
+    <span class="code-token code-token--string">'orderby'</span>        =&gt; <span class="code-token code-token--string">'date'</span>,
+    <span class="code-token code-token--string">'order'</span>          =&gt; <span class="code-token code-token--string">'DESC'</span>,
+]);
+<span class="code-token code-token--variable">$events</span> = <span class="code-token code-token--variable">$q</span>-&gt;<span class="code-token code-token--method">posts</span>;</code></pre>
+    </div>
+    <div class="qm-tabs__panel qm-tabs__panel--after" id="feature-1-after-panel" role="tabpanel" aria-labelledby="feature-1-after-tab" data-panel="after">
+      <pre><code><span class="code-token code-token--variable">$events</span> = <span class="code-token code-token--class">Quartermaster</span>::<span class="code-token code-token--method">posts</span>(<span class="code-token code-token--string">'event'</span>)
+    -&gt;<span class="code-token code-token--method">status</span>(<span class="code-token code-token--string">'publish'</span>)
+    -&gt;<span class="code-token code-token--method">paged</span>(<span class="code-token code-token--number">12</span>)
+    -&gt;<span class="code-token code-token--method">orderByDesc</span>(<span class="code-token code-token--string">'date'</span>)
+    -&gt;<span class="code-token code-token--method">get</span>();</code></pre>
+    </div>
+  </div>
+      </div>
+      <div class="qm-feature__content">
+        <p class="qm-eyebrow">01 · The basics</p>
+        <h3 class="qm-feature__title">Everyday queries, readable at a glance</h3>
+        <p class="qm-copy">Start simple: seed the post type, chain what you need, call get(). Every method maps to the WP_Query arg you already know — nothing new to learn, just less to mistype.</p>
+        <a class="qm-text-link" href="https://docs.pressgang.dev/ecosystem/quartermaster" target="_blank" rel="noopener noreferrer">Quick start <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </article>
+<article class="qm-feature qm-feature--reverse">
+      <div class="qm-feature__media">
+        <div class="qm-tabs" data-tabs>
+    <div class="qm-tabs__bar" role="tablist" aria-label="introspection">
+      <span class="qm-chrome__dot qm-chrome__dot--red" aria-hidden="true"></span>
+      <span class="qm-chrome__dot qm-chrome__dot--yellow" aria-hidden="true"></span>
+      <span class="qm-chrome__dot qm-chrome__dot--green" aria-hidden="true"></span>
+      <button class="qm-tab" id="feature-2-before-tab" type="button" role="tab" aria-selected="false" aria-controls="feature-2-before-panel" tabindex="-1" data-tab="before">😩 Raw WordPress</button>
+      <button class="qm-tab" id="feature-2-after-tab" type="button" role="tab" aria-selected="true" aria-controls="feature-2-after-panel" data-tab="after">⚓ Quartermaster</button>
+    </div>
+    <div class="qm-tabs__panel qm-tabs__panel--before" id="feature-2-before-panel" role="tabpanel" aria-labelledby="feature-2-before-tab" data-panel="before" hidden>
+      <pre><code><span class="code-token code-token--comment">// What will WordPress actually run?</span>
+<span class="code-token code-token--variable">$q</span> = <span class="code-token code-token--keyword">new</span> <span class="code-token code-token--class">WP_Query</span>(<span class="code-token code-token--variable">$args</span>);
+
+<span class="code-token code-token--keyword">var_dump</span>(<span class="code-token code-token--variable">$q</span>-&gt;<span class="code-token code-token--method">request</span>);
+<span class="code-token code-token--comment">// raw SQL — after the query has already run</span></code></pre>
+    </div>
+    <div class="qm-tabs__panel qm-tabs__panel--after" id="feature-2-after-panel" role="tabpanel" aria-labelledby="feature-2-after-tab" data-panel="after">
+      <pre><code><span class="code-token code-token--comment">// Inspect the args before anything runs</span>
+<span class="code-token code-token--variable">$args</span> = <span class="code-token code-token--class">Quartermaster</span>::<span class="code-token code-token--method">posts</span>(<span class="code-token code-token--string">'event'</span>)
+    -&gt;<span class="code-token code-token--method">orderByMeta</span>(<span class="code-token code-token--string">'start'</span>, <span class="code-token code-token--string">'ASC'</span>)
+    -&gt;<span class="code-token code-token--method">toArgs</span>(); <span class="code-token code-token--comment">// plain WP_Query args</span>
+
+<span class="code-token code-token--comment">// Or the full story: calls + warnings</span>
+<span class="code-token code-token--variable">$report</span> = <span class="code-token code-token--class">Quartermaster</span>::<span class="code-token code-token--method">posts</span>(<span class="code-token code-token--string">'event'</span>)
+    -&gt;<span class="code-token code-token--method">orderBy</span>(<span class="code-token code-token--string">'meta_value'</span>)
+    -&gt;<span class="code-token code-token--method">explain</span>();</code></pre>
+    </div>
+  </div>
+      </div>
+      <div class="qm-feature__content">
+        <p class="qm-eyebrow">02 · Introspection</p>
+        <h3 class="qm-feature__title">See exactly what you built</h3>
+        <p class="qm-copy">toArgs() returns the exact args array before anything runs; explain() adds the applied calls and warnings. Perfect for code review, debugging, and keeping junior crew out of trouble.</p>
+        <a class="qm-text-link" href="https://docs.pressgang.dev/ecosystem/quartermaster" target="_blank" rel="noopener noreferrer">Introspection docs <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </article>
+<article class="qm-feature">
+      <div class="qm-feature__media">
+        <div class="qm-tabs" data-tabs>
+    <div class="qm-tabs__bar" role="tablist" aria-label="meta and taxonomy queries">
+      <span class="qm-chrome__dot qm-chrome__dot--red" aria-hidden="true"></span>
+      <span class="qm-chrome__dot qm-chrome__dot--yellow" aria-hidden="true"></span>
+      <span class="qm-chrome__dot qm-chrome__dot--green" aria-hidden="true"></span>
+      <button class="qm-tab" id="feature-3-before-tab" type="button" role="tab" aria-selected="false" aria-controls="feature-3-before-panel" tabindex="-1" data-tab="before">😩 Raw WordPress</button>
+      <button class="qm-tab" id="feature-3-after-tab" type="button" role="tab" aria-selected="true" aria-controls="feature-3-after-panel" data-tab="after">⚓ Quartermaster</button>
+    </div>
+    <div class="qm-tabs__panel qm-tabs__panel--before" id="feature-3-before-panel" role="tabpanel" aria-labelledby="feature-3-before-tab" data-panel="before" hidden>
+      <pre><code><span class="code-token code-token--string">'meta_query'</span> =&gt; [
+    <span class="code-token code-token--string">'relation'</span> =&gt; <span class="code-token code-token--string">'AND'</span>,
+    [ <span class="code-token code-token--string">'key'</span> =&gt; <span class="code-token code-token--string">'featured'</span>, <span class="code-token code-token--string">'value'</span> =&gt; <span class="code-token code-token--number">1</span> ],
+    [ <span class="code-token code-token--string">'key'</span> =&gt; <span class="code-token code-token--string">'venue'</span>, <span class="code-token code-token--string">'compare'</span> =&gt; <span class="code-token code-token--string">'EXISTS'</span> ],
+],
+<span class="code-token code-token--string">'tax_query'</span> =&gt; [[
+    <span class="code-token code-token--string">'taxonomy'</span> =&gt; <span class="code-token code-token--string">'genre'</span>,
+    <span class="code-token code-token--string">'field'</span>    =&gt; <span class="code-token code-token--string">'slug'</span>,
+    <span class="code-token code-token--string">'terms'</span>    =&gt; [<span class="code-token code-token--string">'rock'</span>, <span class="code-token code-token--string">'jazz'</span>],
+]],</code></pre>
+    </div>
+    <div class="qm-tabs__panel qm-tabs__panel--after" id="feature-3-after-panel" role="tabpanel" aria-labelledby="feature-3-after-tab" data-panel="after">
+      <pre><code><span class="code-token code-token--variable">$events</span> = <span class="code-token code-token--class">Quartermaster</span>::<span class="code-token code-token--method">posts</span>(<span class="code-token code-token--string">'event'</span>)
+    -&gt;<span class="code-token code-token--method">whereMeta</span>(<span class="code-token code-token--string">'featured'</span>, <span class="code-token code-token--number">1</span>)
+    -&gt;<span class="code-token code-token--method">whereMetaExists</span>(<span class="code-token code-token--string">'venue'</span>)
+    -&gt;<span class="code-token code-token--method">whereTax</span>(<span class="code-token code-token--string">'genre'</span>, [<span class="code-token code-token--string">'rock'</span>, <span class="code-token code-token--string">'jazz'</span>], <span class="code-token code-token--string">'slug'</span>)
+    -&gt;<span class="code-token code-token--method">get</span>();</code></pre>
+    </div>
+  </div>
+      </div>
+      <div class="qm-feature__content">
+        <p class="qm-eyebrow">03 · Meta &amp; tax queries</p>
+        <h3 class="qm-feature__title">meta_query without the nesting</h3>
+        <p class="qm-copy">The arrays WordPress developers dread most — meta_query and tax_query — become one call per clause. AND by default, orWhereMeta() and orWhereTax() for OR.</p>
+        <a class="qm-text-link" href="https://docs.pressgang.dev/ecosystem/quartermaster" target="_blank" rel="noopener noreferrer">Meta &amp; tax docs <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </article>
+<article class="qm-feature qm-feature--reverse">
+      <div class="qm-feature__media">
+        <div class="qm-tabs" data-tabs>
+    <div class="qm-tabs__bar" role="tablist" aria-label="term query">
+      <span class="qm-chrome__dot qm-chrome__dot--red" aria-hidden="true"></span>
+      <span class="qm-chrome__dot qm-chrome__dot--yellow" aria-hidden="true"></span>
+      <span class="qm-chrome__dot qm-chrome__dot--green" aria-hidden="true"></span>
+      <button class="qm-tab" id="feature-4-before-tab" type="button" role="tab" aria-selected="false" aria-controls="feature-4-before-panel" tabindex="-1" data-tab="before">😩 Raw WordPress</button>
+      <button class="qm-tab" id="feature-4-after-tab" type="button" role="tab" aria-selected="true" aria-controls="feature-4-after-panel" data-tab="after">⚓ Quartermaster</button>
+    </div>
+    <div class="qm-tabs__panel qm-tabs__panel--before" id="feature-4-before-panel" role="tabpanel" aria-labelledby="feature-4-before-tab" data-panel="before" hidden>
+      <pre><code><span class="code-token code-token--variable">$terms</span> = <span class="code-token code-token--keyword">get_terms</span>([
+    <span class="code-token code-token--string">'taxonomy'</span>   =&gt; <span class="code-token code-token--string">'category'</span>,
+    <span class="code-token code-token--string">'hide_empty'</span> =&gt; <span class="code-token code-token--literal">true</span>,
+    <span class="code-token code-token--string">'orderby'</span>    =&gt; <span class="code-token code-token--string">'name'</span>,
+    <span class="code-token code-token--string">'number'</span>     =&gt; <span class="code-token code-token--number">20</span>,
+]);
+
+<span class="code-token code-token--variable">$tags</span> = <span class="code-token code-token--keyword">wp_get_post_terms</span>(<span class="code-token code-token--variable">$post</span>-&gt;<span class="code-token code-token--method">ID</span>, <span class="code-token code-token--string">'post_tag'</span>);</code></pre>
+    </div>
+    <div class="qm-tabs__panel qm-tabs__panel--after" id="feature-4-after-panel" role="tabpanel" aria-labelledby="feature-4-after-tab" data-panel="after">
+      <pre><code><span class="code-token code-token--variable">$terms</span> = <span class="code-token code-token--class">Quartermaster</span>::<span class="code-token code-token--method">terms</span>(<span class="code-token code-token--string">'category'</span>)
+    -&gt;<span class="code-token code-token--method">hideEmpty</span>()
+    -&gt;<span class="code-token code-token--method">orderBy</span>(<span class="code-token code-token--string">'name'</span>)
+    -&gt;<span class="code-token code-token--method">limit</span>(<span class="code-token code-token--number">20</span>)
+    -&gt;<span class="code-token code-token--method">get</span>();
+
+<span class="code-token code-token--variable">$tags</span> = <span class="code-token code-token--class">Quartermaster</span>::<span class="code-token code-token--method">terms</span>(<span class="code-token code-token--string">'post_tag'</span>)
+    -&gt;<span class="code-token code-token--method">objectIds</span>(<span class="code-token code-token--variable">$post</span>-&gt;<span class="code-token code-token--method">ID</span>)
+    -&gt;<span class="code-token code-token--method">get</span>();</code></pre>
+    </div>
+  </div>
+      </div>
+      <div class="qm-feature__content">
+        <p class="qm-eyebrow">04 · Terms too</p>
+        <h3 class="qm-feature__title">WP_Term_Query, same fluent treatment</h3>
+        <p class="qm-copy">terms() covers the taxonomy side — hierarchy helpers like childOf(), childless() and excludeTree() included — with the same toArgs() introspection.</p>
+        <a class="qm-text-link" href="https://docs.pressgang.dev/ecosystem/quartermaster" target="_blank" rel="noopener noreferrer">Terms docs <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </article>
+<article class="qm-feature">
+      <div class="qm-feature__media">
+        <div class="qm-tabs" data-tabs>
+    <div class="qm-tabs__bar" role="tablist" aria-label="query-var binding">
+      <span class="qm-chrome__dot qm-chrome__dot--red" aria-hidden="true"></span>
+      <span class="qm-chrome__dot qm-chrome__dot--yellow" aria-hidden="true"></span>
+      <span class="qm-chrome__dot qm-chrome__dot--green" aria-hidden="true"></span>
+      <button class="qm-tab" id="feature-5-before-tab" type="button" role="tab" aria-selected="false" aria-controls="feature-5-before-panel" tabindex="-1" data-tab="before">😩 Raw WordPress</button>
+      <button class="qm-tab" id="feature-5-after-tab" type="button" role="tab" aria-selected="true" aria-controls="feature-5-after-panel" data-tab="after">⚓ Quartermaster</button>
+    </div>
+    <div class="qm-tabs__panel qm-tabs__panel--before" id="feature-5-before-panel" role="tabpanel" aria-labelledby="feature-5-before-tab" data-panel="before" hidden>
+      <pre><code><span class="code-token code-token--variable">$args</span> = [
+    <span class="code-token code-token--string">'post_type'</span> =&gt; <span class="code-token code-token--string">'route'</span>,
+    <span class="code-token code-token--string">'paged'</span> =&gt; <span class="code-token code-token--keyword">max</span>(<span class="code-token code-token--number">1</span>, <span class="code-token code-token--keyword">get_query_var</span>(<span class="code-token code-token--string">'paged'</span>)),
+];
+
+<span class="code-token code-token--keyword">if</span> (! <span class="code-token code-token--keyword">empty</span>(<span class="code-token code-token--variable">$_GET</span>[<span class="code-token code-token--string">'difficulty'</span>])) {
+    <span class="code-token code-token--variable">$args</span>[<span class="code-token code-token--string">'tax_query'</span>][] = [
+        <span class="code-token code-token--string">'taxonomy'</span> =&gt; <span class="code-token code-token--string">'route_difficulty'</span>,
+        <span class="code-token code-token--string">'field'</span>    =&gt; <span class="code-token code-token--string">'slug'</span>,
+        <span class="code-token code-token--string">'terms'</span>    =&gt; <span class="code-token code-token--keyword">sanitize_key</span>(<span class="code-token code-token--variable">$_GET</span>[<span class="code-token code-token--string">'difficulty'</span>]),
+    ];
+}
+<span class="code-token code-token--keyword">if</span> (! <span class="code-token code-token--keyword">empty</span>(<span class="code-token code-token--variable">$_GET</span>[<span class="code-token code-token--string">'min_distance'</span>])) { /* ... and again */ }</code></pre>
+    </div>
+    <div class="qm-tabs__panel qm-tabs__panel--after" id="feature-5-after-panel" role="tabpanel" aria-labelledby="feature-5-after-tab" data-panel="after">
+      <pre><code><span class="code-token code-token--variable">$q</span> = <span class="code-token code-token--class">Quartermaster</span>::<span class="code-token code-token--method">posts</span>(<span class="code-token code-token--string">'route'</span>)-&gt;<span class="code-token code-token--method">bindQueryVars</span>([
+    <span class="code-token code-token--string">'paged'</span>        =&gt; <span class="code-token code-token--class">Bind</span>::<span class="code-token code-token--method">paged</span>(),
+    <span class="code-token code-token--string">'difficulty'</span>   =&gt; <span class="code-token code-token--class">Bind</span>::<span class="code-token code-token--method">tax</span>(<span class="code-token code-token--string">'route_difficulty'</span>),
+    <span class="code-token code-token--string">'min_distance'</span> =&gt; <span class="code-token code-token--class">Bind</span>::<span class="code-token code-token--method">metaNum</span>(<span class="code-token code-token--string">'distance_miles'</span>, <span class="code-token code-token--string">'&gt;='</span>),
+    <span class="code-token code-token--string">'search'</span>       =&gt; <span class="code-token code-token--class">Bind</span>::<span class="code-token code-token--method">search</span>(),
+]);</code></pre>
+    </div>
+  </div>
+      </div>
+      <div class="qm-feature__content">
+        <p class="qm-eyebrow">05 · Query-var binding</p>
+        <h3 class="qm-feature__title">Filter UIs without the URL-parsing slog</h3>
+        <p class="qm-copy">Declaratively map URL query vars to query clauses — pagination, taxonomy filters, numeric meta ranges, search. Nothing reads a query var unless you explicitly bind it.</p>
+        <a class="qm-text-link" href="https://docs.pressgang.dev/ecosystem/quartermaster" target="_blank" rel="noopener noreferrer">Binding docs <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </article>
+<article class="qm-feature qm-feature--reverse">
+      <div class="qm-feature__media">
+        <div class="qm-tabs" data-tabs>
+    <div class="qm-tabs__bar" role="tablist" aria-label="conditional chains">
+      <span class="qm-chrome__dot qm-chrome__dot--red" aria-hidden="true"></span>
+      <span class="qm-chrome__dot qm-chrome__dot--yellow" aria-hidden="true"></span>
+      <span class="qm-chrome__dot qm-chrome__dot--green" aria-hidden="true"></span>
+      <button class="qm-tab" id="feature-6-before-tab" type="button" role="tab" aria-selected="false" aria-controls="feature-6-before-panel" tabindex="-1" data-tab="before">😩 Raw WordPress</button>
+      <button class="qm-tab" id="feature-6-after-tab" type="button" role="tab" aria-selected="true" aria-controls="feature-6-after-panel" data-tab="after">⚓ Quartermaster</button>
+    </div>
+    <div class="qm-tabs__panel qm-tabs__panel--before" id="feature-6-before-panel" role="tabpanel" aria-labelledby="feature-6-before-tab" data-panel="before" hidden>
+      <pre><code><span class="code-token code-token--keyword">if</span> (<span class="code-token code-token--variable">$isArchive</span>) {
+    <span class="code-token code-token--variable">$args</span>[<span class="code-token code-token--string">'meta_query'</span>] = [[
+        <span class="code-token code-token--string">'key'</span> =&gt; <span class="code-token code-token--string">'start'</span>, <span class="code-token code-token--string">'compare'</span> =&gt; <span class="code-token code-token--string">'&lt;'</span>,
+        <span class="code-token code-token--string">'value'</span> =&gt; <span class="code-token code-token--keyword">wp_date</span>(<span class="code-token code-token--string">'Ymd'</span>), <span class="code-token code-token--string">'type'</span> =&gt; <span class="code-token code-token--string">'DATE'</span>,
+    ]];
+    <span class="code-token code-token--variable">$args</span>[<span class="code-token code-token--string">'meta_key'</span>] = <span class="code-token code-token--string">'start'</span>;
+    <span class="code-token code-token--variable">$args</span>[<span class="code-token code-token--string">'orderby'</span>]  = <span class="code-token code-token--string">'meta_value'</span>;
+    <span class="code-token code-token--variable">$args</span>[<span class="code-token code-token--string">'order'</span>]    = <span class="code-token code-token--string">'DESC'</span>;
+} <span class="code-token code-token--keyword">else</span> {
+    <span class="code-token code-token--comment">// ...all of it again, flipped</span>
+}</code></pre>
+    </div>
+    <div class="qm-tabs__panel qm-tabs__panel--after" id="feature-6-after-panel" role="tabpanel" aria-labelledby="feature-6-after-tab" data-panel="after">
+      <pre><code><span class="code-token code-token--variable">$q</span> = <span class="code-token code-token--class">Quartermaster</span>::<span class="code-token code-token--method">posts</span>(<span class="code-token code-token--string">'event'</span>)
+    -&gt;<span class="code-token code-token--method">when</span>(<span class="code-token code-token--variable">$isArchive</span>,
+        <span class="code-token code-token--keyword">fn</span> (<span class="code-token code-token--variable">$q</span>) =&gt; <span class="code-token code-token--variable">$q</span>-&gt;<span class="code-token code-token--method">whereMetaDate</span>(<span class="code-token code-token--string">'start'</span>, <span class="code-token code-token--string">'&lt;'</span>)
+            -&gt;<span class="code-token code-token--method">orderByMeta</span>(<span class="code-token code-token--string">'start'</span>, <span class="code-token code-token--string">'DESC'</span>),
+        <span class="code-token code-token--keyword">fn</span> (<span class="code-token code-token--variable">$q</span>) =&gt; <span class="code-token code-token--variable">$q</span>-&gt;<span class="code-token code-token--method">whereMetaDate</span>(<span class="code-token code-token--string">'start'</span>, <span class="code-token code-token--string">'&gt;='</span>)
+            -&gt;<span class="code-token code-token--method">orderByMeta</span>(<span class="code-token code-token--string">'start'</span>, <span class="code-token code-token--string">'ASC'</span>),
+    );</code></pre>
+    </div>
+  </div>
+      </div>
+      <div class="qm-feature__content">
+        <p class="qm-eyebrow">06 · Conditional chains</p>
+        <h3 class="qm-feature__title">Branch without breaking the chain</h3>
+        <p class="qm-copy">when(), unless() and tap() keep branching queries readable — no magic, no hidden state, and every call recorded in explain(). Project-specific sugar goes in opt-in macros.</p>
+        <a class="qm-text-link" href="https://docs.pressgang.dev/ecosystem/quartermaster" target="_blank" rel="noopener noreferrer">Conditionals &amp; macros docs <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </article>
+<article class="qm-feature">
+      <div class="qm-feature__media">
+        <div class="qm-tabs" data-tabs>
+    <div class="qm-tabs__bar" role="tablist" aria-label="lean queries">
+      <span class="qm-chrome__dot qm-chrome__dot--red" aria-hidden="true"></span>
+      <span class="qm-chrome__dot qm-chrome__dot--yellow" aria-hidden="true"></span>
+      <span class="qm-chrome__dot qm-chrome__dot--green" aria-hidden="true"></span>
+      <button class="qm-tab" id="feature-7-before-tab" type="button" role="tab" aria-selected="false" aria-controls="feature-7-before-panel" tabindex="-1" data-tab="before">😩 Raw WordPress</button>
+      <button class="qm-tab" id="feature-7-after-tab" type="button" role="tab" aria-selected="true" aria-controls="feature-7-after-panel" data-tab="after">⚓ Quartermaster</button>
+    </div>
+    <div class="qm-tabs__panel qm-tabs__panel--before" id="feature-7-before-panel" role="tabpanel" aria-labelledby="feature-7-before-tab" data-panel="before" hidden>
+      <pre><code><span class="code-token code-token--variable">$related</span> = <span class="code-token code-token--keyword">get_posts</span>([
+    <span class="code-token code-token--string">'post_type'</span>      =&gt; <span class="code-token code-token--string">'post'</span>,
+    <span class="code-token code-token--string">'tax_query'</span>      =&gt; [[ <span class="code-token code-token--string">'taxonomy'</span> =&gt; <span class="code-token code-token--string">'category'</span>,
+        <span class="code-token code-token--string">'field'</span> =&gt; <span class="code-token code-token--string">'term_id'</span>, <span class="code-token code-token--string">'terms'</span> =&gt; <span class="code-token code-token--variable">$catId</span> ]],
+    <span class="code-token code-token--string">'post__not_in'</span>   =&gt; [<span class="code-token code-token--variable">$post</span>-&gt;<span class="code-token code-token--method">ID</span>],
+    <span class="code-token code-token--string">'fields'</span>         =&gt; <span class="code-token code-token--string">'ids'</span>,
+    <span class="code-token code-token--string">'no_found_rows'</span>  =&gt; <span class="code-token code-token--literal">true</span>,
+    <span class="code-token code-token--string">'posts_per_page'</span> =&gt; <span class="code-token code-token--number">4</span>,
+]);
+
+<span class="code-token code-token--variable">$leafIds</span> = <span class="code-token code-token--keyword">get_terms</span>([ <span class="code-token code-token--string">'taxonomy'</span> =&gt; <span class="code-token code-token--string">'category'</span>,
+    <span class="code-token code-token--string">'childless'</span> =&gt; <span class="code-token code-token--literal">true</span>, <span class="code-token code-token--string">'fields'</span> =&gt; <span class="code-token code-token--string">'ids'</span> ]);</code></pre>
+    </div>
+    <div class="qm-tabs__panel qm-tabs__panel--after" id="feature-7-after-panel" role="tabpanel" aria-labelledby="feature-7-after-tab" data-panel="after">
+      <pre><code><span class="code-token code-token--comment">// Lean related posts — IDs only</span>
+<span class="code-token code-token--variable">$ids</span> = <span class="code-token code-token--class">Quartermaster</span>::<span class="code-token code-token--method">posts</span>(<span class="code-token code-token--string">'post'</span>)
+    -&gt;<span class="code-token code-token--method">whereTax</span>(<span class="code-token code-token--string">'category'</span>, <span class="code-token code-token--variable">$catId</span>, <span class="code-token code-token--string">'term_id'</span>)
+    -&gt;<span class="code-token code-token--method">excludeIds</span>([<span class="code-token code-token--variable">$post</span>-&gt;<span class="code-token code-token--method">ID</span>])
+    -&gt;<span class="code-token code-token--method">idsOnly</span>()
+    -&gt;<span class="code-token code-token--method">noFoundRows</span>()
+    -&gt;<span class="code-token code-token--method">limit</span>(<span class="code-token code-token--number">4</span>)
+    -&gt;<span class="code-token code-token--method">get</span>();
+
+<span class="code-token code-token--comment">// WP_Term_Query, same fluent treatment</span>
+<span class="code-token code-token--variable">$leafIds</span> = <span class="code-token code-token--class">Quartermaster</span>::<span class="code-token code-token--method">terms</span>(<span class="code-token code-token--string">'category'</span>)
+    -&gt;<span class="code-token code-token--method">childless</span>()
+    -&gt;<span class="code-token code-token--method">fields</span>(<span class="code-token code-token--string">'ids'</span>)
+    -&gt;<span class="code-token code-token--method">get</span>();</code></pre>
+    </div>
+  </div>
+      </div>
+      <div class="qm-feature__content">
+        <p class="qm-eyebrow">07 · Query shaping</p>
+        <h3 class="qm-feature__title">Performance flags, spelled out</h3>
+        <p class="qm-copy">idsOnly(), noFoundRows() and cache flags make WordPress's most-forgotten query optimisations first-class, readable calls. Meta queries go further than raw arrays comfortably allow — whereMetaLikeAny(), whereMetaExists(), orWhereMeta() — each mapping to real clauses you can inspect.</p>
+        <a class="qm-text-link" href="https://docs.pressgang.dev/ecosystem/quartermaster" target="_blank" rel="noopener noreferrer">Method index <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </article>
+<article class="qm-feature qm-feature--reverse">
+      <div class="qm-feature__media">
+        <div class="qm-tabs" data-tabs>
+    <div class="qm-tabs__bar" role="tablist" aria-label="pre_get_posts">
+      <span class="qm-chrome__dot qm-chrome__dot--red" aria-hidden="true"></span>
+      <span class="qm-chrome__dot qm-chrome__dot--yellow" aria-hidden="true"></span>
+      <span class="qm-chrome__dot qm-chrome__dot--green" aria-hidden="true"></span>
+      <button class="qm-tab" id="feature-8-before-tab" type="button" role="tab" aria-selected="false" aria-controls="feature-8-before-panel" tabindex="-1" data-tab="before">😩 Raw WordPress</button>
+      <button class="qm-tab" id="feature-8-after-tab" type="button" role="tab" aria-selected="true" aria-controls="feature-8-after-panel" data-tab="after">⚓ Quartermaster</button>
+    </div>
+    <div class="qm-tabs__panel qm-tabs__panel--before" id="feature-8-before-panel" role="tabpanel" aria-labelledby="feature-8-before-tab" data-panel="before" hidden>
+      <pre><code><span class="code-token code-token--keyword">add_action</span>(<span class="code-token code-token--string">'pre_get_posts'</span>, <span class="code-token code-token--keyword">function</span> (<span class="code-token code-token--class">WP_Query</span> <span class="code-token code-token--variable">$query</span>) {
+    <span class="code-token code-token--keyword">if</span> (! <span class="code-token code-token--variable">$query</span>-&gt;<span class="code-token code-token--method">is_main_query</span>() || <span class="code-token code-token--keyword">is_admin</span>()) <span class="code-token code-token--keyword">return</span>;
+
+    <span class="code-token code-token--comment">// overwrites meta_query set by other hooks</span>
+    <span class="code-token code-token--variable">$query</span>-&gt;<span class="code-token code-token--method">set</span>(<span class="code-token code-token--string">'meta_query'</span>, [[
+        <span class="code-token code-token--string">'key'</span> =&gt; <span class="code-token code-token--string">'_price'</span>, <span class="code-token code-token--string">'compare'</span> =&gt; <span class="code-token code-token--string">'EXISTS'</span>,
+    ]]);
+});</code></pre>
+    </div>
+    <div class="qm-tabs__panel qm-tabs__panel--after" id="feature-8-after-panel" role="tabpanel" aria-labelledby="feature-8-after-tab" data-panel="after">
+      <pre><code><span class="code-token code-token--keyword">add_action</span>(<span class="code-token code-token--string">'pre_get_posts'</span>, <span class="code-token code-token--keyword">function</span> (<span class="code-token code-token--class">WP_Query</span> <span class="code-token code-token--variable">$query</span>) {
+    <span class="code-token code-token--keyword">if</span> (! <span class="code-token code-token--variable">$query</span>-&gt;<span class="code-token code-token--method">is_main_query</span>() || <span class="code-token code-token--keyword">is_admin</span>()) <span class="code-token code-token--keyword">return</span>;
+
+    <span class="code-token code-token--class">Quartermaster</span>::<span class="code-token code-token--method">posts</span>(<span class="code-token code-token--string">'product'</span>)
+        -&gt;<span class="code-token code-token--method">whereMetaExists</span>(<span class="code-token code-token--string">'_price'</span>)
+        -&gt;<span class="code-token code-token--method">applyTo</span>(<span class="code-token code-token--variable">$query</span>);
+});</code></pre>
+    </div>
+  </div>
+      </div>
+      <div class="qm-feature__content">
+        <p class="qm-eyebrow">08 · Hooks &amp; Timber</p>
+        <h3 class="qm-feature__title">Plays well with pre_get_posts</h3>
+        <p class="qm-copy">applyTo() modifies an existing query safely inside pre_get_posts — clause arrays merge with existing ones rather than overwriting, so multiple hooks compose safely. An optional timber() terminal returns Timber objects when Timber is present — runtime-guarded, never hard-coupled.</p>
+        <a class="qm-text-link" href="https://docs.pressgang.dev/ecosystem/quartermaster" target="_blank" rel="noopener noreferrer">Full method index <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </article>
+    </div>
+  </section>
+    <section id="philosophy" class="qm-philosophy" aria-labelledby="philosophy-title">
+    <div class="qm-container qm-philosophy__inner">
+      <div class="qm-philosophy__content">
+        <p class="qm-eyebrow qm-eyebrow--light">Design philosophy</p>
+        <h2 id="philosophy-title" class="qm-section__title qm-section__title--dark">You decide what goes aboard. Nothing gets smuggled in.</h2>
+        <div class="qm-philosophy__copy">
+          <p>Quartermaster is intentionally light-touch: no global state, no ORM, no mutation of WordPress internals and no SQL abstraction. It helps you build the same arguments WordPress already understands.</p>
+        <p>Sometimes raw WP_Query is fine. Quartermaster earns its keep when queries branch, grow, need tests, or must be safely combined across controller and hook boundaries.</p>
+        </div>
+        <div class="qm-terminal"><pre><code><span class="code-token code-token--class">Quartermaster</span>::<span class="code-token code-token--method">posts</span>()-&gt;<span class="code-token code-token--method">toArgs</span>(); <span class="code-token code-token--comment">// []</span></code></pre></div>
+      </div>
+      <figure class="qm-philosophy__figure">
+        <img src="/assets/images/quartermaster/quartermaster.png" alt="Quartermaster mascot carrying WordPress query cargo" width="1536" height="1024" loading="lazy" decoding="async">
+      </figure>
+    </div>
+  </section>
+    <section class="qm-section qm-ecosystem" aria-labelledby="ecosystem-title">
+    <div class="qm-container">
+      <div class="qm-section__header">
+        <h2 id="ecosystem-title" class="qm-section__title">Standalone package. Part of the PressGang ecosystem.</h2>
+        <p class="qm-section__intro">Quartermaster works in any WordPress theme or plugin. It also fits naturally with PressGang, where controllers own context and Quartermaster owns the query-argument layer.</p>
+      </div>
+      <div class="qm-ecosystem__grid">
+        <article class="qm-ecosystem-card">
+      <h3>The Loop</h3>
+      <p>Fetching and rendering entangled in template tags and global state.</p>
+    </article>
+<article class="qm-ecosystem-card">
+      <h3>Timber + Twig</h3>
+      <p>Views separate from PHP, while query construction remains hand-written.</p>
+    </article>
+<article class="qm-ecosystem-card">
+      <h3>PressGang</h3>
+      <p>Controllers give context-building a home and route templates by convention.</p>
+    </article>
+<article class="qm-ecosystem-card">
+      <h3>Quartermaster</h3>
+      <p>Declarative, inspectable query args that keep WordPress machinery untouched.</p>
+    </article>
+      </div>
+      <div class="qm-ecosystem__actions">
+        <a class="qm-button qm-button--primary" href="https://docs.pressgang.dev/ecosystem/quartermaster" target="_blank" rel="noopener noreferrer">Quartermaster docs <span aria-hidden="true">&rarr;</span></a>
+        <a class="qm-button qm-button--secondary" href="https://pressgang.dev">Meet PressGang</a>
+      </div>
+    </div>
+  </section>
+  </main>
+  <footer class="qm-footer">
+    <div class="qm-container qm-footer__inner">
+      <div class="qm-footer__brand">
+        <img class="qm-logo qm-logo--footer" src="/assets/images/quartermaster/quartermaster.svg" alt="" width="40" height="40" loading="lazy" decoding="async">
+        <h2>Quartermaster</h2>
+        <p>A fluent, args-first WordPress query builder. Open source, MIT licensed, and part of the pressgang-wp toolkit.</p>
+      </div>
+      <div class="qm-footer__column">
+        <h2>Docs</h2>
+        <a class="qm-footer__link" href="https://docs.pressgang.dev/ecosystem/quartermaster" target="_blank" rel="noopener noreferrer">Quartermaster docs</a>
+          <a class="qm-footer__link" href="https://docs.pressgang.dev" target="_blank" rel="noopener noreferrer">PressGang docs</a>
+      </div>
+<div class="qm-footer__column">
+        <h2>Source</h2>
+        <a class="qm-footer__link" href="https://github.com/pressgang-wp/pressgang-quartermaster" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a class="qm-footer__link" href="https://packagist.org/packages/pressgang-wp/quartermaster" target="_blank" rel="noopener noreferrer">Packagist</a>
+          <a class="qm-footer__link" href="https://github.com/pressgang-wp/pressgang-quartermaster/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">MIT license</a>
+      </div>
+    </div>
+    <div class="qm-container qm-footer__meta">
+      <span>&copy; 2026 PressGang</span>
+      <span>Requires PHP 8.3+ - zero runtime dependencies</span>
+    </div>
+  </footer>
+</body>
+</html>

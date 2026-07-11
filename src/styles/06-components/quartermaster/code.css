@@ -1,0 +1,89 @@
+@layer components {
+  .qm-code-card,
+  .qm-tabs,
+  .qm-terminal {
+    @apply w-full max-w-full min-w-0 overflow-hidden rounded-lg bg-qm-panel shadow-[0_14px_34px_rgb(34_26_18_/_18%)];
+  }
+
+  .qm-code-card pre,
+  .qm-tabs__panel pre,
+  .qm-terminal pre {
+    @apply m-0 overflow-x-auto p-5 font-mono text-[12.5px] leading-[1.75] sm:p-6 sm:text-[13px];
+  }
+
+  .qm-code-card code,
+  .qm-tabs__panel code,
+  .qm-terminal code {
+    @apply block min-w-fit whitespace-pre;
+  }
+
+  .qm-code-card--muted pre,
+  .qm-tabs__panel--before pre {
+    @apply text-[#c2b29e];
+  }
+
+  .qm-code-card--brand pre,
+  .qm-tabs__panel--after pre,
+  .qm-terminal pre {
+    @apply text-[#fff2df];
+  }
+
+  .code-token--comment {
+    @apply text-[#8a7458];
+  }
+
+  .code-token--string {
+    @apply text-[#a8d68a];
+  }
+
+  .code-token--variable {
+    @apply text-[#9ed8ef];
+  }
+
+  .code-token--keyword,
+  .code-token--literal {
+    @apply text-[#c9a3e8];
+  }
+
+  .code-token--class {
+    @apply text-[#f4cf7a];
+  }
+
+  .code-token--method,
+  .code-token--number {
+    @apply text-[#ffb366];
+  }
+
+  .qm-chrome,
+  .qm-tabs__bar {
+    @apply flex min-w-0 items-center gap-2 border-b border-white/10 px-4 py-3;
+  }
+
+  .qm-chrome__dot {
+    @apply size-2.5 shrink-0 rounded-full;
+  }
+
+  .qm-chrome__dot--red {
+    @apply bg-[#ff5f57];
+  }
+
+  .qm-chrome__dot--yellow {
+    @apply bg-[#febc2e];
+  }
+
+  .qm-chrome__dot--green {
+    @apply bg-[#28c840];
+  }
+
+  .qm-tab {
+    @apply cursor-pointer rounded-md px-3 py-1.5 font-mono text-xs font-bold text-[#a89275] transition-colors;
+  }
+
+  .qm-tab[aria-selected="true"][data-tab="before"] {
+    @apply bg-white/10 text-white;
+  }
+
+  .qm-tab[aria-selected="true"][data-tab="after"] {
+    @apply bg-qm-brand/25 text-[#ffbd7a];
+  }
+}

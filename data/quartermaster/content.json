@@ -1,0 +1,223 @@
+{
+  "meta": {
+    "title": "Quartermaster - Fluent WordPress Query Builder for WP_Query",
+    "description": "Quartermaster is a fluent, args-first WordPress query builder for WP_Query and WP_Term_Query. Build readable meta_query, tax_query and date_query arguments without an ORM, SQL layer, or lock-in.",
+    "canonical": "https://pressgang.dev/quartermaster/",
+    "image": "https://pressgang.dev/assets/images/quartermaster/quartermaster.png"
+  },
+  "assets": {
+    "logo": "/assets/images/quartermaster/quartermaster.svg",
+    "mascot": "/assets/images/quartermaster/quartermaster.png"
+  },
+  "nav": [
+    {
+      "label": "Compare",
+      "href": "#compare"
+    },
+    {
+      "label": "Features",
+      "href": "#features"
+    },
+    {
+      "label": "Philosophy",
+      "href": "#philosophy"
+    },
+    {
+      "label": "Docs",
+      "href": "https://docs.pressgang.dev/ecosystem/quartermaster"
+    }
+  ],
+  "hero": {
+    "badge": "⚓ composer require · PHP 8.3+ · zero runtime dependencies · works in any theme or plugin",
+    "title": "The fluent WordPress query builder — real WP_Query args out",
+    "accent": "real WP_Query args out",
+    "lede": "Chainable, args-first methods for WP_Query and WP_Term_Query. Sprawling meta_query arrays become readable, composable steps — no ORM, no SQL layer, no hidden defaults.",
+    "primaryAction": {
+      "label": "Read the docs",
+      "href": "https://docs.pressgang.dev/ecosystem/quartermaster"
+    },
+    "installCommand": "composer require pressgang-wp/quartermaster"
+  },
+  "compare": {
+    "title": "The same WordPress machinery, less array archaeology",
+    "intro": "Quartermaster does not replace WordPress queries. It makes the argument-building layer explicit, composable and easier to review.",
+    "panels": [
+      {
+        "eyebrow": "Raw WP_Query",
+        "tone": "muted",
+        "code": "$query = new WP_Query([\n    'post_type' => 'product',\n    'meta_query' => [\n        'relation' => 'AND',\n        [\n            'key' => '_price',\n            'compare' => 'EXISTS',\n        ],\n        [\n            'key' => '_stock_status',\n            'value' => 'instock',\n        ],\n    ],\n    'tax_query' => [[\n        'taxonomy' => 'product_cat',\n        'field' => 'slug',\n        'terms' => ['featured'],\n    ]],\n    'posts_per_page' => 12,\n    'no_found_rows' => true,\n]);",
+        "note": "WordPress arrays are powerful, but nested clauses get hard to scan and easy to overwrite when more hooks or conditions join in."
+      },
+      {
+        "eyebrow": "With Quartermaster ⚓",
+        "tone": "brand",
+        "code": "$query = Quartermaster::posts('product')\n    ->whereMetaExists('_price')\n    ->whereMeta('_stock_status', 'instock')\n    ->whereTax('product_cat', 'featured', 'slug')\n    ->limit(12)\n    ->noFoundRows()\n    ->query();",
+        "note": "Each method names a WordPress argument or clause. You can stop at toArgs(), inspect with explain(), or run the query when you are ready."
+      }
+    ]
+  },
+  "features": [
+    {
+      "kicker": "01 · The basics",
+      "title": "Everyday queries, readable at a glance",
+      "body": "Start simple: seed the post type, chain what you need, call get(). Every method maps to the WP_Query arg you already know — nothing new to learn, just less to mistype.",
+      "link": "Quick start",
+      "href": "https://docs.pressgang.dev/ecosystem/quartermaster",
+      "tabs": {
+        "label": "everyday query",
+        "before": "$q = new WP_Query([\n    'post_type'      => 'event',\n    'post_status'    => 'publish',\n    'posts_per_page' => 12,\n    'orderby'        => 'date',\n    'order'          => 'DESC',\n]);\n$events = $q->posts;",
+        "after": "$events = Quartermaster::posts('event')\n    ->status('publish')\n    ->paged(12)\n    ->orderByDesc('date')\n    ->get();"
+      }
+    },
+    {
+      "kicker": "02 · Introspection",
+      "title": "See exactly what you built",
+      "body": "toArgs() returns the exact args array before anything runs; explain() adds the applied calls and warnings. Perfect for code review, debugging, and keeping junior crew out of trouble.",
+      "link": "Introspection docs",
+      "href": "https://docs.pressgang.dev/ecosystem/quartermaster",
+      "tabs": {
+        "label": "introspection",
+        "before": "// What will WordPress actually run?\n$q = new WP_Query($args);\n\nvar_dump($q->request);\n// raw SQL — after the query has already run",
+        "after": "// Inspect the args before anything runs\n$args = Quartermaster::posts('event')\n    ->orderByMeta('start', 'ASC')\n    ->toArgs(); // plain WP_Query args\n\n// Or the full story: calls + warnings\n$report = Quartermaster::posts('event')\n    ->orderBy('meta_value')\n    ->explain();"
+      }
+    },
+    {
+      "kicker": "03 · Meta & tax queries",
+      "title": "meta_query without the nesting",
+      "body": "The arrays WordPress developers dread most — meta_query and tax_query — become one call per clause. AND by default, orWhereMeta() and orWhereTax() for OR.",
+      "link": "Meta & tax docs",
+      "href": "https://docs.pressgang.dev/ecosystem/quartermaster",
+      "tabs": {
+        "label": "meta and taxonomy queries",
+        "before": "'meta_query' => [\n    'relation' => 'AND',\n    [ 'key' => 'featured', 'value' => 1 ],\n    [ 'key' => 'venue', 'compare' => 'EXISTS' ],\n],\n'tax_query' => [[\n    'taxonomy' => 'genre',\n    'field'    => 'slug',\n    'terms'    => ['rock', 'jazz'],\n]],",
+        "after": "$events = Quartermaster::posts('event')\n    ->whereMeta('featured', 1)\n    ->whereMetaExists('venue')\n    ->whereTax('genre', ['rock', 'jazz'], 'slug')\n    ->get();"
+      }
+    },
+    {
+      "kicker": "04 · Terms too",
+      "title": "WP_Term_Query, same fluent treatment",
+      "body": "terms() covers the taxonomy side — hierarchy helpers like childOf(), childless() and excludeTree() included — with the same toArgs() introspection.",
+      "link": "Terms docs",
+      "href": "https://docs.pressgang.dev/ecosystem/quartermaster",
+      "tabs": {
+        "label": "term query",
+        "before": "$terms = get_terms([\n    'taxonomy'   => 'category',\n    'hide_empty' => true,\n    'orderby'    => 'name',\n    'number'     => 20,\n]);\n\n$tags = wp_get_post_terms($post->ID, 'post_tag');",
+        "after": "$terms = Quartermaster::terms('category')\n    ->hideEmpty()\n    ->orderBy('name')\n    ->limit(20)\n    ->get();\n\n$tags = Quartermaster::terms('post_tag')\n    ->objectIds($post->ID)\n    ->get();"
+      }
+    },
+    {
+      "kicker": "05 · Query-var binding",
+      "title": "Filter UIs without the URL-parsing slog",
+      "body": "Declaratively map URL query vars to query clauses — pagination, taxonomy filters, numeric meta ranges, search. Nothing reads a query var unless you explicitly bind it.",
+      "link": "Binding docs",
+      "href": "https://docs.pressgang.dev/ecosystem/quartermaster",
+      "tabs": {
+        "label": "query-var binding",
+        "before": "$args = [\n    'post_type' => 'route',\n    'paged' => max(1, get_query_var('paged')),\n];\n\nif (! empty($_GET['difficulty'])) {\n    $args['tax_query'][] = [\n        'taxonomy' => 'route_difficulty',\n        'field'    => 'slug',\n        'terms'    => sanitize_key($_GET['difficulty']),\n    ];\n}\nif (! empty($_GET['min_distance'])) { /* ... and again */ }",
+        "after": "$q = Quartermaster::posts('route')->bindQueryVars([\n    'paged'        => Bind::paged(),\n    'difficulty'   => Bind::tax('route_difficulty'),\n    'min_distance' => Bind::metaNum('distance_miles', '>='),\n    'search'       => Bind::search(),\n]);"
+      }
+    },
+    {
+      "kicker": "06 · Conditional chains",
+      "title": "Branch without breaking the chain",
+      "body": "when(), unless() and tap() keep branching queries readable — no magic, no hidden state, and every call recorded in explain(). Project-specific sugar goes in opt-in macros.",
+      "link": "Conditionals & macros docs",
+      "href": "https://docs.pressgang.dev/ecosystem/quartermaster",
+      "tabs": {
+        "label": "conditional chains",
+        "before": "if ($isArchive) {\n    $args['meta_query'] = [[\n        'key' => 'start', 'compare' => '<',\n        'value' => wp_date('Ymd'), 'type' => 'DATE',\n    ]];\n    $args['meta_key'] = 'start';\n    $args['orderby']  = 'meta_value';\n    $args['order']    = 'DESC';\n} else {\n    // ...all of it again, flipped\n}",
+        "after": "$q = Quartermaster::posts('event')\n    ->when($isArchive,\n        fn ($q) => $q->whereMetaDate('start', '<')\n            ->orderByMeta('start', 'DESC'),\n        fn ($q) => $q->whereMetaDate('start', '>=')\n            ->orderByMeta('start', 'ASC'),\n    );"
+      }
+    },
+    {
+      "kicker": "07 · Query shaping",
+      "title": "Performance flags, spelled out",
+      "body": "idsOnly(), noFoundRows() and cache flags make WordPress's most-forgotten query optimisations first-class, readable calls. Meta queries go further than raw arrays comfortably allow — whereMetaLikeAny(), whereMetaExists(), orWhereMeta() — each mapping to real clauses you can inspect.",
+      "link": "Method index",
+      "href": "https://docs.pressgang.dev/ecosystem/quartermaster",
+      "tabs": {
+        "label": "lean queries",
+        "before": "$related = get_posts([\n    'post_type'      => 'post',\n    'tax_query'      => [[ 'taxonomy' => 'category',\n        'field' => 'term_id', 'terms' => $catId ]],\n    'post__not_in'   => [$post->ID],\n    'fields'         => 'ids',\n    'no_found_rows'  => true,\n    'posts_per_page' => 4,\n]);\n\n$leafIds = get_terms([ 'taxonomy' => 'category',\n    'childless' => true, 'fields' => 'ids' ]);",
+        "after": "// Lean related posts — IDs only\n$ids = Quartermaster::posts('post')\n    ->whereTax('category', $catId, 'term_id')\n    ->excludeIds([$post->ID])\n    ->idsOnly()\n    ->noFoundRows()\n    ->limit(4)\n    ->get();\n\n// WP_Term_Query, same fluent treatment\n$leafIds = Quartermaster::terms('category')\n    ->childless()\n    ->fields('ids')\n    ->get();"
+      }
+    },
+    {
+      "kicker": "08 · Hooks & Timber",
+      "title": "Plays well with pre_get_posts",
+      "body": "applyTo() modifies an existing query safely inside pre_get_posts — clause arrays merge with existing ones rather than overwriting, so multiple hooks compose safely. An optional timber() terminal returns Timber objects when Timber is present — runtime-guarded, never hard-coupled.",
+      "link": "Full method index",
+      "href": "https://docs.pressgang.dev/ecosystem/quartermaster",
+      "tabs": {
+        "label": "pre_get_posts",
+        "before": "add_action('pre_get_posts', function (WP_Query $query) {\n    if (! $query->is_main_query() || is_admin()) return;\n\n    // overwrites meta_query set by other hooks\n    $query->set('meta_query', [[\n        'key' => '_price', 'compare' => 'EXISTS',\n    ]]);\n});",
+        "after": "add_action('pre_get_posts', function (WP_Query $query) {\n    if (! $query->is_main_query() || is_admin()) return;\n\n    Quartermaster::posts('product')\n        ->whereMetaExists('_price')\n        ->applyTo($query);\n});"
+      }
+    }
+  ],
+  "philosophy": {
+    "kicker": "Design philosophy",
+    "title": "You decide what goes aboard. Nothing gets smuggled in.",
+    "body": [
+      "Quartermaster is intentionally light-touch: no global state, no ORM, no mutation of WordPress internals and no SQL abstraction. It helps you build the same arguments WordPress already understands.",
+      "Sometimes raw WP_Query is fine. Quartermaster earns its keep when queries branch, grow, need tests, or must be safely combined across controller and hook boundaries."
+    ],
+    "code": "Quartermaster::posts()->toArgs(); // []"
+  },
+  "ecosystem": {
+    "title": "Standalone package. Part of the PressGang ecosystem.",
+    "intro": "Quartermaster works in any WordPress theme or plugin. It also fits naturally with PressGang, where controllers own context and Quartermaster owns the query-argument layer.",
+    "items": [
+      {
+        "title": "The Loop",
+        "body": "Fetching and rendering entangled in template tags and global state."
+      },
+      {
+        "title": "Timber + Twig",
+        "body": "Views separate from PHP, while query construction remains hand-written."
+      },
+      {
+        "title": "PressGang",
+        "body": "Controllers give context-building a home and route templates by convention."
+      },
+      {
+        "title": "Quartermaster",
+        "body": "Declarative, inspectable query args that keep WordPress machinery untouched."
+      }
+    ]
+  },
+  "footer": {
+    "summary": "A fluent, args-first WordPress query builder. Open source, MIT licensed, and part of the pressgang-wp toolkit.",
+    "columns": [
+      {
+        "title": "Docs",
+        "links": [
+          {
+            "label": "Quartermaster docs",
+            "href": "https://docs.pressgang.dev/ecosystem/quartermaster"
+          },
+          {
+            "label": "PressGang docs",
+            "href": "https://docs.pressgang.dev"
+          }
+        ]
+      },
+      {
+        "title": "Source",
+        "links": [
+          {
+            "label": "GitHub",
+            "href": "https://github.com/pressgang-wp/pressgang-quartermaster"
+          },
+          {
+            "label": "Packagist",
+            "href": "https://packagist.org/packages/pressgang-wp/quartermaster"
+          },
+          {
+            "label": "MIT license",
+            "href": "https://github.com/pressgang-wp/pressgang-quartermaster/blob/main/LICENSE"
+          }
+        ]
+      }
+    ]
+  }
+}

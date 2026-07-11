@@ -20,8 +20,8 @@ export function renderQuartermaster(c) {
           <span class="pg-chrome__dot pg-chrome__dot--red"></span>
           <span class="pg-chrome__dot pg-chrome__dot--yellow"></span>
           <span class="pg-chrome__dot pg-chrome__dot--green pg-chrome__dot--spaced"></span>
-          <button type="button" id="quartermaster-tab-before" role="tab" data-tab="before" aria-selected="false" aria-controls="quartermaster-panel-before" tabindex="-1" class="qm-tab pg-tabs__button">${c.quartermaster.tabs.before}</button>
-          <button type="button" id="quartermaster-tab-after" role="tab" data-tab="after" aria-selected="true" aria-controls="quartermaster-panel-after" tabindex="0" class="qm-tab pg-tabs__button">${c.quartermaster.tabs.after}</button>
+          <button type="button" id="quartermaster-tab-before" role="tab" data-tab="before" aria-selected="false" aria-controls="quartermaster-panel-before" tabindex="-1" class="pg-tabs__button">${c.quartermaster.tabs.before}</button>
+          <button type="button" id="quartermaster-tab-after" role="tab" data-tab="after" aria-selected="true" aria-controls="quartermaster-panel-after" tabindex="0" class="pg-tabs__button">${c.quartermaster.tabs.after}</button>
         </div>
         <pre id="quartermaster-panel-before" role="tabpanel" aria-labelledby="quartermaster-tab-before" data-panel="before" hidden class="pg-tabs__panel pg-tabs__panel--before code-panel"><code>${CODE.qmBefore}</code></pre>
         <pre id="quartermaster-panel-after" role="tabpanel" aria-labelledby="quartermaster-tab-after" data-panel="after" class="pg-tabs__panel pg-tabs__panel--after code-panel code-dark"><code>${CODE.qmAfter}</code></pre>

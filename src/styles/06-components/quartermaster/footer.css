@@ -1,0 +1,38 @@
+@layer components {
+  .qm-footer {
+    @apply bg-qm-panel pb-8 pt-12 text-[#bfae96];
+  }
+
+  .qm-footer__inner {
+    @apply grid gap-8 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr];
+  }
+
+  .qm-footer__brand {
+    @apply max-w-[360px];
+  }
+
+  .qm-footer__brand h2,
+  .qm-footer__column h2 {
+    @apply font-display text-lg font-extrabold tracking-normal text-white;
+  }
+
+  .qm-footer__brand p {
+    @apply mt-3 text-sm leading-7;
+  }
+
+  .qm-footer__column {
+    @apply flex flex-col gap-2;
+  }
+
+  .qm-footer__column h2 {
+    @apply mb-1 text-sm uppercase;
+  }
+
+  .qm-footer__link {
+    @apply min-h-10 py-1 text-sm text-[#bfae96] no-underline hover:text-[#ffbd7a];
+  }
+
+  .qm-footer__meta {
+    @apply mt-8 flex flex-col gap-1 border-t border-white/10 pt-5 text-xs text-[#917d64] sm:flex-row sm:justify-between;
+  }
+}

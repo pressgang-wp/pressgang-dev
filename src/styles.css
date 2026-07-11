@@ -18,5 +18,14 @@
 @import "./styles/06-components/code.css";
 @import "./styles/06-components/sections.css";
 @import "./styles/06-components/footer.css";
+@import "./styles/06-components/quartermaster/layout.css";
+@import "./styles/06-components/quartermaster/buttons.css";
+@import "./styles/06-components/quartermaster/nav.css";
+@import "./styles/06-components/quartermaster/hero.css";
+@import "./styles/06-components/quartermaster/sections.css";
+@import "./styles/06-components/quartermaster/code.css";
+@import "./styles/06-components/quartermaster/footer.css";
+@import "./styles/06-components/quartermaster/accessibility.css";
+@import "./styles/06-components/quartermaster/responsive.css";
 @import "./styles/07-utilities/accessibility.css";
 @import "./styles/07-utilities/responsive.css";

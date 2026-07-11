@@ -1,0 +1,79 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://pressgang.dev/#org",
+      "name": "PressGang",
+      "url": "https://pressgang.dev",
+      "sameAs": [
+        "https://github.com/pressgang-wp"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://pressgang.dev/quartermaster/#website",
+      "url": "https://pressgang.dev/quartermaster/",
+      "name": "Quartermaster - Fluent WordPress Query Builder",
+      "publisher": {
+        "@id": "https://pressgang.dev/#org"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://pressgang.dev/quartermaster/#app",
+      "name": "Quartermaster",
+      "url": "https://pressgang.dev/quartermaster/",
+      "description": "A fluent, args-first query builder for WP_Query and WP_Term_Query. Quartermaster turns sprawling meta_query, tax_query and date_query arrays into readable, composable PHP while staying 100% WordPress-native under the hood.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "WordPress, PHP 8.3+",
+      "softwareRequirements": "WordPress, PHP 8.3+, Composer",
+      "license": "https://opensource.org/licenses/MIT",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@id": "https://pressgang.dev/#org"
+      },
+      "downloadUrl": "https://github.com/pressgang-wp/pressgang-quartermaster",
+      "installUrl": "https://packagist.org/packages/pressgang-wp/quartermaster",
+      "softwareHelp": {
+        "@type": "CreativeWork",
+        "url": "https://docs.pressgang.dev/ecosystem/quartermaster"
+      },
+      "image": "https://pressgang.dev/assets/images/quartermaster/quartermaster.png"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://pressgang.dev/quartermaster/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is Quartermaster an ORM for WordPress?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Quartermaster is not an ORM, ActiveRecord layer, or SQL query builder. Every fluent method maps to real WP_Query or WP_Term_Query arguments, and the output is a plain WordPress args array."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Quartermaster require the PressGang theme framework?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Quartermaster is a standalone Composer package for any WordPress project. It is part of the PressGang ecosystem but does not depend on the PressGang framework."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is Quartermaster different from raw WP_Query arrays?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Raw arrays are fine for short static queries. Quartermaster helps when queries evolve, branch, or need to be composed without rewriting large nested arrays."
+          }
+        }
+      ]
+    }
+  ]
+}

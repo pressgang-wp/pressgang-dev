@@ -135,7 +135,7 @@
       "<strong>Quartermaster</strong> is a separate, standalone package — a fluent, args-first builder for <code>WP_Query</code> and <code>WP_Term_Query</code>. Build complex query arrays in readable, composable steps, then inspect the exact output with <code>toArgs()</code> and <code>explain()</code>.",
       "100% WordPress-native under the hood: plain WP args out — no ORM, no hidden query engine, no lock-in. Use it with PressGang or in any WordPress project."
     ],
-    "cta": { "label": "Explore Quartermaster →", "href": "https://docs.pressgang.dev/ecosystem/quartermaster" },
+    "cta": { "label": "Explore Quartermaster →", "href": "/quartermaster/" },
     "install": "composer require pressgang-wp/quartermaster",
     "tabs": { "before": "😩 Raw WP_Query", "after": "⚓ Quartermaster" }
   },
@@ -159,7 +159,7 @@
         "title": "⚓ Quartermaster",
         "body": "Fluent, args-first builder for WP_Query & WP_Term_Query. Readable, composable queries — plain WP args out. No ORM, no lock-in.",
         "command": "composer require pressgang-wp/quartermaster",
-        "cta": { "label": "Explore Quartermaster", "href": "https://docs.pressgang.dev/ecosystem/quartermaster" }
+        "cta": { "label": "Explore Quartermaster", "href": "/quartermaster/" }
       },
       {
         "accent": "brand",

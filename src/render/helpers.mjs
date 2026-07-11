@@ -14,8 +14,8 @@ export const decorateExternalLinks = (html) =>
   );
 
 export const logo = (size, alt, cls = "", attrs = "") => `<picture>
-      <source srcset="assets/images/pressgang-logo.webp" type="image/webp">
-      <img src="assets/images/pressgang-logo.png" alt="${alt}" width="${size}" height="${size}"
+      <source srcset="/assets/images/pressgang-logo.webp" type="image/webp">
+      <img src="/assets/images/pressgang-logo.png" alt="${alt}" width="${size}" height="${size}"
            class="${joinClasses("pg-logo", `pg-logo--${size}`, cls)}" decoding="async"${attrs ? ` ${attrs}` : ""}>
     </picture>`;
 

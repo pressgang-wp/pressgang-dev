@@ -1,0 +1,53 @@
+@layer components {
+  .qm-page {
+    @apply bg-qm-paper text-qm-ink;
+  }
+
+  .qm-container {
+    @apply mx-auto w-[min(100%-32px,1180px)];
+  }
+
+  .qm-section {
+    @apply py-16;
+  }
+
+  .qm-section__header {
+    @apply mx-auto mb-9 max-w-[720px] text-center;
+  }
+
+  .qm-section__title {
+    @apply font-display text-[34px] font-extrabold leading-[1.08] tracking-normal sm:text-[44px];
+  }
+
+  .qm-section__title--dark {
+    @apply text-white;
+  }
+
+  .qm-section__intro {
+    @apply mt-4 text-base leading-7 text-qm-body sm:text-lg;
+  }
+
+  .qm-copy {
+    @apply text-[15.5px] leading-7 text-qm-body;
+  }
+
+  .qm-eyebrow {
+    @apply mb-3 font-mono text-xs font-bold uppercase tracking-normal text-qm-brand-700;
+  }
+
+  .qm-eyebrow--light {
+    @apply text-[#ffbd7a];
+  }
+
+  .qm-logo {
+    @apply block object-contain;
+  }
+
+  .qm-logo--nav {
+    @apply h-11 w-auto max-w-[min(58vw,212px)];
+  }
+
+  .qm-logo--footer {
+    @apply size-10;
+  }
+}

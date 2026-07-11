@@ -17,11 +17,11 @@
   <meta name="twitter:title" content="PressGang — WordPress theme development, ship-shape">
   <meta name="twitter:description" content="The WordPress parent theme framework for Timber & Twig. MVC controllers, config-driven bootstrapping, Composer & PSR-4.">
   <meta name="twitter:image" content="https://pressgang.dev/assets/images/pressgang-logo-512.png">
-  <link rel="icon" type="image/png" href="assets/images/pressgang-logo.png">
-  <link rel="apple-touch-icon" href="assets/images/pressgang-logo-512.png">
-  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/bricolage-latin.woff2" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/archivo-latin.woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="icon" type="image/png" href="/assets/images/pressgang-logo.png">
+  <link rel="apple-touch-icon" href="/assets/images/pressgang-logo-512.png">
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/bricolage-latin.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/archivo-latin.woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/styles.css">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -127,7 +127,7 @@
   ]
 }
   </script>
-  <script src="assets/js/app.js" defer></script>
+  <script src="/assets/js/app.js" defer></script>
 </head>
 <body>
 
@@ -138,8 +138,8 @@
   <div class="pg-nav__inner pg-container">
     <a href="#top" class="pg-nav__brand">
       <picture>
-      <source srcset="assets/images/pressgang-logo.webp" type="image/webp">
-      <img src="assets/images/pressgang-logo.png" alt="PressGang — WordPress theme framework for Timber" width="72" height="72"
+      <source srcset="/assets/images/pressgang-logo.webp" type="image/webp">
+      <img src="/assets/images/pressgang-logo.png" alt="PressGang — WordPress theme framework for Timber" width="72" height="72"
            class="pg-logo pg-logo--72" decoding="async">
     </picture>
       <span class="pg-nav__brand-name">PressGang</span>
@@ -430,7 +430,7 @@ Timber::render(
       <p class="pg-copy pg-copy--large prose-code"><strong>Quartermaster</strong> is a separate, standalone package — a fluent, args-first builder for <code>WP_Query</code> and <code>WP_Term_Query</code>. Build complex query arrays in readable, composable steps, then inspect the exact output with <code>toArgs()</code> and <code>explain()</code>.</p>
       <p class="pg-copy pg-copy--large prose-code">100% WordPress-native under the hood: plain WP args out — no ORM, no hidden query engine, no lock-in. Use it with PressGang or in any WordPress project.</p>
       <div class="pg-quartermaster__actions">
-        <a href="https://docs.pressgang.dev/ecosystem/quartermaster" class="pg-button pg-button--orange pg-button--medium" target="_blank" rel="noopener noreferrer">Explore Quartermaster →</a>
+        <a href="/quartermaster/" class="pg-button pg-button--orange pg-button--medium">Explore Quartermaster →</a>
         <span class="pg-install-pill">composer require pressgang-wp/quartermaster</span>
       </div>
     </div>
@@ -440,8 +440,8 @@ Timber::render(
           <span class="pg-chrome__dot pg-chrome__dot--red"></span>
           <span class="pg-chrome__dot pg-chrome__dot--yellow"></span>
           <span class="pg-chrome__dot pg-chrome__dot--green pg-chrome__dot--spaced"></span>
-          <button type="button" id="quartermaster-tab-before" role="tab" data-tab="before" aria-selected="false" aria-controls="quartermaster-panel-before" tabindex="-1" class="qm-tab pg-tabs__button">😩 Raw WP_Query</button>
-          <button type="button" id="quartermaster-tab-after" role="tab" data-tab="after" aria-selected="true" aria-controls="quartermaster-panel-after" tabindex="0" class="qm-tab pg-tabs__button">⚓ Quartermaster</button>
+          <button type="button" id="quartermaster-tab-before" role="tab" data-tab="before" aria-selected="false" aria-controls="quartermaster-panel-before" tabindex="-1" class="pg-tabs__button">😩 Raw WP_Query</button>
+          <button type="button" id="quartermaster-tab-after" role="tab" data-tab="after" aria-selected="true" aria-controls="quartermaster-panel-after" tabindex="0" class="pg-tabs__button">⚓ Quartermaster</button>
         </div>
         <pre id="quartermaster-panel-before" role="tabpanel" aria-labelledby="quartermaster-tab-before" data-panel="before" hidden class="pg-tabs__panel pg-tabs__panel--before code-panel"><code>$events = new WP_Query([
   'post_type'      =&gt; 'event',
@@ -508,7 +508,7 @@ Timber::render(
         <div class="pg-fleet-card__title pg-fleet-card__title--orange">⚓ Quartermaster</div>
         <div class="pg-fleet-card__body">Fluent, args-first builder for WP_Query & WP_Term_Query. Readable, composable queries — plain WP args out. No ORM, no lock-in.</div>
         <div class="pg-fleet-card__command">composer require pressgang-wp/quartermaster</div>
-        <a href="https://docs.pressgang.dev/ecosystem/quartermaster" class="pg-button pg-button--orange" target="_blank" rel="noopener noreferrer">Explore Quartermaster</a>
+        <a href="/quartermaster/" class="pg-button pg-button--orange">Explore Quartermaster</a>
       </div>
       <div class="pg-fleet-card">
         <div class="pg-fleet-card__title pg-fleet-card__title--brand">🛞 Capstan</div>
@@ -546,8 +546,8 @@ Timber::render(
     <div class="pg-footer__brand">
       <div class="pg-footer__brand-lockup">
         <picture>
-      <source srcset="assets/images/pressgang-logo.webp" type="image/webp">
-      <img src="assets/images/pressgang-logo.png" alt="PressGang" width="32" height="32"
+      <source srcset="/assets/images/pressgang-logo.webp" type="image/webp">
+      <img src="/assets/images/pressgang-logo.png" alt="PressGang" width="32" height="32"
            class="pg-logo pg-logo--32" decoding="async" loading="lazy">
     </picture>
         <span class="pg-footer__brand-name">PressGang</span>
