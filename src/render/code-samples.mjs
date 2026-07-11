@@ -137,7 +137,7 @@ Timber::render(
 
 <span class="t-com">// Same plain WP_Query args — 5 readable steps</span>`,
 
-  bosun: `<span class="t-num">$</span> wp package install https://github.com/pressgang-wp/pressgang-bosun.git
+  bosun: `<span class="t-num">$</span> wp package install pressgang-wp/bosun
 <span class="t-num">$</span> wp bosun install
 
 <span class="t-str">✔</span> Inventory: pressgang 2.1 · quartermaster 1.3

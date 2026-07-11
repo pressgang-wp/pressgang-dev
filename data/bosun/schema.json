@@ -28,6 +28,7 @@
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
       "author": { "@id": "https://pressgang.dev/#org" },
       "downloadUrl": "https://github.com/pressgang-wp/pressgang-bosun",
+      "installUrl": "https://packagist.org/packages/pressgang-wp/bosun",
       "softwareHelp": { "@type": "CreativeWork", "url": "https://docs.pressgang.dev/ecosystem/bosun" },
       "image": "https://pressgang.dev/assets/images/pressgang-logo-512.png"
     },
