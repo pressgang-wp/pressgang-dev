@@ -19,6 +19,43 @@
     @apply mt-4 text-[15px] leading-7 text-qm-body;
   }
 
+  .qm-why {
+    @apply border-y border-qm-ink/10 bg-white;
+  }
+
+  .qm-section__header--wide {
+    @apply max-w-[840px];
+  }
+
+  .qm-why__title span {
+    @apply text-qm-brand;
+  }
+
+  .qm-why__intro {
+    @apply mx-auto mt-4 max-w-[780px] space-y-4 text-[16px] leading-7 text-qm-body sm:text-[17px] sm:leading-8;
+  }
+
+  .qm-why__intro code,
+  .qm-why-card__body code {
+    @apply rounded bg-qm-cream px-1.5 py-px font-mono text-[0.86em] text-qm-ink;
+  }
+
+  .qm-why__grid {
+    @apply mx-auto grid max-w-[960px] gap-5 md:grid-cols-2;
+  }
+
+  .qm-why-card {
+    @apply rounded-lg border border-qm-ink/10 bg-qm-paper p-5 sm:p-6;
+  }
+
+  .qm-why-card__title {
+    @apply mb-2 font-display text-[18px] font-bold leading-tight text-qm-ink;
+  }
+
+  .qm-why-card__body {
+    @apply text-[14.5px] leading-7 text-qm-body;
+  }
+
   .qm-features {
     @apply bg-qm-paper;
   }

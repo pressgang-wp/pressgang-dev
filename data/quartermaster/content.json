@@ -11,8 +11,8 @@
   },
   "nav": [
     {
-      "label": "Compare",
-      "href": "#compare"
+      "label": "Why fluent",
+      "href": "#why"
     },
     {
       "label": "Features",
@@ -31,7 +31,7 @@
     "badge": "⚓ composer require · PHP 8.3+ · zero runtime dependencies · works in any theme or plugin",
     "title": "The fluent WordPress query builder — real WP_Query args out",
     "accent": "real WP_Query args out",
-    "lede": "Chainable, args-first methods for WP_Query and WP_Term_Query. Sprawling meta_query arrays become readable, composable steps — no ORM, no SQL layer, no hidden defaults.",
+    "lede": "Chainable, args-first methods for **WP_Query** and **WP_Term_Query**. Sprawling `meta_query` arrays become readable, composable steps — no ORM, no SQL layer, no hidden defaults.",
     "primaryAction": {
       "label": "Read the docs",
       "href": "https://docs.pressgang.dev/ecosystem/quartermaster"
@@ -53,6 +53,32 @@
         "tone": "brand",
         "code": "$query = Quartermaster::posts('product')\n    ->whereMetaExists('_price')\n    ->whereMeta('_stock_status', 'instock')\n    ->whereTax('product_cat', 'featured', 'slug')\n    ->limit(12)\n    ->noFoundRows()\n    ->query();",
         "note": "Each method names a WordPress argument or clause. You can stop at toArgs(), inspect with explain(), or run the query when you are ready."
+      }
+    ]
+  },
+  "why": {
+    "titleLead": "Why fluent?",
+    "titleRest": "Not an ORM. Not a SQL builder. On purpose.",
+    "intro": [
+      "Quartermaster does not replace WordPress queries. It makes the argument-building layer explicit, composable and easier to review.",
+      "Most WordPress query builders either wrap `$wpdb` in a SQL layer or bolt an Eloquent-style ORM onto WordPress. Quartermaster does neither: every fluent method maps to a real `WP_Query` arg, so caching, plugins, and `pre_get_posts` all keep working."
+    ],
+    "cards": [
+      {
+        "title": "✨ Readability",
+        "body": "Query intent expressed step-by-step — no more scanning nested arrays to work out what a query does."
+      },
+      {
+        "title": "🧩 Composability",
+        "body": "Add or remove clauses with `when()` / `unless()` without rewriting a large array."
+      },
+      {
+        "title": "🛡️ Safety",
+        "body": "Methods are explicit about which WP args they set. Zero side effects by default — `posts()->toArgs()` is an empty array."
+      },
+      {
+        "title": "🔍 Transparency",
+        "body": "Nothing runs until you say so — inspect the exact args first, so code review sees the query, not a guess."
       }
     ]
   },

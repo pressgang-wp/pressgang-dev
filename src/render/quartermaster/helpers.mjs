@@ -14,6 +14,12 @@ export function externalAttrs(href) {
   return href.startsWith("http") ? ' target="_blank" rel="noopener noreferrer"' : "";
 }
 
+export function inlineMarkup(value = "") {
+  return escapeHtml(value)
+    .replace(/`([^`]+)`/g, "<code>$1</code>")
+    .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+}
+
 function highlightPhpish(code) {
   const tokens = /(\/\/[^\n]*|'(?:\\.|[^'\\])*'|"(?:\\.|[^"\\])*"|\$[A-Za-z_]\w*|(?:->|::)[A-Za-z_]\w*|\b(?:add_action|get_posts|get_terms|wp_get_post_terms|get_query_var|sanitize_key|wp_date|var_dump|is_admin|max|empty|new|function|return|if|else|fn|true|false|null|WP_Query|Quartermaster|Timber|Bind)\b|\b\d+\b)/g;
   let html = "";

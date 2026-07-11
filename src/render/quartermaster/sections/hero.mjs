@@ -1,4 +1,4 @@
-import { attr, escapeHtml } from "../helpers.mjs";
+import { attr, escapeHtml, inlineMarkup } from "../helpers.mjs";
 
 export function renderHero(content) {
   const { hero } = content;
@@ -11,7 +11,7 @@ export function renderHero(content) {
       <div class="qm-hero__content">
         <p class="qm-hero__badge">${escapeHtml(hero.badge)}</p>
         <h1 class="qm-hero__title">${escapeHtml(titleStart)}<span>${escapeHtml(hero.accent || "")}</span>${escapeHtml(titleEnd)}</h1>
-        <p class="qm-hero__lede">${escapeHtml(hero.lede)}</p>
+        <p class="qm-hero__lede">${inlineMarkup(hero.lede)}</p>
         <div class="qm-hero__actions">
           <a class="qm-button qm-button--primary qm-button--large" href="${attr(hero.primaryAction.href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(hero.primaryAction.label)} <span aria-hidden="true">&rarr;</span></a>
           <button class="qm-copy-button" type="button" data-copy="${attr(hero.installCommand)}" aria-label="Copy install command">

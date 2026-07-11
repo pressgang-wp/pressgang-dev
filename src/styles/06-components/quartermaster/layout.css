@@ -46,8 +46,4 @@
   .qm-logo--nav {
     @apply h-11 w-auto max-w-[min(58vw,212px)];
   }
-
-  .qm-logo--footer {
-    @apply size-10;
-  }
 }

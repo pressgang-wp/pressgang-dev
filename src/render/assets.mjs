@@ -1,5 +1,4 @@
-export const assetVersion = "20260711-2";
-
 export function versionedAsset(path) {
-  return `${path}?v=${assetVersion}`;
+  const version = process.env.ASSET_VERSION;
+  return version ? `${path}?v=${encodeURIComponent(version)}` : path;
 }

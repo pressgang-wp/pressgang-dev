@@ -20,7 +20,7 @@
   <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/bricolage-latin.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/archivo-latin.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/jetbrains-mono-latin.woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/css/styles.css?v=20260711-2">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=94e0977a2461">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -102,7 +102,7 @@
   ]
 }
   </script>
-  <script src="/assets/js/app.js?v=20260711-2" defer></script>
+  <script src="/assets/js/app.js?v=94e0977a2461" defer></script>
 </head>
 <body class="qm-page">
   <a class="qm-skip-link" href="#main">Skip to content</a>
@@ -118,7 +118,7 @@
         <span class="qm-nav__toggle-line"></span>
       </button>
       <div class="qm-nav__links" id="primary-navigation" data-nav-menu>
-        <a class="qm-nav__link" href="#compare">Compare</a>
+        <a class="qm-nav__link" href="#why">Why fluent</a>
         <a class="qm-nav__link" href="#features">Features</a>
         <a class="qm-nav__link" href="#philosophy">Philosophy</a>
         <a class="qm-nav__link" href="https://docs.pressgang.dev/ecosystem/quartermaster" target="_blank" rel="noopener noreferrer">Docs</a>
@@ -131,7 +131,7 @@
       <div class="qm-hero__content">
         <p class="qm-hero__badge">⚓ composer require · PHP 8.3+ · zero runtime dependencies · works in any theme or plugin</p>
         <h1 class="qm-hero__title">The fluent WordPress query builder — <span>real WP_Query args out</span></h1>
-        <p class="qm-hero__lede">Chainable, args-first methods for WP_Query and WP_Term_Query. Sprawling meta_query arrays become readable, composable steps — no ORM, no SQL layer, no hidden defaults.</p>
+        <p class="qm-hero__lede">Chainable, args-first methods for <strong>WP_Query</strong> and <strong>WP_Term_Query</strong>. Sprawling <code>meta_query</code> arrays become readable, composable steps — no ORM, no SQL layer, no hidden defaults.</p>
         <div class="qm-hero__actions">
           <a class="qm-button qm-button--primary qm-button--large" href="https://docs.pressgang.dev/ecosystem/quartermaster" target="_blank" rel="noopener noreferrer">Read the docs <span aria-hidden="true">&rarr;</span></a>
           <button class="qm-copy-button" type="button" data-copy="composer require pressgang-wp/quartermaster" aria-label="Copy install command">
@@ -199,6 +199,35 @@
     -&gt;<span class="code-token code-token--method">query</span>();</code></pre>
       </div>
       <p class="qm-compare__note">Each method names a WordPress argument or clause. You can stop at toArgs(), inspect with explain(), or run the query when you are ready.</p>
+    </article>
+      </div>
+    </div>
+  </section>
+    <section id="why" class="qm-section qm-why" aria-labelledby="why-title">
+    <div class="qm-container">
+      <div class="qm-section__header qm-section__header--wide">
+        <h2 id="why-title" class="qm-section__title qm-why__title"><span>Why fluent?</span> Not an ORM. Not a SQL builder. On purpose.</h2>
+        <div class="qm-why__intro">
+          <p>Quartermaster does not replace WordPress queries. It makes the argument-building layer explicit, composable and easier to review.</p>
+        <p>Most WordPress query builders either wrap <code>$wpdb</code> in a SQL layer or bolt an Eloquent-style ORM onto WordPress. Quartermaster does neither: every fluent method maps to a real <code>WP_Query</code> arg, so caching, plugins, and <code>pre_get_posts</code> all keep working.</p>
+        </div>
+      </div>
+      <div class="qm-why__grid">
+        <article class="qm-why-card">
+      <h3 class="qm-why-card__title">✨ Readability</h3>
+      <p class="qm-why-card__body">Query intent expressed step-by-step — no more scanning nested arrays to work out what a query does.</p>
+    </article>
+        <article class="qm-why-card">
+      <h3 class="qm-why-card__title">🧩 Composability</h3>
+      <p class="qm-why-card__body">Add or remove clauses with <code>when()</code> / <code>unless()</code> without rewriting a large array.</p>
+    </article>
+        <article class="qm-why-card">
+      <h3 class="qm-why-card__title">🛡️ Safety</h3>
+      <p class="qm-why-card__body">Methods are explicit about which WP args they set. Zero side effects by default — <code>posts()-&gt;toArgs()</code> is an empty array.</p>
+    </article>
+        <article class="qm-why-card">
+      <h3 class="qm-why-card__title">🔍 Transparency</h3>
+      <p class="qm-why-card__body">Nothing runs until you say so — inspect the exact args first, so code review sees the query, not a guess.</p>
     </article>
       </div>
     </div>
@@ -582,7 +611,6 @@
   <footer class="qm-footer">
     <div class="qm-container qm-footer__inner">
       <div class="qm-footer__brand">
-        <img class="qm-logo qm-logo--footer" src="/assets/images/quartermaster/quartermaster.svg" alt="" width="40" height="40" loading="lazy" decoding="async">
         <h2>Quartermaster</h2>
         <p>A fluent, args-first WordPress query builder. Open source, MIT licensed, and part of the pressgang-wp toolkit.</p>
       </div>

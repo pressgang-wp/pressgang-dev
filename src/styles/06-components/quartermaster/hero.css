@@ -27,6 +27,14 @@
     @apply mx-auto max-w-[680px] text-[17px] leading-[1.6] text-qm-body sm:text-[19px];
   }
 
+  .qm-hero__lede strong {
+    @apply font-bold text-qm-ink;
+  }
+
+  .qm-hero__lede code {
+    @apply rounded bg-qm-cream px-1.5 py-px font-mono text-[0.86em] text-qm-ink;
+  }
+
   .qm-hero__actions {
     @apply mt-8 flex flex-col items-stretch justify-center gap-3.5 sm:flex-row sm:flex-wrap sm:items-center;
   }

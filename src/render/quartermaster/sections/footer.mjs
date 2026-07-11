@@ -15,7 +15,6 @@ export function renderFooter(content) {
   return `<footer class="qm-footer">
     <div class="qm-container qm-footer__inner">
       <div class="qm-footer__brand">
-        <img class="qm-logo qm-logo--footer" src="${attr(content.assets.logo)}" alt="" width="40" height="40" loading="lazy" decoding="async">
         <h2>Quartermaster</h2>
         <p>${escapeHtml(content.footer.summary)}</p>
       </div>

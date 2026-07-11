@@ -6,6 +6,7 @@ import { renderFooter } from "./sections/footer.mjs";
 import { renderHero } from "./sections/hero.mjs";
 import { renderNav } from "./sections/nav.mjs";
 import { renderPhilosophy } from "./sections/philosophy.mjs";
+import { renderWhy } from "./sections/why.mjs";
 import { versionedAsset } from "../assets.mjs";
 
 export function renderQuartermasterDocument(content, schema) {
@@ -43,6 +44,7 @@ ${jsonLd(schema)}
   ${renderHero(content)}
   <main id="main" tabindex="-1">
     ${renderCompare(content.compare)}
+    ${renderWhy(content.why)}
     ${renderFeatures(content.features)}
     ${renderPhilosophy(content.philosophy, content.assets)}
     ${renderEcosystem(content.ecosystem)}
