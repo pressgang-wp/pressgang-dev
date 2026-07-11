@@ -1,0 +1,58 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://pressgang.dev/#org",
+      "name": "PressGang",
+      "url": "https://pressgang.dev",
+      "sameAs": ["https://github.com/pressgang-wp"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://pressgang.dev/capstan/#website",
+      "url": "https://pressgang.dev/capstan/",
+      "name": "Capstan - WP-CLI Scaffolding for PressGang",
+      "publisher": { "@id": "https://pressgang.dev/#org" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://pressgang.dev/capstan/#app",
+      "name": "Capstan",
+      "url": "https://pressgang.dev/capstan/",
+      "description": "WP-CLI scaffolding for PressGang WordPress projects. Capstan creates WordPress core, the PressGang parent theme, and a ready-to-build child theme with dry-run output by default.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "WordPress, PHP 8.3+, WP-CLI",
+      "softwareRequirements": "PHP 8.3+, WP-CLI, Composer",
+      "license": "https://opensource.org/licenses/MIT",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "author": { "@id": "https://pressgang.dev/#org" },
+      "downloadUrl": "https://github.com/pressgang-wp/pressgang-capstan",
+      "installUrl": "https://packagist.org/packages/pressgang-wp/capstan",
+      "softwareHelp": { "@type": "CreativeWork", "url": "https://docs.pressgang.dev/ecosystem/capstan" },
+      "image": "https://pressgang.dev/assets/images/pressgang-logo-512.png"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://pressgang.dev/capstan/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does Capstan scaffold?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Capstan scaffolds WordPress core, the PressGang parent theme, and a ready-to-build child theme with Composer autoloading, config files, and controller structure."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Capstan write files immediately?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Capstan is dry-run by default: commands print the plan first, and writing files is opt-in after review."
+          }
+        }
+      ]
+    }
+  ]
+}

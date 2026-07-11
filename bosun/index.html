@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bosun - AI Agent Guidelines and Skills for PressGang Themes</title>
+  <meta name="description" content="Bosun composes CLAUDE.md, AGENTS.md, and agent skills for PressGang WordPress themes from the packages and features actually installed.">
+  <link rel="canonical" href="https://pressgang.dev/bosun/">
+  <meta property="og:title" content="Bosun - AI Agent Guidelines and Skills for PressGang Themes">
+  <meta property="og:description" content="Bosun composes CLAUDE.md, AGENTS.md, and agent skills for PressGang WordPress themes from the packages and features actually installed.">
+  <meta property="og:url" content="https://pressgang.dev/bosun/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://pressgang.dev/assets/images/pressgang-logo-512.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bosun - AI Agent Guidelines and Skills for PressGang Themes">
+  <meta name="twitter:description" content="Bosun composes CLAUDE.md, AGENTS.md, and agent skills for PressGang WordPress themes from the packages and features actually installed.">
+  <meta name="twitter:image" content="https://pressgang.dev/assets/images/pressgang-logo-512.png">
+  <link rel="icon" type="image/png" href="/assets/images/pressgang-logo.png">
+  <link rel="apple-touch-icon" href="/assets/images/pressgang-logo-512.png">
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/bricolage-latin.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/archivo-latin.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/jetbrains-mono-latin.woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/styles.css?v=8e40f0177846">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://pressgang.dev/#org",
+      "name": "PressGang",
+      "url": "https://pressgang.dev",
+      "sameAs": [
+        "https://github.com/pressgang-wp"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://pressgang.dev/bosun/#website",
+      "url": "https://pressgang.dev/bosun/",
+      "name": "Bosun - AI Agent Guidelines for PressGang",
+      "publisher": {
+        "@id": "https://pressgang.dev/#org"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://pressgang.dev/bosun/#app",
+      "name": "Bosun",
+      "url": "https://pressgang.dev/bosun/",
+      "description": "Bosun composes AI agent guidelines, CLAUDE.md, AGENTS.md, and skills for PressGang WordPress themes based on installed packages and enabled features.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "WordPress, PHP 8.3+, WP-CLI",
+      "softwareRequirements": "PHP 8.3+, WP-CLI",
+      "license": "https://opensource.org/licenses/MIT",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@id": "https://pressgang.dev/#org"
+      },
+      "downloadUrl": "https://github.com/pressgang-wp/pressgang-bosun",
+      "softwareHelp": {
+        "@type": "CreativeWork",
+        "url": "https://docs.pressgang.dev/ecosystem/bosun"
+      },
+      "image": "https://pressgang.dev/assets/images/pressgang-logo-512.png"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://pressgang.dev/bosun/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What files does Bosun compose?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bosun composes CLAUDE.md, AGENTS.md, and agent skills so AI coding tools understand the PressGang theme's installed packages and enabled conventions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do AI agents need Bosun?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "PressGang conventions such as controller routing, config merging, and context getters can be invisible from a child theme's code alone. Bosun briefs agents from the actual project manifest."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <script src="/assets/js/app.js?v=8e40f0177846" defer></script>
+</head>
+<body class="tool-page tool-page--bosun">
+  <a class="tool-skip-link" href="#main">Skip to content</a>
+  <nav class="tool-nav" aria-label="Main">
+    <div class="tool-container tool-nav__inner">
+      <a class="tool-nav__brand" href="/" aria-label="PressGang home">
+        <picture>
+          <source srcset="/assets/images/pressgang-logo.webp" type="image/webp">
+          <img class="tool-nav__logo pg-logo pg-logo--72" src="/assets/images/pressgang-logo.png" alt="" width="72" height="72" decoding="async">
+        </picture>
+        <span>PressGang</span>
+      </a>
+      <button class="tool-nav__toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" data-nav-toggle>
+        <span class="tool-sr-only">Menu</span>
+        <span class="tool-nav__toggle-line"></span>
+        <span class="tool-nav__toggle-line"></span>
+        <span class="tool-nav__toggle-line"></span>
+      </button>
+      <div class="tool-nav__links" id="primary-navigation" data-nav-menu>
+        <a class="tool-nav__link" href="#why">Why</a>
+        <a class="tool-nav__link" href="#how">How it works</a>
+        <a class="tool-nav__link" href="https://github.com/pressgang-wp/pressgang-bosun" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="tool-button tool-button--primary tool-button--nav" href="https://docs.pressgang.dev/ecosystem/bosun" target="_blank" rel="noopener noreferrer">Read the docs</a>
+      </div>
+    </div>
+  </nav>
+  <header id="top" class="tool-hero">
+    <div class="tool-container">
+      <p class="tool-hero__badge">🧭 WP-CLI package · composes CLAUDE.md + AGENTS.md + skills</p>
+      <h1 class="tool-hero__title">Your AI crew, <span>already briefed</span></h1>
+      <p class="tool-hero__lede">Bosun composes AI agent guidelines and skills for <a href="https://pressgang.dev/" target="_blank" rel="noopener noreferrer">PressGang</a> themes — generated from what each theme <strong>actually has installed and enabled</strong>, so every agent that comes aboard knows the ropes.</p>
+      <div class="tool-hero__actions">
+        <a class="tool-button tool-button--primary tool-button--large" href="https://docs.pressgang.dev/ecosystem/bosun" target="_blank" rel="noopener noreferrer">Read the docs <span aria-hidden="true">&rarr;</span></a>
+        <button class="tool-copy-button" type="button" data-copy="wp bosun install" aria-label="Copy install command">
+          <code>wp bosun install</code>
+          <span class="copy-label" aria-live="polite" aria-atomic="true">⧉</span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <main id="main" tabindex="-1">
+    <section id="how" class="tool-terminal-section" aria-label="How Bosun works">
+    <div class="tool-terminal">
+      <div class="tool-chrome" aria-hidden="true">
+        <span class="tool-chrome__dot tool-chrome__dot--red"></span>
+        <span class="tool-chrome__dot tool-chrome__dot--yellow"></span>
+        <span class="tool-chrome__dot tool-chrome__dot--green"></span>
+        <span class="tool-chrome__label tool-chrome__label--left">wp-content/themes/harbour-cafe</span>
+      </div>
+      <pre class="tool-terminal__pre"><code><span><span class="tool-token tool-token--prompt">$</span> wp package install https://github.com/pressgang-wp/pressgang-bosun.git</span><span><span class="tool-token tool-token--prompt">$</span> wp bosun install</span><span>&nbsp;</span><span><span class="tool-token tool-token--success">✔</span> Inventory: pressgang 2.1 · quartermaster 1.3</span><span><span class="tool-token tool-token--success">✔</span> Template routing detected — guidance aboard</span><span><span class="tool-token tool-token--success">✔</span> Composed CLAUDE.md + AGENTS.md</span><span><span class="tool-token tool-token--success">✔</span> Skills installed → .claude/skills/</span><span>&nbsp;</span><span>All hands briefed.</span></code></pre>
+    </div>
+  </section>
+    <section id="why" class="tool-section tool-split tool-split--dark" aria-labelledby="why-title">
+    <div class="tool-container tool-split__inner">
+      <div class="tool-split__copy">
+        <p class="tool-eyebrow">The problem</p>
+        <h2 id="why-title" class="tool-section__title">Convention is invisible to an unbriefed agent</h2>
+        <div class="tool-split__body"><p>PressGang's best features leave barely a trace in a child theme's code — controllers route by convention, config merges silently, context getters wire themselves. Great for developers who know the ship; invisible to AI agents who don't.</p>
+        <p>An unbriefed agent writes working code that misses everything the framework gives you: hand-rolled query arrays, stub template files, hooks in <code>functions.php</code>. Bosun closes that gap at the source.</p></div>
+        <a class="tool-text-link" href="https://docs.pressgang.dev/ecosystem/bosun" target="_blank" rel="noopener noreferrer">How Bosun briefs agents <span aria-hidden="true">&rarr;</span></a>
+      </div>
+      <div class="tool-code-card">
+        <div class="tool-chrome" aria-hidden="true">
+          <span class="tool-chrome__dot tool-chrome__dot--red"></span>
+        <span class="tool-chrome__dot tool-chrome__dot--yellow"></span>
+        <span class="tool-chrome__dot tool-chrome__dot--green"></span>
+          <span class="tool-chrome__label">CLAUDE.md — composed, not copied</span>
+        </div>
+        <pre class="tool-code-card__pre"><code><span><span class="tool-token tool-token--comment"># harbour-cafe — agent guidelines</span></span><span>&nbsp;</span><span><span class="tool-token tool-token--comment">## Template routing is ON</span></span><span>Do not create archive-*.php stubs.</span><span>Controllers resolve by convention.</span><span>&nbsp;</span><span><span class="tool-token tool-token--comment">## Queries use Quartermaster 1.3</span></span><span>Prefer fluent methods over raw args.</span><span>&nbsp;</span><span><span class="tool-token tool-token--comment">## Post types live in config/</span></span><span>Never register via add_action('init').</span></code></pre>
+      </div>
+    </div>
+  </section>
+    <section class="tool-section tool-section--cards" aria-labelledby="features-title">
+    <div class="tool-container">
+      <div class="tool-section__header">
+        <h2 id="features-title" class="tool-section__title">Composed from the ship's manifest</h2>
+        <p class="tool-section__intro">Not a static template pasted into every repo — Bosun inspects each theme and writes guidance for what's actually there.</p>
+      </div>
+      <div class="tool-card-grid">
+        <article class="tool-card">
+      <h3>📋 Inventory-driven</h3>
+      <p>Detects installed packages, versions, and enabled features — template routing, Quartermaster, WooCommerce — and briefs accordingly.</p>
+    </article>
+        <article class="tool-card">
+      <h3>🧠 Every agent format</h3>
+      <p>Writes <code>CLAUDE.md</code> and <code>AGENTS.md</code>, plus agent skills — one briefing, every AI coding tool aboard.</p>
+    </article>
+        <article class="tool-card">
+      <h3>🔄 Re-run anytime</h3>
+      <p>Add a package, enable a feature, re-run <code>wp bosun install</code> — the briefing keeps pace with the ship.</p>
+    </article>
+      </div>
+    </div>
+  </section>
+    <section class="tool-ecosystem" aria-labelledby="ecosystem-title">
+    <div class="tool-container">
+      <h2 id="ecosystem-title">Built for the PressGang fleet</h2>
+      <p>Bosun completes the loop: <a href="/capstan/">Capstan</a> launches the project, <a href="https://pressgang.dev/" target="_blank" rel="noopener noreferrer">PressGang</a> structures it, <a href="/quartermaster/">Quartermaster</a> queries it — and Bosun makes sure your AI tools know all of it.</p>
+      <div class="tool-ecosystem__actions">
+        <a class="tool-button tool-button--dark" href="https://docs.pressgang.dev/ecosystem/bosun" target="_blank" rel="noopener noreferrer">Bosun docs <span aria-hidden="true">&rarr;</span></a>
+      <a class="tool-button tool-button--outline" href="/">Meet PressGang</a>
+      </div>
+    </div>
+  </section>
+  </main>
+  <footer class="tool-footer">
+    <div class="tool-container tool-footer__inner">
+      <div class="tool-footer__brand">
+        <h2>🧭 Bosun</h2>
+        <p>AI agent guidelines and skills for PressGang WordPress themes. Open source, MIT licensed. Part of the pressgang-wp fleet.</p>
+      </div>
+      <div class="tool-footer__column">
+        <h2>Docs</h2>
+        <a class="tool-footer__link" href="https://docs.pressgang.dev/ecosystem/bosun" target="_blank" rel="noopener noreferrer">Bosun docs</a>
+          <a class="tool-footer__link" href="https://docs.pressgang.dev" target="_blank" rel="noopener noreferrer">PressGang docs</a>
+          <a class="tool-footer__link" href="/quartermaster/">Quartermaster</a>
+          <a class="tool-footer__link" href="/capstan/">Capstan</a>
+      </div>
+<div class="tool-footer__column">
+        <h2>Source</h2>
+        <a class="tool-footer__link" href="https://github.com/pressgang-wp/pressgang-bosun" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a class="tool-footer__link" href="https://github.com/pressgang-wp/pressgang-bosun/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">MIT license</a>
+      </div>
+    </div>
+    <div class="tool-container tool-footer__meta">
+      <span>&copy; 2026 PressGang</span>
+      <span>Requires PHP 8.3+ · WP-CLI</span>
+    </div>
+  </footer>
+</body>
+</html>

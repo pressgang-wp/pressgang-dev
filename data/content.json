@@ -147,7 +147,7 @@
       "PressGang's best features leave barely a trace in a child theme's code — great for developers who know the ship, invisible to AI agents who don't. <strong class=\"pg-strong pg-strong--dark\">Bosun</strong> composes <code>CLAUDE.md</code> + <code>AGENTS.md</code> from what each theme actually has installed and enabled — so every agent that comes aboard knows the ropes.",
       "No more hand-rolled query arrays and stub files from an unbriefed agent — working code that misses everything that makes the framework worth sailing."
     ],
-    "cta": { "label": "Meet Bosun →", "href": "https://docs.pressgang.dev/ecosystem/bosun" }
+    "cta": { "label": "Meet Bosun →", "href": "/bosun/" }
   },
 
   "fleet": {
@@ -166,14 +166,14 @@
         "title": "🛞 Capstan",
         "body": "WP-CLI scaffolding for PressGang — WordPress core, parent theme, child theme in one command. Dry-run by default: preview every plan before it writes a byte.",
         "command": "wp capstan new",
-        "cta": { "label": "Explore Capstan", "href": "https://docs.pressgang.dev/ecosystem/capstan" }
+        "cta": { "label": "Explore Capstan", "href": "/capstan/" }
       },
       {
         "accent": "green",
         "title": "🧭 Bosun",
         "body": "Composes AI agent guidelines and skills for PressGang themes — generated from what each theme actually has installed and enabled.",
         "command": "wp bosun install",
-        "cta": { "label": "Explore Bosun", "href": "https://docs.pressgang.dev/ecosystem/bosun" }
+        "cta": { "label": "Explore Bosun", "href": "/bosun/" }
       }
     ]
   },
@@ -201,8 +201,8 @@
         "heading": "Ecosystem",
         "links": [
           { "label": "Quartermaster", "href": "/quartermaster/" },
-          { "label": "Capstan", "href": "https://docs.pressgang.dev/ecosystem/capstan" },
-          { "label": "Bosun", "href": "https://docs.pressgang.dev/ecosystem/bosun" },
+          { "label": "Capstan", "href": "/capstan/" },
+          { "label": "Bosun", "href": "/bosun/" },
           { "label": "pressgang-child", "href": "https://github.com/pressgang-wp/pressgang-child" }
         ]
       },

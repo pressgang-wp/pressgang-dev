@@ -1,0 +1,97 @@
+{
+  "slug": "capstan",
+  "name": "Capstan",
+  "meta": {
+    "title": "Capstan - WP-CLI Scaffolding for PressGang WordPress Projects",
+    "description": "Capstan is a WP-CLI package for scaffolding, configuring, and packaging PressGang WordPress projects. Dry-run by default, PHP 8.3+, and built for the PressGang ecosystem.",
+    "canonical": "https://pressgang.dev/capstan/",
+    "image": "https://pressgang.dev/assets/images/pressgang-logo-512.png"
+  },
+  "nav": {
+    "links": [
+      { "label": "How it works", "href": "#how" },
+      { "label": "Dry-run", "href": "#dryrun" },
+      { "label": "GitHub", "href": "https://github.com/pressgang-wp/pressgang-capstan" }
+    ],
+    "cta": { "label": "Read the docs", "href": "https://docs.pressgang.dev/ecosystem/capstan" }
+  },
+  "hero": {
+    "badge": "🛞 WP-CLI package · PHP 8.3+ · dry-run by default",
+    "title": "A whole WordPress project,",
+    "accent": "one turn of the capstan",
+    "lede": "Capstan scaffolds, configures, and packages [PressGang](https://pressgang.dev/) projects from the command line — WordPress core, parent theme, and child theme in one command. Like `artisan`, but it speaks WP-CLI.",
+    "primary": { "label": "Read the docs", "href": "https://docs.pressgang.dev/ecosystem/capstan" },
+    "installCommand": "composer global require pressgang-wp/capstan"
+  },
+  "terminal": {
+    "ariaLabel": "How Capstan works",
+    "label": "~/sites",
+    "code": "$ wp capstan new harbour-cafe\n\nPlan (dry-run — nothing written yet):\n＋ WordPress core (latest)   → ./harbour-cafe\n＋ pressgang (parent theme)  → wp-content/themes/pressgang\n＋ harbour-cafe (child)      → wp-content/themes/harbour-cafe\n＋ composer.json · config/ · src/Controllers/\n\nProceed? [y/n] y\n\n✔ All lines made fast. Ready to build."
+  },
+  "sections": [
+    {
+      "type": "cards",
+      "id": "features",
+      "title": "Heavy lifting, steady hands",
+      "intro": "The setup work that eats the first day of every project — done in the time it takes to pour a coffee.",
+      "cards": [
+        {
+          "title": "🏗️ Scaffold everything",
+          "body": "WordPress core, the PressGang parent theme, and a ready-to-build child theme — controllers, `config/`, Composer autoloading, all wired."
+        },
+        {
+          "title": "🔍 Dry-run by default",
+          "body": "Every command prints its plan before it writes a byte. See exactly what will land where — then say yes."
+        },
+        {
+          "title": "📦 Package & configure",
+          "body": "Not just day one: Capstan configures and packages existing PressGang projects too — repeatable, scriptable, CI-friendly."
+        }
+      ]
+    },
+    {
+      "type": "split",
+      "id": "dryrun",
+      "tone": "light",
+      "eyebrow": "No surprises",
+      "title": "Preview every plan before it writes a byte",
+      "body": [
+        "Scaffolding tools that write first and explain later are how projects start with mystery files. Capstan inverts it: the plan is the default output, writing is the opt-in. The same philosophy as the rest of the [PressGang](https://pressgang.dev/) fleet — explicit over magic, nothing smuggled aboard."
+      ],
+      "link": { "label": "Command reference", "href": "https://docs.pressgang.dev/ecosystem/capstan" },
+      "codeLabel": "plan → confirm → write",
+      "code": "$ wp capstan new harbour-cafe\n# default — prints the plan only\n\nPlan → review → confirm → write\n# nothing lands without your say-so"
+    }
+  ],
+  "ecosystem": {
+    "title": "Built for the PressGang fleet",
+    "intro": "Capstan is the launch ramp for [PressGang](https://pressgang.dev/) — the modern WordPress parent theme framework for Timber & Twig. Pair it with [Quartermaster](/quartermaster/) for fluent queries once you're underway.",
+    "links": [
+      { "label": "Capstan docs", "href": "https://docs.pressgang.dev/ecosystem/capstan", "arrow": true },
+      { "label": "Meet PressGang", "href": "/", "secondary": true }
+    ]
+  },
+  "footer": {
+    "title": "🛞 Capstan",
+    "summary": "WP-CLI scaffolding for PressGang WordPress projects. Open source, MIT licensed. Part of the pressgang-wp fleet.",
+    "meta": "Requires PHP 8.3+ · WP-CLI",
+    "columns": [
+      {
+        "title": "Docs",
+        "links": [
+          { "label": "Capstan docs", "href": "https://docs.pressgang.dev/ecosystem/capstan" },
+          { "label": "PressGang docs", "href": "https://docs.pressgang.dev" },
+          { "label": "Quartermaster", "href": "/quartermaster/" }
+        ]
+      },
+      {
+        "title": "Source",
+        "links": [
+          { "label": "GitHub", "href": "https://github.com/pressgang-wp/pressgang-capstan" },
+          { "label": "Packagist", "href": "https://packagist.org/packages/pressgang-wp/capstan" },
+          { "label": "MIT license", "href": "https://github.com/pressgang-wp/pressgang-capstan/blob/main/LICENSE" }
+        ]
+      }
+    ]
+  }
+}

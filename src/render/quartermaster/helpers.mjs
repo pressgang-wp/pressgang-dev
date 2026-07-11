@@ -16,6 +16,10 @@ export function externalAttrs(href) {
 
 export function inlineMarkup(value = "") {
   return escapeHtml(value)
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_match, label, href) => {
+      const safeHref = attr(href);
+      return `<a href="${safeHref}"${externalAttrs(href)}>${label}</a>`;
+    })
     .replace(/`([^`]+)`/g, "<code>$1</code>")
     .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
 }

@@ -1,0 +1,57 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://pressgang.dev/#org",
+      "name": "PressGang",
+      "url": "https://pressgang.dev",
+      "sameAs": ["https://github.com/pressgang-wp"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://pressgang.dev/bosun/#website",
+      "url": "https://pressgang.dev/bosun/",
+      "name": "Bosun - AI Agent Guidelines for PressGang",
+      "publisher": { "@id": "https://pressgang.dev/#org" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://pressgang.dev/bosun/#app",
+      "name": "Bosun",
+      "url": "https://pressgang.dev/bosun/",
+      "description": "Bosun composes AI agent guidelines, CLAUDE.md, AGENTS.md, and skills for PressGang WordPress themes based on installed packages and enabled features.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "WordPress, PHP 8.3+, WP-CLI",
+      "softwareRequirements": "PHP 8.3+, WP-CLI",
+      "license": "https://opensource.org/licenses/MIT",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "author": { "@id": "https://pressgang.dev/#org" },
+      "downloadUrl": "https://github.com/pressgang-wp/pressgang-bosun",
+      "softwareHelp": { "@type": "CreativeWork", "url": "https://docs.pressgang.dev/ecosystem/bosun" },
+      "image": "https://pressgang.dev/assets/images/pressgang-logo-512.png"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://pressgang.dev/bosun/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What files does Bosun compose?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bosun composes CLAUDE.md, AGENTS.md, and agent skills so AI coding tools understand the PressGang theme's installed packages and enabled conventions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do AI agents need Bosun?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "PressGang conventions such as controller routing, config merging, and context getters can be invisible from a child theme's code alone. Bosun briefs agents from the actual project manifest."
+          }
+        }
+      ]
+    }
+  ]
+}

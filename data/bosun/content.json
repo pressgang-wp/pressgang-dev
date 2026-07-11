@@ -1,0 +1,98 @@
+{
+  "slug": "bosun",
+  "name": "Bosun",
+  "meta": {
+    "title": "Bosun - AI Agent Guidelines and Skills for PressGang Themes",
+    "description": "Bosun composes CLAUDE.md, AGENTS.md, and agent skills for PressGang WordPress themes from the packages and features actually installed.",
+    "canonical": "https://pressgang.dev/bosun/",
+    "image": "https://pressgang.dev/assets/images/pressgang-logo-512.png"
+  },
+  "nav": {
+    "links": [
+      { "label": "Why", "href": "#why" },
+      { "label": "How it works", "href": "#how" },
+      { "label": "GitHub", "href": "https://github.com/pressgang-wp/pressgang-bosun" }
+    ],
+    "cta": { "label": "Read the docs", "href": "https://docs.pressgang.dev/ecosystem/bosun" }
+  },
+  "hero": {
+    "badge": "🧭 WP-CLI package · composes CLAUDE.md + AGENTS.md + skills",
+    "title": "Your AI crew,",
+    "accent": "already briefed",
+    "lede": "Bosun composes AI agent guidelines and skills for [PressGang](https://pressgang.dev/) themes — generated from what each theme **actually has installed and enabled**, so every agent that comes aboard knows the ropes.",
+    "primary": { "label": "Read the docs", "href": "https://docs.pressgang.dev/ecosystem/bosun" },
+    "installCommand": "wp bosun install"
+  },
+  "terminal": {
+    "ariaLabel": "How Bosun works",
+    "label": "wp-content/themes/harbour-cafe",
+    "code": "$ wp package install https://github.com/pressgang-wp/pressgang-bosun.git\n$ wp bosun install\n\n✔ Inventory: pressgang 2.1 · quartermaster 1.3\n✔ Template routing detected — guidance aboard\n✔ Composed CLAUDE.md + AGENTS.md\n✔ Skills installed → .claude/skills/\n\nAll hands briefed."
+  },
+  "sections": [
+    {
+      "type": "split",
+      "id": "why",
+      "tone": "dark",
+      "eyebrow": "The problem",
+      "title": "Convention is invisible to an unbriefed agent",
+      "body": [
+        "PressGang's best features leave barely a trace in a child theme's code — controllers route by convention, config merges silently, context getters wire themselves. Great for developers who know the ship; invisible to AI agents who don't.",
+        "An unbriefed agent writes working code that misses everything the framework gives you: hand-rolled query arrays, stub template files, hooks in `functions.php`. Bosun closes that gap at the source."
+      ],
+      "link": { "label": "How Bosun briefs agents", "href": "https://docs.pressgang.dev/ecosystem/bosun" },
+      "codeLabel": "CLAUDE.md — composed, not copied",
+      "code": "# harbour-cafe — agent guidelines\n\n## Template routing is ON\nDo not create archive-*.php stubs.\nControllers resolve by convention.\n\n## Queries use Quartermaster 1.3\nPrefer fluent methods over raw args.\n\n## Post types live in config/\nNever register via add_action('init')."
+    },
+    {
+      "type": "cards",
+      "id": "features",
+      "title": "Composed from the ship's manifest",
+      "intro": "Not a static template pasted into every repo — Bosun inspects each theme and writes guidance for what's actually there.",
+      "cards": [
+        {
+          "title": "📋 Inventory-driven",
+          "body": "Detects installed packages, versions, and enabled features — template routing, Quartermaster, WooCommerce — and briefs accordingly."
+        },
+        {
+          "title": "🧠 Every agent format",
+          "body": "Writes `CLAUDE.md` and `AGENTS.md`, plus agent skills — one briefing, every AI coding tool aboard."
+        },
+        {
+          "title": "🔄 Re-run anytime",
+          "body": "Add a package, enable a feature, re-run `wp bosun install` — the briefing keeps pace with the ship."
+        }
+      ]
+    }
+  ],
+  "ecosystem": {
+    "title": "Built for the PressGang fleet",
+    "intro": "Bosun completes the loop: [Capstan](/capstan/) launches the project, [PressGang](https://pressgang.dev/) structures it, [Quartermaster](/quartermaster/) queries it — and Bosun makes sure your AI tools know all of it.",
+    "links": [
+      { "label": "Bosun docs", "href": "https://docs.pressgang.dev/ecosystem/bosun", "arrow": true },
+      { "label": "Meet PressGang", "href": "/", "secondary": true }
+    ]
+  },
+  "footer": {
+    "title": "🧭 Bosun",
+    "summary": "AI agent guidelines and skills for PressGang WordPress themes. Open source, MIT licensed. Part of the pressgang-wp fleet.",
+    "meta": "Requires PHP 8.3+ · WP-CLI",
+    "columns": [
+      {
+        "title": "Docs",
+        "links": [
+          { "label": "Bosun docs", "href": "https://docs.pressgang.dev/ecosystem/bosun" },
+          { "label": "PressGang docs", "href": "https://docs.pressgang.dev" },
+          { "label": "Quartermaster", "href": "/quartermaster/" },
+          { "label": "Capstan", "href": "/capstan/" }
+        ]
+      },
+      {
+        "title": "Source",
+        "links": [
+          { "label": "GitHub", "href": "https://github.com/pressgang-wp/pressgang-bosun" },
+          { "label": "MIT license", "href": "https://github.com/pressgang-wp/pressgang-bosun/blob/main/LICENSE" }
+        ]
+      }
+    ]
+  }
+}

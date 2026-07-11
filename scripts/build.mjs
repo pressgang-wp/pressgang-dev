@@ -16,6 +16,7 @@ import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 import { renderPage } from "../src/page.mjs";
 import { renderQuartermasterPage } from "../src/pages/quartermaster.mjs";
+import { renderToolPage } from "../src/pages/tool.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const read = (p) => JSON.parse(readFileSync(resolve(root, p), "utf8"));
@@ -77,6 +78,18 @@ const pages = [
     render: renderQuartermasterPage,
     content: read("data/quartermaster/content.json"),
     schema: read("data/quartermaster/schema.json"),
+  },
+  {
+    output: "capstan/index.html",
+    render: renderToolPage,
+    content: read("data/capstan/content.json"),
+    schema: read("data/capstan/schema.json"),
+  },
+  {
+    output: "bosun/index.html",
+    render: renderToolPage,
+    content: read("data/bosun/content.json"),
+    schema: read("data/bosun/schema.json"),
   },
 ];
 

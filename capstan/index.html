@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Capstan - WP-CLI Scaffolding for PressGang WordPress Projects</title>
+  <meta name="description" content="Capstan is a WP-CLI package for scaffolding, configuring, and packaging PressGang WordPress projects. Dry-run by default, PHP 8.3+, and built for the PressGang ecosystem.">
+  <link rel="canonical" href="https://pressgang.dev/capstan/">
+  <meta property="og:title" content="Capstan - WP-CLI Scaffolding for PressGang WordPress Projects">
+  <meta property="og:description" content="Capstan is a WP-CLI package for scaffolding, configuring, and packaging PressGang WordPress projects. Dry-run by default, PHP 8.3+, and built for the PressGang ecosystem.">
+  <meta property="og:url" content="https://pressgang.dev/capstan/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://pressgang.dev/assets/images/pressgang-logo-512.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Capstan - WP-CLI Scaffolding for PressGang WordPress Projects">
+  <meta name="twitter:description" content="Capstan is a WP-CLI package for scaffolding, configuring, and packaging PressGang WordPress projects. Dry-run by default, PHP 8.3+, and built for the PressGang ecosystem.">
+  <meta name="twitter:image" content="https://pressgang.dev/assets/images/pressgang-logo-512.png">
+  <link rel="icon" type="image/png" href="/assets/images/pressgang-logo.png">
+  <link rel="apple-touch-icon" href="/assets/images/pressgang-logo-512.png">
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/bricolage-latin.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/archivo-latin.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/jetbrains-mono-latin.woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/styles.css?v=8e40f0177846">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://pressgang.dev/#org",
+      "name": "PressGang",
+      "url": "https://pressgang.dev",
+      "sameAs": [
+        "https://github.com/pressgang-wp"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://pressgang.dev/capstan/#website",
+      "url": "https://pressgang.dev/capstan/",
+      "name": "Capstan - WP-CLI Scaffolding for PressGang",
+      "publisher": {
+        "@id": "https://pressgang.dev/#org"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://pressgang.dev/capstan/#app",
+      "name": "Capstan",
+      "url": "https://pressgang.dev/capstan/",
+      "description": "WP-CLI scaffolding for PressGang WordPress projects. Capstan creates WordPress core, the PressGang parent theme, and a ready-to-build child theme with dry-run output by default.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "WordPress, PHP 8.3+, WP-CLI",
+      "softwareRequirements": "PHP 8.3+, WP-CLI, Composer",
+      "license": "https://opensource.org/licenses/MIT",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@id": "https://pressgang.dev/#org"
+      },
+      "downloadUrl": "https://github.com/pressgang-wp/pressgang-capstan",
+      "installUrl": "https://packagist.org/packages/pressgang-wp/capstan",
+      "softwareHelp": {
+        "@type": "CreativeWork",
+        "url": "https://docs.pressgang.dev/ecosystem/capstan"
+      },
+      "image": "https://pressgang.dev/assets/images/pressgang-logo-512.png"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://pressgang.dev/capstan/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does Capstan scaffold?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Capstan scaffolds WordPress core, the PressGang parent theme, and a ready-to-build child theme with Composer autoloading, config files, and controller structure."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Capstan write files immediately?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Capstan is dry-run by default: commands print the plan first, and writing files is opt-in after review."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <script src="/assets/js/app.js?v=8e40f0177846" defer></script>
+</head>
+<body class="tool-page tool-page--capstan">
+  <a class="tool-skip-link" href="#main">Skip to content</a>
+  <nav class="tool-nav" aria-label="Main">
+    <div class="tool-container tool-nav__inner">
+      <a class="tool-nav__brand" href="/" aria-label="PressGang home">
+        <picture>
+          <source srcset="/assets/images/pressgang-logo.webp" type="image/webp">
+          <img class="tool-nav__logo pg-logo pg-logo--72" src="/assets/images/pressgang-logo.png" alt="" width="72" height="72" decoding="async">
+        </picture>
+        <span>PressGang</span>
+      </a>
+      <button class="tool-nav__toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" data-nav-toggle>
+        <span class="tool-sr-only">Menu</span>
+        <span class="tool-nav__toggle-line"></span>
+        <span class="tool-nav__toggle-line"></span>
+        <span class="tool-nav__toggle-line"></span>
+      </button>
+      <div class="tool-nav__links" id="primary-navigation" data-nav-menu>
+        <a class="tool-nav__link" href="#how">How it works</a>
+        <a class="tool-nav__link" href="#dryrun">Dry-run</a>
+        <a class="tool-nav__link" href="https://github.com/pressgang-wp/pressgang-capstan" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="tool-button tool-button--primary tool-button--nav" href="https://docs.pressgang.dev/ecosystem/capstan" target="_blank" rel="noopener noreferrer">Read the docs</a>
+      </div>
+    </div>
+  </nav>
+  <header id="top" class="tool-hero">
+    <div class="tool-container">
+      <p class="tool-hero__badge">🛞 WP-CLI package · PHP 8.3+ · dry-run by default</p>
+      <h1 class="tool-hero__title">A whole WordPress project, <span>one turn of the capstan</span></h1>
+      <p class="tool-hero__lede">Capstan scaffolds, configures, and packages <a href="https://pressgang.dev/" target="_blank" rel="noopener noreferrer">PressGang</a> projects from the command line — WordPress core, parent theme, and child theme in one command. Like <code>artisan</code>, but it speaks WP-CLI.</p>
+      <div class="tool-hero__actions">
+        <a class="tool-button tool-button--primary tool-button--large" href="https://docs.pressgang.dev/ecosystem/capstan" target="_blank" rel="noopener noreferrer">Read the docs <span aria-hidden="true">&rarr;</span></a>
+        <button class="tool-copy-button" type="button" data-copy="composer global require pressgang-wp/capstan" aria-label="Copy install command">
+          <code>composer global require pressgang-wp/capstan</code>
+          <span class="copy-label" aria-live="polite" aria-atomic="true">⧉</span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <main id="main" tabindex="-1">
+    <section id="how" class="tool-terminal-section" aria-label="How Capstan works">
+    <div class="tool-terminal">
+      <div class="tool-chrome" aria-hidden="true">
+        <span class="tool-chrome__dot tool-chrome__dot--red"></span>
+        <span class="tool-chrome__dot tool-chrome__dot--yellow"></span>
+        <span class="tool-chrome__dot tool-chrome__dot--green"></span>
+        <span class="tool-chrome__label tool-chrome__label--left">~/sites</span>
+      </div>
+      <pre class="tool-terminal__pre"><code><span><span class="tool-token tool-token--prompt">$</span> wp capstan new harbour-cafe</span><span>&nbsp;</span><span><span class="tool-token tool-token--accent">Plan</span> (dry-run — nothing written yet):</span><span><span class="tool-token tool-token--success">＋</span> WordPress core (latest)   → ./harbour-cafe</span><span><span class="tool-token tool-token--success">＋</span> pressgang (parent theme)  → wp-content/themes/pressgang</span><span><span class="tool-token tool-token--success">＋</span> harbour-cafe (child)      → wp-content/themes/harbour-cafe</span><span><span class="tool-token tool-token--success">＋</span> composer.json · config/ · src/Controllers/</span><span>&nbsp;</span><span>Proceed? [y/n] y</span><span>&nbsp;</span><span><span class="tool-token tool-token--success">✔</span> All lines made fast. Ready to build.</span></code></pre>
+    </div>
+  </section>
+    <section class="tool-section tool-section--cards" aria-labelledby="features-title">
+    <div class="tool-container">
+      <div class="tool-section__header">
+        <h2 id="features-title" class="tool-section__title">Heavy lifting, steady hands</h2>
+        <p class="tool-section__intro">The setup work that eats the first day of every project — done in the time it takes to pour a coffee.</p>
+      </div>
+      <div class="tool-card-grid">
+        <article class="tool-card">
+      <h3>🏗️ Scaffold everything</h3>
+      <p>WordPress core, the PressGang parent theme, and a ready-to-build child theme — controllers, <code>config/</code>, Composer autoloading, all wired.</p>
+    </article>
+        <article class="tool-card">
+      <h3>🔍 Dry-run by default</h3>
+      <p>Every command prints its plan before it writes a byte. See exactly what will land where — then say yes.</p>
+    </article>
+        <article class="tool-card">
+      <h3>📦 Package &amp; configure</h3>
+      <p>Not just day one: Capstan configures and packages existing PressGang projects too — repeatable, scriptable, CI-friendly.</p>
+    </article>
+      </div>
+    </div>
+  </section>
+    <section id="dryrun" class="tool-section tool-split" aria-labelledby="dryrun-title">
+    <div class="tool-container tool-split__inner">
+      <div class="tool-split__copy">
+        <p class="tool-eyebrow">No surprises</p>
+        <h2 id="dryrun-title" class="tool-section__title">Preview every plan before it writes a byte</h2>
+        <div class="tool-split__body"><p>Scaffolding tools that write first and explain later are how projects start with mystery files. Capstan inverts it: the plan is the default output, writing is the opt-in. The same philosophy as the rest of the <a href="https://pressgang.dev/" target="_blank" rel="noopener noreferrer">PressGang</a> fleet — explicit over magic, nothing smuggled aboard.</p></div>
+        <a class="tool-text-link" href="https://docs.pressgang.dev/ecosystem/capstan" target="_blank" rel="noopener noreferrer">Command reference <span aria-hidden="true">&rarr;</span></a>
+      </div>
+      <div class="tool-code-card">
+        <div class="tool-chrome" aria-hidden="true">
+          <span class="tool-chrome__dot tool-chrome__dot--red"></span>
+        <span class="tool-chrome__dot tool-chrome__dot--yellow"></span>
+        <span class="tool-chrome__dot tool-chrome__dot--green"></span>
+          <span class="tool-chrome__label">plan → confirm → write</span>
+        </div>
+        <pre class="tool-code-card__pre"><code><span><span class="tool-token tool-token--prompt">$</span> wp capstan new harbour-cafe</span><span><span class="tool-token tool-token--comment"># default — prints the plan only</span></span><span>&nbsp;</span><span><span class="tool-token tool-token--accent">Plan</span> → review → confirm → write</span><span><span class="tool-token tool-token--comment"># nothing lands without your say-so</span></span></code></pre>
+      </div>
+    </div>
+  </section>
+    <section class="tool-ecosystem" aria-labelledby="ecosystem-title">
+    <div class="tool-container">
+      <h2 id="ecosystem-title">Built for the PressGang fleet</h2>
+      <p>Capstan is the launch ramp for <a href="https://pressgang.dev/" target="_blank" rel="noopener noreferrer">PressGang</a> — the modern WordPress parent theme framework for Timber &amp; Twig. Pair it with <a href="/quartermaster/">Quartermaster</a> for fluent queries once you're underway.</p>
+      <div class="tool-ecosystem__actions">
+        <a class="tool-button tool-button--dark" href="https://docs.pressgang.dev/ecosystem/capstan" target="_blank" rel="noopener noreferrer">Capstan docs <span aria-hidden="true">&rarr;</span></a>
+      <a class="tool-button tool-button--outline" href="/">Meet PressGang</a>
+      </div>
+    </div>
+  </section>
+  </main>
+  <footer class="tool-footer">
+    <div class="tool-container tool-footer__inner">
+      <div class="tool-footer__brand">
+        <h2>🛞 Capstan</h2>
+        <p>WP-CLI scaffolding for PressGang WordPress projects. Open source, MIT licensed. Part of the pressgang-wp fleet.</p>
+      </div>
+      <div class="tool-footer__column">
+        <h2>Docs</h2>
+        <a class="tool-footer__link" href="https://docs.pressgang.dev/ecosystem/capstan" target="_blank" rel="noopener noreferrer">Capstan docs</a>
+          <a class="tool-footer__link" href="https://docs.pressgang.dev" target="_blank" rel="noopener noreferrer">PressGang docs</a>
+          <a class="tool-footer__link" href="/quartermaster/">Quartermaster</a>
+      </div>
+<div class="tool-footer__column">
+        <h2>Source</h2>
+        <a class="tool-footer__link" href="https://github.com/pressgang-wp/pressgang-capstan" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a class="tool-footer__link" href="https://packagist.org/packages/pressgang-wp/capstan" target="_blank" rel="noopener noreferrer">Packagist</a>
+          <a class="tool-footer__link" href="https://github.com/pressgang-wp/pressgang-capstan/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">MIT license</a>
+      </div>
+    </div>
+    <div class="tool-container tool-footer__meta">
+      <span>&copy; 2026 PressGang</span>
+      <span>Requires PHP 8.3+ · WP-CLI</span>
+    </div>
+  </footer>
+</body>
+</html>
