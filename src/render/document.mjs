@@ -8,6 +8,7 @@ import { renderHero } from "./sections/hero.mjs";
 import { renderNav } from "./sections/nav.mjs";
 import { renderQuartermaster } from "./sections/quartermaster.mjs";
 import { renderWhy } from "./sections/why.mjs";
+import { versionedAsset } from "./assets.mjs";
 
 export function renderDocument(c, schema) {
   const s = c.site;
@@ -34,11 +35,11 @@ export function renderDocument(c, schema) {
   <link rel="apple-touch-icon" href="/assets/images/pressgang-logo-512.png">
   <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/bricolage-latin.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/archivo-latin.woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="${versionedAsset("/assets/css/styles.css")}">
   <script type="application/ld+json">
 ${JSON.stringify(schema, null, 2)}
   </script>
-  <script src="/assets/js/app.js" defer></script>
+  <script src="${versionedAsset("/assets/js/app.js")}" defer></script>
 </head>
 <body>
 

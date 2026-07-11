@@ -6,6 +6,7 @@ import { renderFooter } from "./sections/footer.mjs";
 import { renderHero } from "./sections/hero.mjs";
 import { renderNav } from "./sections/nav.mjs";
 import { renderPhilosophy } from "./sections/philosophy.mjs";
+import { versionedAsset } from "../assets.mjs";
 
 export function renderQuartermasterDocument(content, schema) {
   return `<!DOCTYPE html>
@@ -30,11 +31,11 @@ export function renderQuartermasterDocument(content, schema) {
   <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/bricolage-latin.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/archivo-latin.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/jetbrains-mono-latin.woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="${versionedAsset("/assets/css/styles.css")}">
   <script type="application/ld+json">
 ${jsonLd(schema)}
   </script>
-  <script src="/assets/js/app.js" defer></script>
+  <script src="${versionedAsset("/assets/js/app.js")}" defer></script>
 </head>
 <body class="qm-page">
   <a class="qm-skip-link" href="#main">Skip to content</a>
