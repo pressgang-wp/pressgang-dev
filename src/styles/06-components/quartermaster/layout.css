@@ -4,7 +4,7 @@
   }
 
   .qm-container {
-    @apply mx-auto w-[min(100%-32px,1180px)];
+    @apply mx-auto w-[min(1400px,calc(100%-12vw))];
   }
 
   .qm-section {
@@ -44,6 +44,6 @@
   }
 
   .qm-logo--nav {
-    @apply h-11 w-auto max-w-[min(58vw,212px)];
+    @apply h-[54px] w-auto max-w-[min(64vw,280px)];
   }
 }

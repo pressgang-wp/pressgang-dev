@@ -1,6 +1,6 @@
 @layer components {
   .qm-hero {
-    @apply overflow-hidden px-0 pb-14 pt-[72px];
+    @apply overflow-hidden px-0 pb-0 pt-[38px];
   }
 
   .qm-hero__inner {
@@ -12,11 +12,11 @@
   }
 
   .qm-hero__badge {
-    @apply mx-auto mb-[26px] inline-flex max-w-full items-center gap-2 rounded-full bg-qm-cream px-4 py-[7px] font-mono text-[12.5px] font-semibold text-[#a5570d];
+    @apply mx-auto mb-[26px] inline-block max-w-full whitespace-normal rounded-full bg-qm-cream px-4 py-[7px] text-center font-mono text-[12.5px] font-semibold leading-5 text-[#a5570d];
   }
 
   .qm-hero__title {
-    @apply mx-auto mb-5 max-w-[920px] font-display text-[42px] font-extrabold leading-[1.05] tracking-normal sm:text-[58px] lg:text-[66px];
+    @apply mx-auto mb-5 max-w-[920px] text-balance font-display text-[34px] font-extrabold leading-[1.05] tracking-normal sm:text-[58px] lg:text-[66px];
   }
 
   .qm-hero__title span {

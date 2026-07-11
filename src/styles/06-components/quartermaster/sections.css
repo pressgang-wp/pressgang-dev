@@ -1,22 +1,54 @@
 @layer components {
   .qm-compare {
-    @apply bg-white;
+    @apply bg-transparent pb-16 pt-10 sm:pt-12;
+  }
+
+  .qm-compare__intro {
+    @apply mx-auto mb-7 max-w-[720px] text-center text-[16px] leading-7 text-qm-body sm:text-[17px] sm:leading-8;
   }
 
   .qm-compare__grid {
-    @apply grid gap-5 lg:grid-cols-2;
+    @apply mx-auto grid w-full max-w-[1000px] overflow-hidden rounded-[14px] border border-qm-ink/10 bg-white shadow-[0_18px_44px_rgb(34_26_18_/_10%)] md:grid-cols-2;
   }
 
   .qm-compare__panel {
-    @apply min-w-0 rounded-lg border border-qm-ink/10 bg-qm-paper p-5 sm:p-6;
+    @apply min-w-0 overflow-hidden p-[22px] sm:px-[26px];
+  }
+
+  .qm-compare__panel--muted {
+    @apply border-b border-qm-ink/10 bg-[#f2ede4] md:border-b-0 md:border-r;
   }
 
   .qm-compare__panel--brand {
-    @apply border-qm-brand/35 bg-[#fff3e6];
+    @apply bg-white;
+  }
+
+  .qm-compare__eyebrow {
+    @apply mb-3 font-mono text-[11.5px] font-bold uppercase tracking-[1px] text-[#8a7458];
+  }
+
+  .qm-compare__panel--brand .qm-compare__eyebrow {
+    @apply text-qm-brand;
+  }
+
+  .qm-compare__code {
+    @apply m-0 max-w-full overflow-x-auto font-mono text-[12.5px] leading-[1.65] text-[#6b5d4a];
+  }
+
+  .qm-compare__code code {
+    @apply block min-w-fit whitespace-pre;
+  }
+
+  .qm-compare__panel--brand .qm-compare__code {
+    @apply text-qm-ink;
   }
 
   .qm-compare__note {
-    @apply mt-4 text-[15px] leading-7 text-qm-body;
+    @apply mt-4 text-[13.5px] leading-[1.55] text-qm-body;
+  }
+
+  .qm-compare__note code {
+    @apply rounded bg-qm-cream px-1.5 py-px font-mono text-[0.9em] text-qm-ink;
   }
 
   .qm-why {

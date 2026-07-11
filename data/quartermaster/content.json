@@ -39,20 +39,18 @@
     "installCommand": "composer require pressgang-wp/quartermaster"
   },
   "compare": {
-    "title": "The same WordPress machinery, less array archaeology",
     "intro": "Quartermaster does not replace WordPress queries. It makes the argument-building layer explicit, composable and easier to review.",
     "panels": [
       {
-        "eyebrow": "Raw WP_Query",
+        "eyebrow": "Raw WP_Query — four things must line up silently",
         "tone": "muted",
-        "code": "$query = new WP_Query([\n    'post_type' => 'product',\n    'meta_query' => [\n        'relation' => 'AND',\n        [\n            'key' => '_price',\n            'compare' => 'EXISTS',\n        ],\n        [\n            'key' => '_stock_status',\n            'value' => 'instock',\n        ],\n    ],\n    'tax_query' => [[\n        'taxonomy' => 'product_cat',\n        'field' => 'slug',\n        'terms' => ['featured'],\n    ]],\n    'posts_per_page' => 12,\n    'no_found_rows' => true,\n]);",
-        "note": "WordPress arrays are powerful, but nested clauses get hard to scan and easy to overwrite when more hooks or conditions join in."
+        "code": "$events = new WP_Query([\n  'post_type'      => 'event',\n  'posts_per_page' => 12,\n  'meta_key'       => 'start',\n  'orderby'        => 'meta_value',\n  'order'          => 'ASC',\n  'meta_query'     => [[\n    'key'     => 'start',\n    'value'   => wp_date('Ymd'),\n    'compare' => '>=',\n    'type'    => 'DATE',\n  ]],\n]);"
       },
       {
         "eyebrow": "With Quartermaster ⚓",
         "tone": "brand",
-        "code": "$query = Quartermaster::posts('product')\n    ->whereMetaExists('_price')\n    ->whereMeta('_stock_status', 'instock')\n    ->whereTax('product_cat', 'featured', 'slug')\n    ->limit(12)\n    ->noFoundRows()\n    ->query();",
-        "note": "Each method names a WordPress argument or clause. You can stop at toArgs(), inspect with explain(), or run the query when you are ready."
+        "code": "$events = Quartermaster::posts('event')\n  ->paged(12)\n  ->whereMetaDate('start', '>=')\n  ->orderByMeta('start', 'ASC')\n  ->wpQuery();",
+        "note": "Timezone-aware dates; `meta_key` and `orderby` set together, never silently mismatched. The output is the same plain args array."
       }
     ]
   },
@@ -60,7 +58,6 @@
     "titleLead": "Why fluent?",
     "titleRest": "Not an ORM. Not a SQL builder. On purpose.",
     "intro": [
-      "Quartermaster does not replace WordPress queries. It makes the argument-building layer explicit, composable and easier to review.",
       "Most WordPress query builders either wrap `$wpdb` in a SQL layer or bolt an Eloquent-style ORM onto WordPress. Quartermaster does neither: every fluent method maps to a real `WP_Query` arg, so caching, plugins, and `pre_get_posts` all keep working."
     ],
     "cards": [

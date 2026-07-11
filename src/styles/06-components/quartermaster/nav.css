@@ -1,6 +1,6 @@
 @layer components {
   .qm-nav {
-    @apply sticky top-0 z-20 border-b border-qm-ink/10 bg-qm-paper/92 py-3 backdrop-blur-md;
+    @apply sticky top-0 z-10 border-b border-qm-ink/10 bg-qm-paper/90 py-2 backdrop-blur-md;
   }
 
   .qm-nav__inner {

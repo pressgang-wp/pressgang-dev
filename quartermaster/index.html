@@ -20,7 +20,7 @@
   <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/bricolage-latin.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/archivo-latin.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/jetbrains-mono-latin.woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/css/styles.css?v=94e0977a2461">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=aff5f1ccaf68">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -102,7 +102,7 @@
   ]
 }
   </script>
-  <script src="/assets/js/app.js?v=94e0977a2461" defer></script>
+  <script src="/assets/js/app.js?v=aff5f1ccaf68" defer></script>
 </head>
 <body class="qm-page">
   <a class="qm-skip-link" href="#main">Skip to content</a>
@@ -141,75 +141,47 @@
         </div>
       </div>
     </div>
-  </header>
-  <main id="main" tabindex="-1">
-    <section id="compare" class="qm-section qm-compare" aria-labelledby="compare-title">
+    <section id="compare" class="qm-section qm-compare" aria-label="Raw WP_Query compared to Quartermaster">
     <div class="qm-container">
-      <div class="qm-section__header">
-        <h2 id="compare-title" class="qm-section__title">The same WordPress machinery, less array archaeology</h2>
-        <p class="qm-section__intro">Quartermaster does not replace WordPress queries. It makes the argument-building layer explicit, composable and easier to review.</p>
-      </div>
+      <p class="qm-compare__intro">Quartermaster does not replace WordPress queries. It makes the argument-building layer explicit, composable and easier to review.</p>
       <div class="qm-compare__grid">
         <article class="qm-compare__panel qm-compare__panel--muted">
-      <p class="qm-eyebrow">Raw WP_Query</p>
-      <div class="qm-code-card qm-code-card--muted">
-        <div class="qm-chrome" aria-hidden="true">
-          <span class="qm-chrome__dot qm-chrome__dot--red"></span>
-          <span class="qm-chrome__dot qm-chrome__dot--yellow"></span>
-          <span class="qm-chrome__dot qm-chrome__dot--green"></span>
-        </div>
-        <pre><code><span class="code-token code-token--variable">$query</span> = <span class="code-token code-token--keyword">new</span> <span class="code-token code-token--class">WP_Query</span>([
-    <span class="code-token code-token--string">'post_type'</span> =&gt; <span class="code-token code-token--string">'product'</span>,
-    <span class="code-token code-token--string">'meta_query'</span> =&gt; [
-        <span class="code-token code-token--string">'relation'</span> =&gt; <span class="code-token code-token--string">'AND'</span>,
-        [
-            <span class="code-token code-token--string">'key'</span> =&gt; <span class="code-token code-token--string">'_price'</span>,
-            <span class="code-token code-token--string">'compare'</span> =&gt; <span class="code-token code-token--string">'EXISTS'</span>,
-        ],
-        [
-            <span class="code-token code-token--string">'key'</span> =&gt; <span class="code-token code-token--string">'_stock_status'</span>,
-            <span class="code-token code-token--string">'value'</span> =&gt; <span class="code-token code-token--string">'instock'</span>,
-        ],
-    ],
-    <span class="code-token code-token--string">'tax_query'</span> =&gt; [[
-        <span class="code-token code-token--string">'taxonomy'</span> =&gt; <span class="code-token code-token--string">'product_cat'</span>,
-        <span class="code-token code-token--string">'field'</span> =&gt; <span class="code-token code-token--string">'slug'</span>,
-        <span class="code-token code-token--string">'terms'</span> =&gt; [<span class="code-token code-token--string">'featured'</span>],
-    ]],
-    <span class="code-token code-token--string">'posts_per_page'</span> =&gt; <span class="code-token code-token--number">12</span>,
-    <span class="code-token code-token--string">'no_found_rows'</span> =&gt; <span class="code-token code-token--literal">true</span>,
+      <p class="qm-compare__eyebrow">Raw WP_Query — four things must line up silently</p>
+      <pre class="qm-compare__code"><code>$events = new WP_Query([
+  'post_type'      =&gt; 'event',
+  'posts_per_page' =&gt; 12,
+  'meta_key'       =&gt; 'start',
+  'orderby'        =&gt; 'meta_value',
+  'order'          =&gt; 'ASC',
+  'meta_query'     =&gt; [[
+    'key'     =&gt; 'start',
+    'value'   =&gt; wp_date('Ymd'),
+    'compare' =&gt; '&gt;=',
+    'type'    =&gt; 'DATE',
+  ]],
 ]);</code></pre>
-      </div>
-      <p class="qm-compare__note">WordPress arrays are powerful, but nested clauses get hard to scan and easy to overwrite when more hooks or conditions join in.</p>
+      
     </article>
 <article class="qm-compare__panel qm-compare__panel--brand">
-      <p class="qm-eyebrow">With Quartermaster ⚓</p>
-      <div class="qm-code-card qm-code-card--brand">
-        <div class="qm-chrome" aria-hidden="true">
-          <span class="qm-chrome__dot qm-chrome__dot--red"></span>
-          <span class="qm-chrome__dot qm-chrome__dot--yellow"></span>
-          <span class="qm-chrome__dot qm-chrome__dot--green"></span>
-        </div>
-        <pre><code><span class="code-token code-token--variable">$query</span> = <span class="code-token code-token--class">Quartermaster</span>::<span class="code-token code-token--method">posts</span>(<span class="code-token code-token--string">'product'</span>)
-    -&gt;<span class="code-token code-token--method">whereMetaExists</span>(<span class="code-token code-token--string">'_price'</span>)
-    -&gt;<span class="code-token code-token--method">whereMeta</span>(<span class="code-token code-token--string">'_stock_status'</span>, <span class="code-token code-token--string">'instock'</span>)
-    -&gt;<span class="code-token code-token--method">whereTax</span>(<span class="code-token code-token--string">'product_cat'</span>, <span class="code-token code-token--string">'featured'</span>, <span class="code-token code-token--string">'slug'</span>)
-    -&gt;<span class="code-token code-token--method">limit</span>(<span class="code-token code-token--number">12</span>)
-    -&gt;<span class="code-token code-token--method">noFoundRows</span>()
-    -&gt;<span class="code-token code-token--method">query</span>();</code></pre>
-      </div>
-      <p class="qm-compare__note">Each method names a WordPress argument or clause. You can stop at toArgs(), inspect with explain(), or run the query when you are ready.</p>
+      <p class="qm-compare__eyebrow">With Quartermaster ⚓</p>
+      <pre class="qm-compare__code"><code>$events = Quartermaster::posts('event')
+  -&gt;paged(12)
+  -&gt;whereMetaDate('start', '&gt;=')
+  -&gt;orderByMeta('start', 'ASC')
+  -&gt;wpQuery();</code></pre>
+      <p class="qm-compare__note">Timezone-aware dates; <code>meta_key</code> and <code>orderby</code> set together, never silently mismatched. The output is the same plain args array.</p>
     </article>
       </div>
     </div>
   </section>
+  </header>
+  <main id="main" tabindex="-1">
     <section id="why" class="qm-section qm-why" aria-labelledby="why-title">
     <div class="qm-container">
       <div class="qm-section__header qm-section__header--wide">
         <h2 id="why-title" class="qm-section__title qm-why__title"><span>Why fluent?</span> Not an ORM. Not a SQL builder. On purpose.</h2>
         <div class="qm-why__intro">
-          <p>Quartermaster does not replace WordPress queries. It makes the argument-building layer explicit, composable and easier to review.</p>
-        <p>Most WordPress query builders either wrap <code>$wpdb</code> in a SQL layer or bolt an Eloquent-style ORM onto WordPress. Quartermaster does neither: every fluent method maps to a real <code>WP_Query</code> arg, so caching, plugins, and <code>pre_get_posts</code> all keep working.</p>
+          <p>Most WordPress query builders either wrap <code>$wpdb</code> in a SQL layer or bolt an Eloquent-style ORM onto WordPress. Quartermaster does neither: every fluent method maps to a real <code>WP_Query</code> arg, so caching, plugins, and <code>pre_get_posts</code> all keep working.</p>
         </div>
       </div>
       <div class="qm-why__grid">

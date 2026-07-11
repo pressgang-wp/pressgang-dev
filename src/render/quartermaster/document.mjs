@@ -1,5 +1,4 @@
 import { jsonLd } from "./helpers.mjs";
-import { renderCompare } from "./sections/compare.mjs";
 import { renderEcosystem } from "./sections/ecosystem.mjs";
 import { renderFeatures } from "./sections/features.mjs";
 import { renderFooter } from "./sections/footer.mjs";
@@ -43,7 +42,6 @@ ${jsonLd(schema)}
   ${renderNav(content)}
   ${renderHero(content)}
   <main id="main" tabindex="-1">
-    ${renderCompare(content.compare)}
     ${renderWhy(content.why)}
     ${renderFeatures(content.features)}
     ${renderPhilosophy(content.philosophy, content.assets)}

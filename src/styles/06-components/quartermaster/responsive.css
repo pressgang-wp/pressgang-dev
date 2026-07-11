@@ -5,8 +5,20 @@
       @apply w-full;
     }
 
+    .qm-copy-button .copy-label {
+      @apply hidden;
+    }
+
     .qm-section {
       @apply py-12;
+    }
+
+    .qm-hero .qm-compare {
+      @apply pb-12 pt-8;
+    }
+
+    .qm-compare__intro {
+      @apply mb-6 text-[15.5px] leading-7;
     }
 
     .qm-tabs__bar {

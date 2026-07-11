@@ -1,4 +1,5 @@
 import { attr, escapeHtml, inlineMarkup } from "../helpers.mjs";
+import { renderCompare } from "./compare.mjs";
 
 export function renderHero(content) {
   const { hero } = content;
@@ -21,5 +22,6 @@ export function renderHero(content) {
         </div>
       </div>
     </div>
+    ${renderCompare(content.compare)}
   </header>`;
 }

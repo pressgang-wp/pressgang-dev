@@ -20,11 +20,11 @@
   }
 
   .qm-copy-button {
-    @apply inline-flex min-h-12 max-w-full items-center justify-center gap-3 rounded-lg border-2 border-qm-ink bg-white px-4 py-3 font-mono text-[13px] font-semibold text-qm-ink shadow-[0_8px_0_rgb(34_26_18_/_8%)] transition-colors hover:bg-qm-cream;
+    @apply inline-flex min-h-12 max-w-full min-w-0 items-center justify-center gap-3 rounded-lg border-2 border-qm-ink bg-white px-4 py-3 font-mono text-[13px] font-semibold text-qm-ink shadow-[0_8px_0_rgb(34_26_18_/_8%)] transition-colors hover:bg-qm-cream;
   }
 
   .qm-copy-button code {
-    @apply max-w-full whitespace-normal break-words text-left;
+    @apply min-w-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap text-left;
   }
 
   .qm-copy-button .copy-label {
