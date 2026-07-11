@@ -26,6 +26,7 @@ export function renderFooter(c, s) {
   <div class="pg-footer__meta pg-container">
     <span>${s.copyright}</span>
     <span>${s.requirements}</span>
+    <p class="bw-footer-credit">Built by <a href="https://benedict-wallis.com" target="_blank" rel="noopener noreferrer"><span class="bw-sr-only">Benedict Wallis Ltd</span></a></p>
   </div>
 </footer>`;
 }

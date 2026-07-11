@@ -25,6 +25,6 @@
     @apply text-footer transition-colors hover:text-brand;
   }
   .pg-footer__meta {
-    @apply mt-9 flex justify-between border-t border-white/10 pt-5 text-[12.5px] text-muted;
+    @apply mt-9 flex flex-wrap items-center justify-between gap-3 border-t border-white/10 pt-5 text-[12.5px] text-muted;
   }
 }

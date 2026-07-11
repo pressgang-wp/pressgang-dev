@@ -159,6 +159,7 @@ function renderFooter(content) {
     <div class="tool-container tool-footer__meta">
       <span>&copy; 2026 PressGang</span>
       <span>${escapeHtml(content.footer.meta)}</span>
+      <p class="bw-footer-credit">Built by <a href="https://benedict-wallis.com" target="_blank" rel="noopener noreferrer"><span class="bw-sr-only">Benedict Wallis Ltd</span></a></p>
     </div>
   </footer>`;
 }

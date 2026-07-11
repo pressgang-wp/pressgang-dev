@@ -33,6 +33,6 @@
   }
 
   .qm-footer__meta {
-    @apply mt-8 flex flex-col gap-1 border-t border-white/10 pt-5 text-xs text-[#917d64] sm:flex-row sm:justify-between;
+    @apply mt-8 flex flex-col gap-2 border-t border-white/10 pt-5 text-xs text-[#917d64] sm:flex-row sm:flex-wrap sm:items-center sm:justify-between;
   }
 }

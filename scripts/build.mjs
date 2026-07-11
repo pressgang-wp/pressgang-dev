@@ -48,9 +48,14 @@ const fontAssets = {
 };
 
 let compiledCss = readFileSync(compiledCssPath, "utf8");
-for (const [assetName, publicPath] of Object.entries(fontAssets).sort((a, b) => b[0].length - a[0].length)) {
+const staticAssets = {
+  ...fontAssets,
+  "benedict-wallis-mark": "/assets/images/benedict-wallis-mark.svg",
+};
+
+for (const [assetName, publicPath] of Object.entries(staticAssets).sort((a, b) => b[0].length - a[0].length)) {
   compiledCss = compiledCss.replace(
-    new RegExp(`/assets/${assetName}-[A-Za-z0-9_-]+\\.woff2`, "g"),
+    new RegExp(`/assets/${assetName}-[A-Za-z0-9_-]+\\.(woff2|svg)`, "g"),
     publicPath
   );
 }

@@ -1,0 +1,36 @@
+@layer components {
+  .bw-footer-credit {
+    @apply m-0 inline-flex items-center gap-2 whitespace-nowrap font-medium leading-none text-inherit;
+  }
+
+  .bw-footer-credit a {
+    @apply inline-flex size-7 shrink-0 items-center justify-center no-underline transition;
+  }
+
+  .bw-footer-credit a:hover,
+  .bw-footer-credit a:focus-visible {
+    @apply scale-105 opacity-90;
+  }
+
+  .bw-footer-credit a::before {
+    content: "";
+    display: inline-block;
+    width: 1.75rem;
+    height: 1.75rem;
+    flex: 0 0 1.75rem;
+    background-color: currentColor;
+    -webkit-mask-image: url("/assets/images/benedict-wallis-mark.svg");
+    mask-image: url("/assets/images/benedict-wallis-mark.svg");
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+  }
+
+  .bw-sr-only {
+    @apply absolute -m-px size-px overflow-hidden whitespace-nowrap border-0 p-0;
+    clip: rect(0, 0, 0, 0);
+  }
+}
