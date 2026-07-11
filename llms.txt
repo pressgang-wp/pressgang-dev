@@ -15,6 +15,9 @@ PressGang is a modern WordPress parent theme framework for Timber and Twig. It p
 - Quartermaster: https://pressgang.dev/quartermaster/
 - Capstan: https://pressgang.dev/capstan/
 - Bosun: https://pressgang.dev/bosun/
+- Quartermaster repository: https://github.com/pressgang-wp/pressgang-quartermaster
+- Capstan repository: https://github.com/pressgang-wp/pressgang-capstan
+- Bosun repository: https://github.com/pressgang-wp/pressgang-bosun
 - Snippets: https://github.com/pressgang-wp/pressgang-snippets
 - Child theme starter: https://github.com/pressgang-wp/pressgang-child
 
@@ -27,6 +30,7 @@ PressGang is a modern WordPress parent theme framework for Timber and Twig. It p
 - Quartermaster: https://pressgang.dev/quartermaster/
 - Capstan: https://pressgang.dev/capstan/
 - Bosun: https://pressgang.dev/bosun/
+- Quartermaster docs: https://docs.pressgang.dev/ecosystem/quartermaster
 - Capstan docs: https://docs.pressgang.dev/ecosystem/capstan
 - Bosun docs: https://docs.pressgang.dev/ecosystem/bosun
 
