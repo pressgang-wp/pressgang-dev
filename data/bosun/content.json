@@ -16,7 +16,7 @@
     "cta": { "label": "Read the docs", "href": "https://docs.pressgang.dev/ecosystem/bosun" }
   },
   "hero": {
-    "badge": "🧭 WP-CLI package · composes CLAUDE.md + AGENTS.md + skills",
+    "badge": "🧭 WP-CLI package · composes CLAUDE.md + AGENTS.md + skills · registers MCP",
     "title": "Your AI crew,",
     "accent": "already briefed",
     "lede": "Bosun composes AI agent guidelines and skills for [PressGang](https://pressgang.dev/) themes — generated from what each theme **actually has installed and enabled**, so every agent that comes aboard knows the ropes.",
@@ -26,7 +26,7 @@
   "terminal": {
     "ariaLabel": "How Bosun works",
     "label": "wp-content/themes/harbour-cafe",
-    "code": "$ wp package install pressgang-wp/bosun\n$ wp bosun install\n\n✔ Inventory: pressgang 2.1 · quartermaster 1.3\n✔ Template routing detected — guidance aboard\n✔ Composed CLAUDE.md + AGENTS.md\n✔ Skills installed → .claude/skills/\n\nAll hands briefed."
+    "code": "$ wp package install pressgang-wp/bosun\n$ wp bosun install\n\n✔ Inventory: pressgang 2.1 · quartermaster 1.3\n✔ Template routing detected — guidance aboard\n✔ Composed CLAUDE.md + AGENTS.md\n✔ Skills installed → .claude/skills/\n✔ MCP server registered → .mcp.json\n\nAll hands briefed."
   },
   "sections": [
     {
@@ -60,6 +60,10 @@
         {
           "title": "🔄 Re-run anytime",
           "body": "Add a package, enable a feature, re-run `wp bosun install` — the briefing keeps pace with the ship."
+        },
+        {
+          "title": "🔌 Live tools, not just docs",
+          "body": "Where [Capstan](/capstan/) can serve MCP, Bosun wires its introspection — routing, config, health, version-aware docs search — straight into your editor's `.mcp.json`, so agents observe the live theme, not just read about it."
         }
       ]
     }

@@ -123,7 +123,7 @@
   </nav>
   <header id="top" class="tool-hero">
     <div class="tool-container">
-      <p class="tool-hero__badge">🧭 WP-CLI package · composes CLAUDE.md + AGENTS.md + skills</p>
+      <p class="tool-hero__badge">🧭 WP-CLI package · composes CLAUDE.md + AGENTS.md + skills · registers MCP</p>
       <h1 class="tool-hero__title">Your AI crew, <span>already briefed</span></h1>
       <p class="tool-hero__lede">Bosun composes AI agent guidelines and skills for <a href="https://pressgang.dev/" target="_blank" rel="noopener noreferrer">PressGang</a> themes — generated from what each theme <strong>actually has installed and enabled</strong>, so every agent that comes aboard knows the ropes.</p>
       <div class="tool-hero__actions">
@@ -144,7 +144,7 @@
         <span class="tool-chrome__dot tool-chrome__dot--green"></span>
         <span class="tool-chrome__label tool-chrome__label--left">wp-content/themes/harbour-cafe</span>
       </div>
-      <pre class="tool-terminal__pre"><code><span><span class="tool-token tool-token--prompt">$</span> wp package install pressgang-wp/bosun</span><span><span class="tool-token tool-token--prompt">$</span> wp bosun install</span><span>&nbsp;</span><span><span class="tool-token tool-token--success">✔</span> Inventory: pressgang 2.1 · quartermaster 1.3</span><span><span class="tool-token tool-token--success">✔</span> Template routing detected — guidance aboard</span><span><span class="tool-token tool-token--success">✔</span> Composed CLAUDE.md + AGENTS.md</span><span><span class="tool-token tool-token--success">✔</span> Skills installed → .claude/skills/</span><span>&nbsp;</span><span>All hands briefed.</span></code></pre>
+      <pre class="tool-terminal__pre"><code><span><span class="tool-token tool-token--prompt">$</span> wp package install pressgang-wp/bosun</span><span><span class="tool-token tool-token--prompt">$</span> wp bosun install</span><span>&nbsp;</span><span><span class="tool-token tool-token--success">✔</span> Inventory: pressgang 2.1 · quartermaster 1.3</span><span><span class="tool-token tool-token--success">✔</span> Template routing detected — guidance aboard</span><span><span class="tool-token tool-token--success">✔</span> Composed CLAUDE.md + AGENTS.md</span><span><span class="tool-token tool-token--success">✔</span> Skills installed → .claude/skills/</span><span><span class="tool-token tool-token--success">✔</span> MCP server registered → .mcp.json</span><span>&nbsp;</span><span>All hands briefed.</span></code></pre>
     </div>
   </section>
     <section id="why" class="tool-section tool-split tool-split--dark" aria-labelledby="why-title">
@@ -185,6 +185,10 @@
         <article class="tool-card">
       <h3>🔄 Re-run anytime</h3>
       <p>Add a package, enable a feature, re-run <code>wp bosun install</code> — the briefing keeps pace with the ship.</p>
+    </article>
+        <article class="tool-card">
+      <h3>🔌 Live tools, not just docs</h3>
+      <p>Where <a href="/capstan/">Capstan</a> can serve MCP, Bosun wires its introspection — routing, config, health, version-aware docs search — straight into your editor's <code>.mcp.json</code>, so agents observe the live theme, not just read about it.</p>
     </article>
       </div>
     </div>
